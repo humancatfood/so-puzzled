@@ -7,7 +7,7 @@
   "bugs": {
     "url": "https://github.com/humancatfood/so-puzzled/issues"
   },
-  "homepage": "https://github.com/humancatfood/so-puzzled#readme"
+  "homepage": "https://github.com/humancatfood/so-puzzled#readme",
   "main": "index.html",
   "keywords": [
     "jQueryUI",
