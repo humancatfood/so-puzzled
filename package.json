@@ -1,0 +1,24 @@
+{
+  "name": "so-puzzled",
+  "version": "1.0.0",
+  "description": "A little puzzle game for practice, written in React and jQueryUI",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humancatfood/so-puzzled.git"
+  },
+  "keywords": [
+    "jQueryUI",
+    "ReactJS",
+    "Puzzle"
+  ],
+  "author": "Jan Borchers",
+  "license": "Artistic-2.0",
+  "bugs": {
+    "url": "https://github.com/humancatfood/so-puzzled/issues"
+  },
+  "homepage": "https://github.com/humancatfood/so-puzzled#readme"
+}
