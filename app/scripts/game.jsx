@@ -19,9 +19,7 @@ module.exports = React.createClass({
   render: function() {
 
     return (
-      <div>
-        <this.state.currentGameState img={this.props.img} />
-      </div>
+      <this.state.currentGameState img={this.props.img} />
     );
 
   }

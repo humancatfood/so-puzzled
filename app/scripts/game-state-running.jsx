@@ -1,23 +1,102 @@
-'use strict';
+(function ($) {
+  'use strict';
 
-var React = require('react');
+  var React = require('react');
+  var calculateGrid = require('./utils/calculate-grid.js');
 
-module.exports = React.createClass({
+  module.exports = React.createClass({
 
-  componentDidMount: function () {
+    getInitialState: function () {
+      return {
+        msg: '',
+        display: null
+      };
+    },
 
-    console.log("componentDidMount", this.refs.img);
+    componentDidMount: function () {
 
-  },
+      var $img = $(this.refs.img);
+      var that = this;
 
-  render: function() {
+      $img.load(function () {
 
-    return (
-      <div>
-        <h2>Running</h2>
-        <img src={this.props.img} ref="img" />
-      </div>
-    );
+        that.setState({
+          msg: 'memorize this image:'
+        });
 
-  }
-});
+
+        setTimeout (function () {
+
+          var grid = calculateGrid($img);
+          var display = [];
+          var src = $img.attr('src');
+
+          for (var i = 0, l = grid.width * grid.height; i < l; i += 1)
+          {
+            var positionerStyle = {
+              width: grid.pieces.width,
+              height: grid.pieces.height
+            };
+
+            var pieceStyle = {
+              position: 'absolute',
+              left: i * grid.pieces.width * -1
+            };
+
+            display.push((
+               <div className="piece-positioner" data-id={i} style={positionerStyle}>
+                 <div className="piece-wrapper" data-id={i}>
+                   <img src={src} className="piece" />
+                 </div>
+               </div>
+            ));
+          }
+
+
+          that.setState({
+            msg: '',
+            display: display
+          });
+
+
+          $img.addClass('invisible');
+
+        }, 500);
+
+
+      });
+
+    },
+
+    renderBaseImg: function () {
+      return (
+        <img src={this.props.img}
+             className="base-img"
+             ref="img"
+             width="100%" height="100%" />
+      );
+    },
+
+    renderGrid: function () {
+      return (
+        <div className="game-grid">
+          {this.state.display}
+        </div>
+      );
+    },
+
+    render: function() {
+
+      return (
+        <div className="game-wrapper">
+
+          {this.renderBaseImg()}
+          {this.renderGrid()}
+
+        </div>
+      );
+
+    }
+  });
+
+}(window.jQuery));
