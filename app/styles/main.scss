@@ -15,6 +15,8 @@ $icon-font-path: "../fonts/";
 .piece-positioner {
   position: relative;
   display: inline-block;
+  border: none;
+  border-spacing: 0;
 }
 
 .piece-wrapper {
@@ -26,8 +28,7 @@ $icon-font-path: "../fonts/";
 }
 
 .piece {
-  width: 100%;
-  height: 100%;
+  position: absolute;
 }
 
 .game-wrapper {
@@ -36,4 +37,6 @@ $icon-font-path: "../fonts/";
 
 .game-grid {
   position: absolute;
+  top: 0;
+  left: 0;
 }

@@ -8,7 +8,6 @@
 
     getInitialState: function () {
       return {
-        msg: '',
         display: null
       };
     },
@@ -20,41 +19,51 @@
 
       $img.load(function () {
 
-        that.setState({
-          msg: 'memorize this image:'
-        });
-
-
         setTimeout (function () {
 
           var grid = calculateGrid($img);
           var display = [];
           var src = $img.attr('src');
+          var row, pieceStyle ;
+          var id = 0;
 
-          for (var i = 0, l = grid.width * grid.height; i < l; i += 1)
+          var positionerStyle = {
+            width: grid.pieces.width,
+            height: grid.pieces.height
+          };
+
+          for (var y = 0; y < grid.height; y += 1)
           {
-            var positionerStyle = {
-              width: grid.pieces.width,
-              height: grid.pieces.height
-            };
+            row = [];
+            for (var x = 0; x < grid.width; x += 1)
+            {
+              pieceStyle = {
+                position: 'absolute',
+                width: grid.image.width,
+                height: grid.image.height,
+                left: x * grid.pieces.width * -1,
+                top: y * grid.pieces.height * -1
+              };
+              id += 1;
 
-            var pieceStyle = {
-              position: 'absolute',
-              left: i * grid.pieces.width * -1
-            };
+              row.push((
+                <td className="piece-positioner" data-id={id} style={positionerStyle}>
+                  <div className="piece-wrapper" data-id={id} >
+                    <img src={src} className="piece" style={pieceStyle} />
+                  </div>
+                </td>
+              ));
+            }
 
             display.push((
-               <div className="piece-positioner" data-id={i} style={positionerStyle}>
-                 <div className="piece-wrapper" data-id={i}>
-                   <img src={src} className="piece" />
-                 </div>
-               </div>
-            ));
+              <tr>
+                {row}
+              </tr>
+            ))
           }
 
 
           that.setState({
-            msg: '',
             display: display
           });
 
@@ -79,9 +88,11 @@
 
     renderGrid: function () {
       return (
-        <div className="game-grid">
-          {this.state.display}
-        </div>
+        <table className="game-grid">
+          <tbody>
+            {this.state.display}
+          </tbody>
+        </table>
       );
     },
 
