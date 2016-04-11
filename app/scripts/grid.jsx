@@ -9,15 +9,14 @@
       var $img = this.props.$img;
 
       return {
-        imgSrc: this.props.$img.attr('src'),
-        imgWidth: this.props.$img.width(),
-        imgHeight: this.props.$img.height()
+        imgSrc: $img.attr('src'),
+        imgWidth: $img.width(),
+        imgHeight: $img.height()
       };
 
     },
 
     componentDidMount: function () {
-
 
       this.props.onLoad && this.props.onLoad(this.refs.table);
 
