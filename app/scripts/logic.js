@@ -57,10 +57,10 @@
            if ($piece.data('id') === $this.data('id'))
            {
              $this
-               .addClass('done')
                .droppable('destroy');
 
              $piece
+               .addClass('done')
                .draggable('destroy');
            }
 
