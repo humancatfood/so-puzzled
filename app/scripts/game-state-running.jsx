@@ -102,7 +102,7 @@
                 });
 
                 $piecePositioner.droppable({
-                  tolerance: "pointer",
+                  tolerance: "intersect",
                    drop: function( event, ui ) {
                      var $this = $(this);
                      var $piece = $(ui.draggable);
