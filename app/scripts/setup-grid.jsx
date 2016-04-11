@@ -1,4 +1,4 @@
-module.exports = function calculateGrid ($img) {
+module.exports = function setupGrid ($img) {
   'use strict';
 
   var gridW = 4,
