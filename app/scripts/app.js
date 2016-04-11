@@ -1,7 +1,14 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Game = require('./game.jsx');
+(function () {
+  'use strict';
 
-var img = 'images/kitty.jpg';
+  var React = require('react');
+  var ReactDOM = require('react-dom');
+  var Game = require('./game.jsx');
 
-ReactDOM.render(<Game img={img} />, document.getElementById("app"));
+  // Kittycat :)
+  var img = 'images/kitty.jpg';
+
+  // render the game
+  ReactDOM.render(<Game img={img} />, document.getElementById("app"));
+
+}());
