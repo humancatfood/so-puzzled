@@ -41,6 +41,10 @@
 
       logic.start();
 
+      logic.setCallback(logic.events.FINISHED, function () {
+        window.alert('You did it!! (reload the window to play again)');
+      });
+
       this.setState({
         logic: logic
       });

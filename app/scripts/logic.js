@@ -8,8 +8,13 @@
     this.$stage = $stage;
     this.$img = $img;
 
+    this.callbacks = {};
+
   }
 
+  GameLogic.prototype.events = {
+    FINISHED: 0
+  };
 
   GameLogic.prototype.start = function () {
 
@@ -67,7 +72,15 @@
            $this.data('currentPiece', $piece);
            $piece.removeClass('scramble');
 
-           console.log(that.isFinished());
+           if (that.isFinished())
+           {
+             var callback = that.callbacks[that.events.FINISHED];
+             if (callback)
+             {
+               callback(that);
+             }
+
+           }
 
          },
          out: function (event, ui) {
@@ -130,7 +143,7 @@
     var rnd = Math.random;
     var top, left;
 
-    if (stageRect.width > (imgRect.width + pieceRect.width * 2))
+    if (stageRect.width > (imgRect.width + pieceRect.width * 3))
     {
       top = rnd() * (stageRect.height - pieceRect.height);
 
@@ -168,6 +181,11 @@
       this.$img.removeClass('semi-transparent');
     }
 
+  };
+
+
+  GameLogic.prototype.setCallback = function (event, callback) {
+    this.callbacks[event] = callback;
   };
 
 

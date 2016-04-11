@@ -16,16 +16,12 @@ module.exports = React.createClass({
 
           <h2>How to play:</h2>
 
-          <hr />
-
           <ol className="text-left inline-block">
             <li>Click the <strong className="">Start</strong> button</li>
             <li>Memorize the image</li>
             <li>Piece the image back together</li>
             <li>.. profit?</li>
           </ol>
-
-          <hr />
 
           <p>
             <button type="button" className="btn btn-success btn-lg" onClick={this.props.onStart}>Start Puzzling</button>
