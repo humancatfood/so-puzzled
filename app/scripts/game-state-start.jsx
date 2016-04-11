@@ -3,9 +3,36 @@
 var React = require('react');
 
 module.exports = React.createClass({
+
   render: function() {
+
     return (
-      <h2>Start</h2>
+      <div>
+        <header className="page-header">
+          <h1>So Puzzled!! <br /> <small>A little puzzle game for practice, written in React and jQueryUI</small></h1>
+        </header>
+
+        <section className="jumbotron text-center">
+
+          <h2>How to play:</h2>
+
+          <hr />
+
+          <ol className="text-left inline-block">
+            <li>Click the <strong className="">Start</strong> button</li>
+            <li>Memorize the image</li>
+            <li>Piece the image back together</li>
+            <li>.. profit?</li>
+          </ol>
+
+          <hr />
+
+          <p>
+            <button type="button" className="btn btn-success btn-lg" onClick={this.props.onStart}>Start Puzzling</button>
+          </p>
+
+        </section>
+      </div>
     );
   }
 });

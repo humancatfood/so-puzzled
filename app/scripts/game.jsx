@@ -1,26 +1,33 @@
 'use strict';
 
 var React = require('react');
+var GameStateStart = require('./game-state-start.jsx');
+var GameStateRunning = require('./game-state-running.jsx');
 
 module.exports = React.createClass({
 
-  states: {
-    START: require('./game-state-start.jsx'),
-    RUNNING: require('./game-state-running.jsx'),
-    FINISHED: require('./game-state-finished.jsx')
-  },
-
   getInitialState: function() {
     return {
-      currentGameState: this.states.RUNNING
+      currentGameState: (<GameStateStart onStart={this.start} />)
     };
+  },
+
+  toggleHelp: function () {
+    this.setState({
+      help: !this.state.help
+    });
+  },
+
+  start: function () {
+    console.log("start");
+    this.setState({
+      currentGameState: (<GameStateRunning img={this.props.img} />)
+    });
   },
 
   render: function() {
 
-    return (
-      <this.state.currentGameState img={this.props.img} />
-    );
+    return this.state.currentGameState;
 
   }
 
