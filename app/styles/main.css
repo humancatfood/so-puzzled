@@ -7725,6 +7725,12 @@ button.close {
 
 .game-wrapper {
   position: relative;
+  text-align: center;
+}
+
+.game-wrapper .grid-wrapper {
+  position: relative;
+  display: inline-block;
 }
 
 .game-grid {
@@ -7740,6 +7746,13 @@ button.close {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.base-img {
+  max-width: 100%;
+  max-height: 60vh;
 }
 
 .base-img.transparent {

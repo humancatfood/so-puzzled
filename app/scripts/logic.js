@@ -97,7 +97,9 @@
             .addClass('animated');
         }
 
-        that.scramblePiece($piecePositioner.find('.piece-wrapper.scramble'));
+        $piecePositioner.find('.piece-wrapper.scramble').each(function (i, piece) {
+          that.scramblePiece($(piece));
+        });
 
       });
 
@@ -121,12 +123,35 @@
 
   GameLogic.prototype.scramblePiece = function ($piece) {
 
-    var pieceWidth = $piece.width();
-    var pieceHeight = $piece.height();
+    var pieceRect = $piece[0].getBoundingClientRect();
+    var stageRect = this.$stage[0].getBoundingClientRect();
+    var imgRect = this.$img[0].getBoundingClientRect();
+
+    var rnd = Math.random;
+    var top, left;
+
+    if (stageRect.width > (imgRect.width + pieceRect.width * 2))
+    {
+      top = rnd() * (stageRect.height - pieceRect.height);
+
+      if (rnd() > 0.5)
+      {
+        left = imgRect.right + rnd() * (stageRect.right - imgRect.right - pieceRect.width);
+      }
+      else
+      {
+        left = stageRect.left + rnd() * (imgRect.left - stageRect.left - pieceRect.width);
+      }
+    }
+    else
+    {
+      left = stageRect.left + rnd() * (stageRect.right - pieceRect.width);
+      top = imgRect.bottom + rnd() * (stageRect.bottom - imgRect.bottom - pieceRect.height);
+    }
 
     $piece.offset({
-      top: this.$stage.height() - (pieceHeight+ Math.random() * pieceHeight * 2),
-      left: pieceWidth + Math.random() * (this.$stage.width() - pieceWidth * 2)
+      top: top,
+      left: left
     });
 
   };

@@ -76,8 +76,7 @@
       return (
         <img src={this.props.img}
              className="base-img"
-             ref="img"
-             width="100%" height="100%" />
+             ref="img"   />
       );
     },
 
@@ -96,20 +95,22 @@
 
     renderStage: function () {
       return (
-        <div ref="stage" className="stage"></div>
+        <div ref="stage" className="container stage"></div>
       );
     },
 
     render: function() {
 
       return (
-        <div className="container">
+        <div>
 
           {this.renderMenu()}
           <div className="game-wrapper">
             {this.renderStage()}
-            {this.renderBaseImg()}
-            {this.renderGrid()}
+            <div className="grid-wrapper">
+              {this.renderBaseImg()}
+              {this.renderGrid()}
+            </div>
           </div>
 
         </div>
