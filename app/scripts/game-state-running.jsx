@@ -49,7 +49,7 @@
 
               row.push((
                 <td className="piece-positioner" data-id={id} style={positionerStyle}>
-                  <div className="piece-wrapper" data-id={id} >
+                  <div className="piece-wrapper animated" data-id={id} >
                     <img src={src} className="piece" style={pieceStyle} />
                   </div>
                 </td>
@@ -78,6 +78,18 @@
                 top: $stage.height() - (grid.pieces.height + Math.random() * grid.pieces.height * 2),
                 left: grid.pieces.width + Math.random() * ($stage.width() - grid.pieces.width * 2)
               });
+              .draggable({
+                stack: '.piece-wrapper',
+                start: function () {
+                  $(this).removeClass('animated');
+                },
+                stop: function () {
+                  $(this).addClass('animated');
+                }
+              });
+          }, Math.random() * 500);
+
+            setTimeout(function () {
           });
 
         }, 500);
