@@ -41,6 +41,35 @@
 
       logic.start();
 
+      this.setState({
+        logic: logic
+      });
+
+    },
+
+    renderMenu: function () {
+      var logic = this.state.logic;
+      var that = this;
+
+      return (
+        <nav className="navbar navbar-default">
+          <div className="container-fluid">
+            <div className="navbar-brand">
+              So Puzzled!
+            </div>
+            <label className="navbar-text pull-right" htmlFor="help">
+              <input id="help" type="checkbox" ref="help"
+                     disabled={!logic}
+                     onChange={toggleHelp}/>&nbsp;Need Help?
+            </label>
+          </div>
+        </nav>
+      );
+
+      function toggleHelp ()
+      {
+        logic && logic.toggleHelp(!!that.refs.help.checked);
+      }
     },
 
     renderBaseImg: function () {
@@ -74,11 +103,14 @@
     render: function() {
 
       return (
-        <div className="game-wrapper">
+        <div className="container">
 
-          {this.renderStage()}
-          {this.renderBaseImg()}
-          {this.renderGrid()}
+          {this.renderMenu()}
+          <div className="game-wrapper">
+            {this.renderStage()}
+            {this.renderBaseImg()}
+            {this.renderGrid()}
+          </div>
 
         </div>
       );

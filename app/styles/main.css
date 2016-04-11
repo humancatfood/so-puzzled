@@ -7695,6 +7695,11 @@ button.close {
   border-spacing: 0;
 }
 
+.piece-positioner.done {
+  border: none;
+  pointer-events: none;
+}
+
 .piece-wrapper {
   position: absolute;
   display: block;
@@ -7710,12 +7715,12 @@ button.close {
   transition: top .4s ease-in-out, left .4s ease-in-out;
 }
 
-.piece-wrapper.done .piece {
-  pointer-events: none;
-}
-
 .piece-wrapper .piece {
   position: absolute;
+}
+
+.done .piece-wrapper .piece {
+  pointer-events: none;
 }
 
 .game-wrapper {
@@ -7734,4 +7739,13 @@ button.close {
   left: 0;
   width: 100vw;
   height: 100vh;
+  pointer-events: none;
+}
+
+.base-img.transparent {
+  opacity: 0;
+}
+
+.base-img.transparent.semi-transparent {
+  opacity: 0.2;
 }

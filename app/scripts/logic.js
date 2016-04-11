@@ -13,7 +13,7 @@
 
   GameLogic.prototype.start = function () {
 
-    this.$img.addClass('invisible');
+    this.$img.addClass('transparent');
 
     var that = this;
 
@@ -57,10 +57,10 @@
            if ($piece.data('id') === $this.data('id'))
            {
              $this
+               .addClass('done')
                .droppable('destroy');
 
              $piece
-               .addClass('done')
                .draggable('destroy');
            }
 
@@ -128,6 +128,20 @@
       top: this.$stage.height() - (pieceHeight+ Math.random() * pieceHeight * 2),
       left: pieceWidth + Math.random() * (this.$stage.width() - pieceWidth * 2)
     });
+
+  };
+
+
+  GameLogic.prototype.toggleHelp = function (toggle) {
+
+    if (toggle)
+    {
+      this.$img.addClass('semi-transparent');
+    }
+    else
+    {
+      this.$img.removeClass('semi-transparent');
+    }
 
   };
 

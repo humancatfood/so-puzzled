@@ -22,6 +22,11 @@ $icon-font-path: "../fonts/";
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.4);
   border-spacing: 0;
+
+  &.done {
+    border: none;
+    pointer-events: none;
+  }
 }
 
 .piece-wrapper {
@@ -39,14 +44,12 @@ $icon-font-path: "../fonts/";
                 left .4s ease-in-out;
   }
 
-  &.done {
-    .piece {
-      pointer-events: none;
-    }
-  }
-
   .piece {
     position: absolute;
+
+    .done & {
+      pointer-events: none;
+    }
   }
 }
 
@@ -67,4 +70,16 @@ $icon-font-path: "../fonts/";
   left: 0;
   width: 100vw;
   height: 100vh;
+  pointer-events: none;
+}
+
+.base-img {
+  &.transparent {
+    opacity: 0;
+
+    &.semi-transparent {
+      opacity: 0.2;
+    }
+
+  }
 }
