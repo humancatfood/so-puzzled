@@ -1,6 +1,5 @@
 .idea
 node_modules
-dist
 .sass-cache
 bower_components
 npm-debug.log

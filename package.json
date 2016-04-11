@@ -17,6 +17,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "bower install",
+    "deploy": "git subtree push --prefix dist origin gh-pages",
     "start": "gulp watch"
   },
   "repository": {
