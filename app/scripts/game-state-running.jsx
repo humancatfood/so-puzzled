@@ -107,17 +107,35 @@
                      var $this = $(this);
                      var $piece = $(ui.draggable);
 
-                     var currentPiece = $this.data('currentPiece');
-                     if (currentPiece)
+                     $piece.offset($this.offset());
+
+                     var $currentPiece = $this.data('currentPiece');
+                     if ($currentPiece && $currentPiece !== $piece)
                      {
-                       $(currentPiece)
+                       $currentPiece
                         .offset({
                           top: $stage.height() - (grid.pieces.height + Math.random() * grid.pieces.height * 2),
                           left: grid.pieces.width + Math.random() * ($stage.width() - grid.pieces.width * 2)
                         });
                      }
+
+                     if ($piece.data('id') === $this.data('id'))
+                     {
+                       $this.droppable('destroy');
+                       $piece.draggable('destroy');
+                       $this.addClass('done');
+                     }
+
                      $this.data('currentPiece', $piece);
 
+                     console.log(checkIfDone());
+
+                   },
+                   out: function (event, ui) {
+                     if ($(this).data('currentPiece') && $(this).data('currentPiece').data('id') === $(ui.draggable).data('id'))
+                     {
+                       $(this).data('currentPiece', null);
+                     }
                    }
                 });
 
@@ -170,6 +188,20 @@
       );
 
     }
+
   });
+
+  function checkIfDone()
+  {
+    var allCorrectlyPlaced;
+    $('.piece-positioner').each(function () {
+
+      allCorrectlyPlaced = !!$(this).data('currentPiece') && $(this).data('currentPiece').data('id') === $(this).data('id');
+      return allCorrectlyPlaced;
+
+    });
+
+    return allCorrectlyPlaced;
+  }
 
 }(window.jQuery));
