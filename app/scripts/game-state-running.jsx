@@ -71,25 +71,58 @@
 
           $img.addClass('invisible');
 
-          $('.piece-wrapper').each(function () {
+          $('.piece-positioner').each(function () {
 
-            $(this)
-              .offset({
-                top: $stage.height() - (grid.pieces.height + Math.random() * grid.pieces.height * 2),
-                left: grid.pieces.width + Math.random() * ($stage.width() - grid.pieces.width * 2)
-              });
-              .draggable({
-                stack: '.piece-wrapper',
-                start: function () {
-                  $(this).removeClass('animated');
-                },
-                stop: function () {
-                  $(this).addClass('animated');
-                }
-              });
-          }, Math.random() * 500);
+            var $piecePositioner = $(this);
+            var $piece = $piecePositioner.find('.piece-wrapper');
 
             setTimeout(function () {
+
+              $piece
+                .offset({
+                  top: $stage.height() - (grid.pieces.height + Math.random() * grid.pieces.height * 2),
+                  left: grid.pieces.width + Math.random() * ($stage.width() - grid.pieces.width * 2)
+                })
+                .draggable({
+                  stack: '.piece-wrapper',
+                  snap: '.piece-positioner',
+                  snapMode: 'inner',
+                  snapTolerance: Math.max(grid.pieces.width, grid.pieces.height) / 3,
+                  containment: $('.stage'),
+                  classes: {
+                    "ui-draggable": "test",
+                    "ui-draggable-dragging": "highlight"
+                  },
+                  start: function () {
+                    $piece.removeClass('animated');
+                  },
+                  stop: function () {
+                    $piece.addClass('animated');
+                  }
+                });
+
+                $piecePositioner.droppable({
+                  tolerance: "pointer",
+                   drop: function( event, ui ) {
+                     var $this = $(this);
+                     var $piece = $(ui.draggable);
+
+                     var currentPiece = $this.data('currentPiece');
+                     if (currentPiece)
+                     {
+                       $(currentPiece)
+                        .offset({
+                          top: $stage.height() - (grid.pieces.height + Math.random() * grid.pieces.height * 2),
+                          left: grid.pieces.width + Math.random() * ($stage.width() - grid.pieces.width * 2)
+                        });
+                     }
+                     $this.data('currentPiece', $piece);
+
+                   }
+                });
+
+            }, Math.random() * 500);
+
           });
 
         }, 500);
