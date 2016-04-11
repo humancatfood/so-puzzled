@@ -3,6 +3,7 @@
 
   var React = require('react');
   var GameGrid = require('./grid.jsx');
+  var GameLogic = require('./logic.js');
 
   module.exports = React.createClass({
 
@@ -14,11 +15,9 @@
 
     componentDidMount: function () {
 
-      var $img = $(this.refs.img);
-      var $stage = $(this.refs.stage)
       var that = this;
 
-      $img.load(function () {
+      $(this.refs.img).load(function () {
 
         setTimeout (function () {
 
@@ -26,17 +25,21 @@
             showGrid: true
           });
 
-          $img.addClass('invisible');
-
-        }, 500);
-
+        }, 2000);
 
       });
 
     },
 
-    setupGameLogic: function () {
-      console.log("setupGameLogic");
+    setupGameLogic: function (grid) {
+
+      var logic = new GameLogic(
+        $(grid),
+        $(this.refs.stage),
+        $(this.refs.img)
+      );
+
+      logic.start();
 
     },
 
@@ -52,7 +55,6 @@
     renderGrid: function () {
       if (this.state.showGrid)
       {
-        console.log("render");
         return (
           <GameGrid ref="grid" $img={$(this.refs.img)} width={4} height={3} onLoad={this.setupGameLogic} />
         );
@@ -84,19 +86,5 @@
     }
 
   });
-
-
-  function checkIfDone()
-  {
-    var allCorrectlyPlaced;
-    $('.piece-positioner').each(function () {
-
-      allCorrectlyPlaced = $(this).data('currentPiece') && $(this).data('currentPiece').data('id') === $(this).data('id');
-      return !!allCorrectlyPlaced;
-
-    });
-
-    return !!allCorrectlyPlaced;
-  }
 
 }(window.jQuery));
