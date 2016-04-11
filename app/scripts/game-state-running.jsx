@@ -88,7 +88,7 @@
       if (this.state.showGrid)
       {
         return (
-          <GameGrid ref="grid" $img={$(this.refs.img)} width={4} height={3} onLoad={this.setupGameLogic} />
+          <GameGrid ref="grid" $img={$(this.refs.img)} pieceSize={120} onLoad={this.setupGameLogic} />
         );
       }
       else

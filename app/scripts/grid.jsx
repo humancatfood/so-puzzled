@@ -36,14 +36,11 @@
       var imgWidth = this.state.imgWidth;
       var imgHeight = this.state.imgHeight;
 
-      var gridWidth = this.props.width;
-      var gridHeight = this.props.height;
+      var gridWidth = Math.round(imgWidth / this.props.pieceSize);
+      var gridHeight = Math.round(imgHeight / this.props.pieceSize);
 
-
-      // TODO: do something more clever here to make the pieces more square
       var pieceWidth = imgWidth / gridWidth;
       var pieceHeight = imgHeight / gridHeight;
-
 
       var runningID = 0;
 
