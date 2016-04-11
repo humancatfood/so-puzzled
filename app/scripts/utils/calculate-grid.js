@@ -1,8 +1,8 @@
 module.exports = function calculateGrid ($img) {
   'use strict';
 
-  var gridW = 8,
-      gridH = 6,
+  var gridW = 4,
+      gridH = 3,
       imgW = $img.width(),
       imgH = $img.height();
 
