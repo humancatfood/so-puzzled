@@ -19,7 +19,6 @@ module.exports = React.createClass({
   },
 
   start: function () {
-    console.log("start");
     this.setState({
       currentGameState: (<GameStateRunning img={this.props.img} />)
     });
