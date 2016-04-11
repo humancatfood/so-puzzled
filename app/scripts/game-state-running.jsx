@@ -15,6 +15,7 @@
     componentDidMount: function () {
 
       var $img = $(this.refs.img);
+      var $stage = $(this.refs.stage)
       var that = this;
 
       $img.load(function () {
@@ -70,6 +71,15 @@
 
           $img.addClass('invisible');
 
+          $('.piece-wrapper').each(function () {
+
+            $(this)
+              .offset({
+                top: $stage.height() - (grid.pieces.height + Math.random() * grid.pieces.height * 2),
+                left: grid.pieces.width + Math.random() * ($stage.width() - grid.pieces.width * 2)
+              });
+          });
+
         }, 500);
 
 
@@ -96,11 +106,18 @@
       );
     },
 
+    renderStage: function () {
+      return (
+        <div ref="stage" className="stage"></div>
+      );
+    },
+
     render: function() {
 
       return (
         <div className="game-wrapper">
 
+          {this.renderStage()}
           {this.renderBaseImg()}
           {this.renderGrid()}
 
