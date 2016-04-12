@@ -126,7 +126,7 @@
         // TODO: pass this callback somehow more elegantly or use Flux.
         // TODO: expose the pieceSizeRatio to a menu or something so players can use it to set the difficulty level
         return (
-          <GameGrid ref="grid" $img={$(this.refs.img)} pieceSizeRatio={6} onLoad={this.setupGameLogic} />
+          <GameGrid ref="grid" $img={$(this.refs.img)} pieceSizeRatio={4} onLoad={this.setupGameLogic} />
         );
       }
       else
