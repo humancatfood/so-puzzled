@@ -48,11 +48,13 @@
       var imgWidth = this.state.imgWidth;
       var imgHeight = this.state.imgHeight;
 
-      // props.pieceSize is passed to this component as a desired size for the pieces in pixel.
+
+      // the desired piece-size is set to be roughly 1 / pieceSizeRatio of the shorter side of the image.
+      var desiredPieceSize = Math.min(imgWidth, imgHeight) / this.props.pieceSizeRatio;
 
       // Here we calculate how many rows and columns we can make from those sizes ..
-      var gridWidth = Math.round(imgWidth / this.props.pieceSize);
-      var gridHeight = Math.round(imgHeight / this.props.pieceSize);
+      var gridWidth = Math.round(imgWidth / desiredPieceSize);
+      var gridHeight = Math.round(imgHeight / desiredPieceSize);
 
       // .. and set the ACTUAL pieceSize so the pieces will fit into such a grid
       var pieceWidth = imgWidth / gridWidth;

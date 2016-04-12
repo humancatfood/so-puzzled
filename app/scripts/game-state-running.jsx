@@ -121,11 +121,12 @@
         // The GameGrid component requires
         // - the image that we want to puzzle,
         // - the desired size for the puzzle-pieces, and
-        // - this.setupGameLogic, as a callback method for when the grid is ready 
+        // - this.setupGameLogic, as a callback method for when the grid is ready
         //
         // TODO: pass this callback somehow more elegantly or use Flux.
+        // TODO: expose the pieceSizeRatio to a menu or something so players can use it to set the difficulty level
         return (
-          <GameGrid ref="grid" $img={$(this.refs.img)} pieceSize={120} onLoad={this.setupGameLogic} />
+          <GameGrid ref="grid" $img={$(this.refs.img)} pieceSizeRatio={6} onLoad={this.setupGameLogic} />
         );
       }
       else
