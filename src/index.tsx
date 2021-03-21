@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
+import {version} from '../package.json'
+
 import img from './images/kitty.jpg'
-
-
 import Game from './game';
+
+console.log(`Version: ${version}`)
+console.log(`Build: ${process.env.NODE_ENV}`)
 
 ReactDOM.render(
   <React.StrictMode>
