@@ -1,5 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, RefObject } from 'react'
 
+
+type GridProps = {
+  imgSrc: string
+  $img: RefObject<HTMLImageElement>
+  onLoad: (grid: HTMLTableElement|null) => void
+  pieceSizeRatio: number
+}
 
 
 /** The grid where the puzzle pieces are placed.
@@ -8,14 +15,14 @@ import React, { useEffect, useRef, useState } from 'react'
  *  the css to maintain EXACTLY the shape we need to set up the game around it,
  *  therefore you will find a LOT of references to the image's dimensions here!
  */
-export default function Grid({imgSrc, $img, onLoad, pieceSizeRatio}) {
+export default function Grid({imgSrc, $img, onLoad, pieceSizeRatio}: GridProps) {
 
   const [state, setState] = useState({
-    imgWidth: $img.width,
-    imgHeight: $img.height,
+    imgWidth: $img.current?.width,
+    imgHeight: $img.current?.height,
   })
 
-  const tableRef = useRef()
+  const tableRef = useRef<HTMLTableElement>(null)
 
   useEffect(() => {
     // TODO: make this callback somehow more elegant
@@ -28,17 +35,17 @@ export default function Grid({imgSrc, $img, onLoad, pieceSizeRatio}) {
     // can use it to update the state.
     const onResize = () => setState(state => ({
       ...state,
-      imgWidth: $img.width,
-      imgHeight: $img.height
+      imgWidth: $img.current?.width,
+      imgHeight: $img.current?.height
     }))
 
     window.addEventListener('resize', onResize)
 
     return () => window.removeEventListener('resize', onResize)
 
-  }, [$img.width, $img.height])
+  }, [$img, $img.current?.width, $img.current?.height])
 
-  const {imgWidth,imgHeight} = state
+  const {imgWidth = 0, imgHeight = 0} = state
 
   // the desired piece-size is set to be roughly 1 / pieceSizeRatio of the shorter side of the image.
   const desiredPieceSize = Math.min(imgWidth, imgHeight) / pieceSizeRatio;

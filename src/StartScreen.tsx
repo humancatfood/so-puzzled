@@ -1,10 +1,12 @@
-import React from 'react';
+
+type GameStateStartProps = {
+  onStart: () => void
+}
 
 
 // The first game state. It just shows an introduction and a button that the player can click
 // when they're ready.
-export default function GameStateStart({onStart}) {
-
+export default function GameStateStart({onStart}: GameStateStartProps) {
   return (
     <div>
       <header className="page-header">
@@ -29,5 +31,4 @@ export default function GameStateStart({onStart}) {
       </section>
     </div>
   );
-
 }
