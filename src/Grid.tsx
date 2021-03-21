@@ -26,7 +26,7 @@ export default function Grid({imgSrc, $img, onLoad, pieceSizeRatio}: GridProps) 
 
   useEffect(() => {
     // TODO: make this callback somehow more elegant
-    onLoad(tableRef.current);
+    onLoad(tableRef.current)
   }, [onLoad])
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Grid({imgSrc, $img, onLoad, pieceSizeRatio}: GridProps) 
     const onResize = () => setState(state => ({
       ...state,
       imgWidth: $img.current?.width,
-      imgHeight: $img.current?.height
+      imgHeight: $img.current?.height,
     }))
 
     window.addEventListener('resize', onResize)
@@ -48,31 +48,31 @@ export default function Grid({imgSrc, $img, onLoad, pieceSizeRatio}: GridProps) 
   const {imgWidth = 0, imgHeight = 0} = state
 
   // the desired piece-size is set to be roughly 1 / pieceSizeRatio of the shorter side of the image.
-  const desiredPieceSize = Math.min(imgWidth, imgHeight) / pieceSizeRatio;
+  const desiredPieceSize = Math.min(imgWidth, imgHeight) / pieceSizeRatio
 
   // Here we calculate how many rows and columns we can make from those sizes ..
-  const gridWidth = Math.round(imgWidth / desiredPieceSize);
-  const gridHeight = Math.round(imgHeight / desiredPieceSize);
+  const gridWidth = Math.round(imgWidth / desiredPieceSize)
+  const gridHeight = Math.round(imgHeight / desiredPieceSize)
 
   // .. and set the ACTUAL pieceSize so the pieces will fit into such a grid
-  const pieceWidth = imgWidth / gridWidth;
-  const pieceHeight = imgHeight / gridHeight;
+  const pieceWidth = imgWidth / gridWidth
+  const pieceHeight = imgHeight / gridHeight
 
   // an id to give to the grid-cells and their pieces to make it easier to check if a piece
   // has been placed correctly
-  let runningID = 0;
+  let runningID = 0
 
   // the cells should be the same dimensiona as the pieces
   const cellStyle = {
     width: pieceWidth,
-    height: pieceHeight
-  };
+    height: pieceHeight,
+  }
 
   // Here we create the grid
-  const grid = [];
+  const grid = []
   for (let y = 0; y < gridHeight; y += 1)
   {
-    const row = [];
+    const row = []
 
     for (let x = 0; x < gridWidth; x += 1)
     {
@@ -83,10 +83,10 @@ export default function Grid({imgSrc, $img, onLoad, pieceSizeRatio}: GridProps) 
         width: imgWidth,
         height: imgHeight,
         left: x * pieceWidth * -1,
-        top: y * pieceHeight * -1
-      };
+        top: y * pieceHeight * -1,
+      }
 
-      runningID += 1;
+      runningID += 1
 
       // The 'animated' class gives the piece a css-transition when it is scrambled.
       // This allows us to quickly turn the transition off when we want to move the
@@ -97,7 +97,7 @@ export default function Grid({imgSrc, $img, onLoad, pieceSizeRatio}: GridProps) 
             <img alt={`piece #${runningID}`} src={imgSrc} className="piece" style={pieceStyle} />
           </div>
         </td>
-      ));
+      ))
 
     }
 
@@ -114,6 +114,6 @@ export default function Grid({imgSrc, $img, onLoad, pieceSizeRatio}: GridProps) 
         {grid}
       </tbody>
     </table>
-  );
+  )
 
 }

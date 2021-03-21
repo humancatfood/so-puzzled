@@ -1,5 +1,5 @@
 type MenuProps = {
-  toggleHelp?: (on: Boolean) => void
+  toggleHelp?: (on: boolean) => void
 }
 
 export default function Menu({toggleHelp}: MenuProps) {
@@ -24,5 +24,5 @@ export default function Menu({toggleHelp}: MenuProps) {
         </label>
       </div>
     </nav>
-  );
+  )
 }

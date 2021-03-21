@@ -1,9 +1,9 @@
-import {useCallback, useEffect, useRef, useState} from'react';
+import {useCallback, useEffect, useRef, useState} from'react'
 
-import GameLogic from './logic';
+import GameLogic from './logic'
 
-import Menu from './Menu';
-import GameGrid from './Grid';
+import Menu from './Menu'
+import GameGrid from './Grid'
 
 
 
@@ -29,9 +29,9 @@ export default function Game({img}: GameProps) {
         // has some time to memorize the image ..
         setTimeout (function () {
           // .. then we tell the component to show the grid (this will trigger a re-render)
-          setShowGrid(true);
-        }, 2000);
-      });
+          setShowGrid(true)
+        }, 2000)
+      })
     }
   }, [])
 
@@ -42,16 +42,16 @@ export default function Game({img}: GameProps) {
 
       // Create a new instance of GameLogic, passing it the components it
       // requires (via their refs), ..
-      var logic = new GameLogic(grid, stageRef.current, imgRef.current);
+      const logic = new GameLogic(grid, stageRef.current, imgRef.current)
 
       // .. make it start, ..
-      logic.start();
+      logic.start()
 
       // .. listen to when it finishes, ..
-      logic.onFinished(() => window.alert('You did it!! (reload the window to play again)'));
+      logic.onFinished(() => window.alert('You did it!! (reload the window to play again)'))
 
       // .. and finally put it on the state (this causes a re-render with the need-help-button activated)
-      setLogic(logic);
+      setLogic(logic)
 
     }
   }, [])
@@ -59,7 +59,7 @@ export default function Game({img}: GameProps) {
   // The main render function. The more interesting bits are rendered in smaller functions
   return (
     <div>
-      <Menu toggleHelp={logic ? (on => logic.toggleHelp(on)) : undefined} />
+      <Menu toggleHelp={logic ? ((on: boolean) => logic.toggleHelp(on)) : undefined} />
       <div className="game-wrapper">
         <div ref={stageRef} className="container stage" />
         <div className="grid-wrapper">
@@ -81,6 +81,6 @@ export default function Game({img}: GameProps) {
       </div>
 
     </div>
-  );
+  )
 
-};
+}

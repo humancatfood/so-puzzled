@@ -8,7 +8,7 @@ import Game from './Game'
 
 export default function App() {
 
-  const [isStarted, setStarted] = useState<Boolean>(false)
+  const [isStarted, setStarted] = useState<boolean>(false)
 
   if (isStarted) {
     return (

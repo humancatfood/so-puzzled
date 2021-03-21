@@ -1,4 +1,3 @@
-
 type GameStateStartProps = {
   onStart: () => void
 }
@@ -30,5 +29,5 @@ export default function GameStateStart({onStart}: GameStateStartProps) {
 
       </section>
     </div>
-  );
+  )
 }
