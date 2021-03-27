@@ -55,9 +55,8 @@ export default function Game({img}: GameProps) {
     }
   }, [])
 
-  // The main render function. The more interesting bits are rendered in smaller functions
   return (
-    <div>
+    <>
       <Menu toggleHelp={setShowHelp} />
       <div className="game-wrapper">
         <div ref={stageRef} className="container stage" />
@@ -82,7 +81,7 @@ export default function Game({img}: GameProps) {
           )}
         </div>
       </div>
-    </div>
+    </>
   )
 
 }
