@@ -4,7 +4,7 @@ type MenuProps = {
 
 export default function Menu({toggleHelp}: MenuProps) {
   return (
-    <nav className="navbar navbar-default">
+    <header className="navbar navbar-default">
       <div className="container-fluid">
         <div className="navbar-brand">
           So Puzzled!
@@ -23,6 +23,6 @@ export default function Menu({toggleHelp}: MenuProps) {
           Need Help?
         </label>
       </div>
-    </nav>
+    </header>
   )
 }

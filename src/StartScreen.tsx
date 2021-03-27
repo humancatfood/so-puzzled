@@ -7,12 +7,12 @@ type GameStateStartProps = {
 // when they're ready.
 export default function GameStateStart({onStart}: GameStateStartProps) {
   return (
-    <div>
+    <>
       <header className="page-header">
         <h1>So Puzzled!! <br /> <small>A little puzzle game for practice, written in React and jQueryUI</small></h1>
       </header>
 
-      <section className="jumbotron text-center">
+      <main className="jumbotron text-center">
 
         <h2>How to play:</h2>
 
@@ -27,7 +27,7 @@ export default function GameStateStart({onStart}: GameStateStartProps) {
           <button type="button" className="btn btn-success btn-lg" onClick={onStart}>Start Puzzling</button>
         </p>
 
-      </section>
-    </div>
+      </main>
+    </>
   )
 }

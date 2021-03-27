@@ -9,8 +9,6 @@ const $ = window.jQuery
 // TODO: split those things up.
 class GameLogic {
 
-  static FINISHED = 0
-
   callbacks: Array<() => void> = []
 
   $grid: any
@@ -170,8 +168,6 @@ class GameLogic {
 
   // scramblePiece moves a piece to a random position somewhere in the viewport (represented by the stage)
   scramblePiece($piece: any): void {
-
-    console.log('scramble:', $piece)
 
     const pieceRect = $piece[0].getBoundingClientRect()
     const stageRect = this.$stage[0].getBoundingClientRect()
