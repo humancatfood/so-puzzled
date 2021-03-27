@@ -23,9 +23,6 @@ class GameLogic {
 
   start () {
 
-    // .. we hide the base-image ..
-    this.$img.addClass('transparent')
-
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const that = this
 
@@ -207,21 +204,6 @@ class GameLogic {
       top: top,
       left: left,
     })
-
-  }
-
-  // Toggle the help on or off.
-  toggleHelp(on: boolean): void {
-
-    if (on)
-    {
-    // help means the base-image is semi-transparent, so we can se where the pieces should go
-      this.$img.addClass('semi-transparent')
-    }
-    else
-    {
-      this.$img.removeClass('semi-transparent')
-    }
 
   }
 

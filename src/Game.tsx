@@ -14,8 +14,9 @@ type GameProps = {
 // The game state where the actual fun happens.
 export default function Game({img}: GameProps) {
 
-  const [logic, setLogic] = useState<GameLogic|null>(null)
-  const [showGrid, setShowGrid] = useState(false)
+  const [showHelp, setShowHelp] = useState<boolean>(false)
+  const [isStarted, setStarted] = useState<boolean>(false)
+  const [showGrid, setShowGrid] = useState<boolean>(false)
 
   const imgRef = useRef<HTMLImageElement>(null)
   const stageRef = useRef<HTMLDivElement>(null)
@@ -46,12 +47,10 @@ export default function Game({img}: GameProps) {
 
       // .. make it start, ..
       logic.start()
+      setStarted(true)
 
       // .. listen to when it finishes, ..
       logic.onFinished(() => window.alert('You did it!! (reload the window to play again)'))
-
-      // .. and finally put it on the state (this causes a re-render with the need-help-button activated)
-      setLogic(logic)
 
     }
   }, [])
@@ -59,27 +58,30 @@ export default function Game({img}: GameProps) {
   // The main render function. The more interesting bits are rendered in smaller functions
   return (
     <div>
-      <Menu toggleHelp={logic ? ((on: boolean) => logic.toggleHelp(on)) : undefined} />
+      <Menu toggleHelp={setShowHelp} />
       <div className="game-wrapper">
         <div ref={stageRef} className="container stage" />
         <div className="grid-wrapper">
           <img
             alt="Kitty"
             src={img}
-            className="base-img"
+            className={`
+              base-img
+              ${isStarted ? 'transparent' : ''}
+              ${showHelp ? 'semi-transparent' : ''}
+            `}
             ref={imgRef}
           />
           {showGrid && (
             <GameGrid
               imgSrc={img}
               $img={imgRef}
-              pieceSizeRatio={4}
+              pieceSizeRatio={2}
               onLoad={setupGameLogic}
             />
           )}
         </div>
       </div>
-
     </div>
   )
 
