@@ -1,6 +1,6 @@
-import {useCallback, useEffect, useRef, useState} from'react'
-
+import {useCallback, useRef, useState} from'react'
 import GameLogic from './logic'
+import { useElementSize } from "./utils"
 
 import Menu from './Menu'
 import GameGrid from './Grid'
@@ -21,21 +21,13 @@ export default function Game({img}: GameProps) {
   const imgRef = useRef<HTMLImageElement>(null)
   const stageRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    if (imgRef.current) {
-      // the component did mount, but the image might not have loaded completely yet, therefore
-      // we attach this onLoad function.
-      imgRef.current.onload = (function () {
-        // The image has loaded (yay!). Now we set a short timeout of 2s so the player
-        // has some time to memorize the image ..
-        setTimeout (function () {
-          // .. then we tell the component to show the grid (this will trigger a re-render)
-          setShowGrid(true)
-        }, 2000)
-      })
-    }
-  }, [])
+  const [imgWidth, imgHeight] = useElementSize(imgRef.current)
+  // const [stageWidth, stageHeight] = useElementSize(stageRef.current)
 
+  const onLoadImage = () => setTimeout (function () {
+    // .. then we tell the component to show the grid (this will trigger a re-render)
+    setShowGrid(true)
+  }, 2000)
 
   // Sets up the game logic (duh). This is called after the game-grid component has fully rendered.
   const setupGameLogic = useCallback(grid => {
@@ -70,11 +62,13 @@ export default function Game({img}: GameProps) {
               ${showHelp ? 'semi-transparent' : ''}
             `}
             ref={imgRef}
+            onLoad={onLoadImage}
           />
           {showGrid && (
             <GameGrid
               imgSrc={img}
-              $img={imgRef}
+              width={imgWidth}
+              height={imgHeight}
               pieceSizeRatio={2}
               onLoad={setupGameLogic}
             />

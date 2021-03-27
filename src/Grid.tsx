@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState, RefObject } from 'react'
+import { useEffect, useRef } from 'react'
 
 
 type GridProps = {
   imgSrc: string
-  $img: RefObject<HTMLImageElement>
+  width: number,
+  height: number,
   onLoad: (grid: HTMLTableElement|null) => void
   pieceSizeRatio: number
 }
@@ -15,105 +16,74 @@ type GridProps = {
  *  the css to maintain EXACTLY the shape we need to set up the game around it,
  *  therefore you will find a LOT of references to the image's dimensions here!
  */
-export default function Grid({imgSrc, $img, onLoad, pieceSizeRatio}: GridProps) {
-
-  const [state, setState] = useState({
-    imgWidth: $img.current?.width,
-    imgHeight: $img.current?.height,
-  })
+function Grid({imgSrc, width, height, onLoad, pieceSizeRatio}: GridProps) {
 
   const tableRef = useRef<HTMLTableElement>(null)
 
   useEffect(() => {
     // TODO: make this callback somehow more elegant
-    onLoad(tableRef.current)
-  }, [onLoad])
+    if (tableRef.current && width && height) {
+      onLoad(tableRef.current)
+    }
+  }, [onLoad, width, height])
 
-  useEffect(() => {
-    // After the component is rendered, we keep track of the window's resize events.
-    // If one is fired, we rely on the image being resized correctly (via css) so we
-    // can use it to update the state.
-    const onResize = () => setState(state => ({
-      ...state,
-      imgWidth: $img.current?.width,
-      imgHeight: $img.current?.height,
-    }))
-
-    window.addEventListener('resize', onResize)
-
-    return () => window.removeEventListener('resize', onResize)
-
-  }, [$img, $img.current?.width, $img.current?.height])
-
-  const {imgWidth = 0, imgHeight = 0} = state
-
-  // the desired piece-size is set to be roughly 1 / pieceSizeRatio of the shorter side of the image.
-  const desiredPieceSize = Math.min(imgWidth, imgHeight) / pieceSizeRatio
+  const desiredPieceSize = Math.min(width, height) / pieceSizeRatio
 
   // Here we calculate how many rows and columns we can make from those sizes ..
-  const gridWidth = Math.round(imgWidth / desiredPieceSize)
-  const gridHeight = Math.round(imgHeight / desiredPieceSize)
+  const gridWidth = Math.round(width / desiredPieceSize)
+  const gridHeight = Math.round(height / desiredPieceSize)
 
   // .. and set the ACTUAL pieceSize so the pieces will fit into such a grid
-  const pieceWidth = imgWidth / gridWidth
-  const pieceHeight = imgHeight / gridHeight
-
-  // an id to give to the grid-cells and their pieces to make it easier to check if a piece
-  // has been placed correctly
-  let runningID = 0
-
-  // the cells should be the same dimensiona as the pieces
-  const cellStyle = {
-    width: pieceWidth,
-    height: pieceHeight,
-  }
-
-  // Here we create the grid
-  const grid = []
-  for (let y = 0; y < gridHeight; y += 1)
-  {
-    const row = []
-
-    for (let x = 0; x < gridWidth; x += 1)
-    {
-
-      // Each piece contains an <img> element that is negatively offset by the same distance as
-      // the piece is from the image's origin.
-      const pieceStyle = {
-        width: imgWidth,
-        height: imgHeight,
-        left: x * pieceWidth * -1,
-        top: y * pieceHeight * -1,
-      }
-
-      runningID += 1
-
-      // The 'animated' class gives the piece a css-transition when it is scrambled.
-      // This allows us to quickly turn the transition off when we want to move the
-      // piece around manually.
-      row.push((
-        <td key={x} className="piece-positioner" data-id={runningID} style={cellStyle}>
-          <div className="piece-wrapper animated" data-id={runningID} >
-            <img alt={`piece #${runningID}`} src={imgSrc} className="piece" style={pieceStyle} />
-          </div>
-        </td>
-      ))
-
-    }
-
-    grid.push((
-      <tr key={y}>
-        {row}
-      </tr>
-    ))
-  }
+  const pieceWidth = width / gridWidth
+  const pieceHeight = height / gridHeight
 
   return (
     <table ref={tableRef} className="game-grid">
       <tbody>
-        {grid}
+        {Array(gridHeight).fill(0).map((_, y) => (
+          <tr key={y}>
+            {Array(gridWidth).fill(0).map((_, x) => {
+              const id = `${x},${y}`
+              return (
+                <td
+                  key={x}
+                  className="piece-positioner"
+                  data-id={id} style={{
+                    width: pieceWidth,
+                    height: pieceHeight,
+                  }}>
+                  <div className="piece-wrapper animated" data-id={id} >
+                    <img
+                      alt={`piece #${id}`}
+                      src={imgSrc}
+                      className="piece"
+                      style={{
+                        width,
+                        height,
+                        left: x * pieceWidth * -1,
+                        top: y * pieceHeight * -1,
+                      }}
+                    />
+                  </div>
+                </td>
+              )
+            })}
+          </tr>
+        ))}
       </tbody>
     </table>
   )
 
+}
+
+
+export default function ConditionalGrid(props: GridProps) {
+  if (!props.width || !props.height) {
+    return null
+  }
+  return (
+    <Grid
+      {...props}
+    />
+  )
 }
