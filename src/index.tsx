@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 // import reportWebVitals from './reportWebVitals';
 
-import {version} from '../package.json'
+import { version } from '../package.json'
 
 import App from './App'
 

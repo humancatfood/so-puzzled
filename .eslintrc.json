@@ -27,6 +27,14 @@
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    "object-curly-spacing": [
+      "warn",
+      "always"
+    ],
     "indent": [
       "warn",
       2,
@@ -46,6 +54,7 @@
     "key-spacing": ["warn", {
       "beforeColon": false,
       "afterColon": true
-    }]
+    }],
+    "space-in-parens": "error"
   }
 }

@@ -2,7 +2,7 @@ type MenuProps = {
   toggleHelp?: (on: boolean) => void
 }
 
-export default function Menu({toggleHelp}: MenuProps) {
+export default function Menu({ toggleHelp }: MenuProps) {
   return (
     <header className="navbar navbar-default">
       <div className="container-fluid">

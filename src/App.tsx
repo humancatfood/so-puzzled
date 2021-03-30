@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 
 import img from './images/kitty.jpg'
 
@@ -19,6 +19,5 @@ export default function App() {
       <StartScreen onStart={() => setStarted(true)} />
     )
   }
-
 
 }

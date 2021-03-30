@@ -57,7 +57,7 @@ class GameLogic {
 
       // The grid cell becomes a droppable target
       $piecePositioner.droppable({
-        tolerance: "intersect",
+        tolerance: 'intersect',
         drop: function(event: any, ui: any) {
           // when a piece is dropped in a cell ..
           const $this = $(this)

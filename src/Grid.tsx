@@ -16,7 +16,7 @@ type GridProps = {
  *  the css to maintain EXACTLY the shape we need to set up the game around it,
  *  therefore you will find a LOT of references to the image's dimensions here!
  */
-function Grid({imgSrc, width, height, onLoad, pieceSizeRatio}: GridProps) {
+function Grid({ imgSrc, width, height, onLoad, pieceSizeRatio }: GridProps) {
 
   const tableRef = useRef<HTMLTableElement>(null)
 

@@ -1,6 +1,6 @@
-import {useCallback, useRef, useState} from'react'
+import { useCallback, useRef, useState } from'react'
 import GameLogic from './logic'
-import { useElementSize } from "./utils"
+import { useElementSize } from './utils'
 
 import Menu from './Menu'
 import GameGrid from './Grid'
@@ -12,7 +12,7 @@ type GameProps = {
 }
 
 // The game state where the actual fun happens.
-export default function Game({img}: GameProps) {
+export default function Game({ img }: GameProps) {
 
   const [showHelp, setShowHelp] = useState<boolean>(false)
   const [isStarted, setStarted] = useState<boolean>(false)

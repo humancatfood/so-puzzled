@@ -1,5 +1,5 @@
-import {useEffect, useState} from'react'
-import ResizeObserver from "resize-observer-polyfill"
+import { useEffect, useState } from'react'
+import ResizeObserver from 'resize-observer-polyfill'
 
 
 
@@ -10,7 +10,7 @@ export function useElementSize(element: HTMLElement | null): Size {
   useEffect(() => {
     if (element) {
       const observer = new ResizeObserver((entries: Array<ResizeObserverEntry>) => {
-        const {contentRect} = entries[0]
+        const { contentRect } = entries[0]
         setSize([
           contentRect.width,
           contentRect.height,
