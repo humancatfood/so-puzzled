@@ -1,23 +1,21 @@
 {
   "files": {
-    "main.css": "/so-puzzled/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/so-puzzled/static/js/main.be157b31.chunk.js",
-    "main.js.map": "/so-puzzled/static/js/main.be157b31.chunk.js.map",
-    "runtime-main.js": "/so-puzzled/static/js/runtime-main.c757e3b1.js",
-    "runtime-main.js.map": "/so-puzzled/static/js/runtime-main.c757e3b1.js.map",
-    "static/js/2.28289b88.chunk.js": "/so-puzzled/static/js/2.28289b88.chunk.js",
-    "static/js/2.28289b88.chunk.js.map": "/so-puzzled/static/js/2.28289b88.chunk.js.map",
-    "static/js/3.611972cd.chunk.js": "/so-puzzled/static/js/3.611972cd.chunk.js",
-    "static/js/3.611972cd.chunk.js.map": "/so-puzzled/static/js/3.611972cd.chunk.js.map",
+    "main.css": "/so-puzzled/static/css/main.486aa9e2.chunk.css",
+    "main.js": "/so-puzzled/static/js/main.f7e61672.chunk.js",
+    "main.js.map": "/so-puzzled/static/js/main.f7e61672.chunk.js.map",
+    "runtime-main.js": "/so-puzzled/static/js/runtime-main.93f81537.js",
+    "runtime-main.js.map": "/so-puzzled/static/js/runtime-main.93f81537.js.map",
+    "static/js/2.fc0ba0c0.chunk.js": "/so-puzzled/static/js/2.fc0ba0c0.chunk.js",
+    "static/js/2.fc0ba0c0.chunk.js.map": "/so-puzzled/static/js/2.fc0ba0c0.chunk.js.map",
     "index.html": "/so-puzzled/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/so-puzzled/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.28289b88.chunk.js.LICENSE.txt": "/so-puzzled/static/js/2.28289b88.chunk.js.LICENSE.txt",
+    "static/css/main.486aa9e2.chunk.css.map": "/so-puzzled/static/css/main.486aa9e2.chunk.css.map",
+    "static/js/2.fc0ba0c0.chunk.js.LICENSE.txt": "/so-puzzled/static/js/2.fc0ba0c0.chunk.js.LICENSE.txt",
     "static/media/kitty.9149cd00.jpg": "/so-puzzled/static/media/kitty.9149cd00.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c757e3b1.js",
-    "static/js/2.28289b88.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.be157b31.chunk.js"
+    "static/js/runtime-main.93f81537.js",
+    "static/js/2.fc0ba0c0.chunk.js",
+    "static/css/main.486aa9e2.chunk.css",
+    "static/js/main.f7e61672.chunk.js"
   ]
 }
