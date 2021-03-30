@@ -1,6 +1,6 @@
 {
   "name": "so-puzzled",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A little puzzle game for practice, written in React and jQueryUI",
   "author": "Jan Borchers",
   "license": "Artistic-2.0",
