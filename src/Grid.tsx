@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 
+import Piece from './Piece'
 
 type GridProps = {
   imgSrc: string
@@ -37,6 +38,12 @@ function Grid({ imgSrc, width, height, onLoad, pieceSizeRatio }: GridProps) {
   const pieceWidth = width / gridWidth
   const pieceHeight = height / gridHeight
 
+  const img = useMemo(() => {
+    const img = new Image(width, height)
+    img.src = imgSrc
+    return img
+  }, [width, height, imgSrc])
+
   return (
     <table ref={tableRef} className="game-grid">
       <tbody>
@@ -51,20 +58,18 @@ function Grid({ imgSrc, width, height, onLoad, pieceSizeRatio }: GridProps) {
                   data-id={id} style={{
                     width: pieceWidth,
                     height: pieceHeight,
-                  }}>
-                  <div className="piece-wrapper animated" data-id={id} >
-                    <img
-                      alt={`piece #${id}`}
-                      src={imgSrc}
-                      className="piece"
-                      style={{
-                        width,
-                        height,
-                        left: x * pieceWidth * -1,
-                        top: y * pieceHeight * -1,
-                      }}
-                    />
-                  </div>
+                  }}
+                >
+                  <Piece
+                    id={id}
+                    pieceWidth={pieceWidth}
+                    pieceHeight={pieceHeight}
+                    width={width}
+                    height={height}
+                    left={x * pieceWidth * -1}
+                    top={y * pieceHeight * -1}
+                    img={img}
+                  />
                 </td>
               )
             })}
