@@ -55,6 +55,7 @@
       "beforeColon": false,
       "afterColon": true
     }],
-    "space-in-parens": "error"
+    "space-in-parens": "error",
+    "space-infix-ops": "warn"
   }
 }
