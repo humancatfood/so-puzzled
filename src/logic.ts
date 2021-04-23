@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-declare let window : any
+declare let window: any
 
 const $ = window.jQuery
 
@@ -27,7 +27,7 @@ class GameLogic {
     const that = this
 
     // .. then iterate over the grid's cells and for each cell ..
-    this.$grid.find('.piece-positioner').each((index:number, item: HTMLElement) => {
+    this.$grid.find('.piece-positioner').each((index: number, item: HTMLElement) => {
       const $piecePositioner = $(item)
       // .. we find the contained piece.
       const $piece = $piecePositioner.find('.piece-wrapper')
@@ -229,18 +229,19 @@ type Piece = {
   occupant: Piece | null
   offset: Offset
 }
+export interface IPiece {
+  id: ID,
+  left: number,
+  top: number,
+}
 
-export type GameState = {
+export interface IGameState {
   slots: Record<ID, ID>
-  stage: Array<{
-    id: ID,
-    left: number,
-    top: number,
-  }>
+  stage: Array<IPiece>
 }
 
 
-export function createState(ids: Array<ID>): GameState {
+export function createState(ids: Array<ID>): IGameState {
   const slots = ids.reduce<Record<ID, ID>>((acc, id) => {
     acc[id] = id
     return acc
@@ -251,7 +252,7 @@ export function createState(ids: Array<ID>): GameState {
   }
 }
 
-export function movePieceToStage(state:GameState, pieceId: ID, top:number, left: number): GameState {
+export function movePieceToStage(state: IGameState, pieceId: ID, top: number, left: number): IGameState {
 
   const { [pieceId]: id, ...otherSlots } = state.slots
 
@@ -284,7 +285,7 @@ export function movePieceToStage(state:GameState, pieceId: ID, top:number, left:
 }
 
 
-export function movePieceToSlot(state:GameState, pieceId: ID, slotId: ID): GameState {
+export function movePieceToSlot(state: IGameState, pieceId: ID, slotId: ID): IGameState {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { [pieceId]: id, ...otherSlots } = state.slots
@@ -298,4 +299,21 @@ export function movePieceToSlot(state:GameState, pieceId: ID, slotId: ID): GameS
     stage,
   }
 
+}
+
+export function getSlotPiece(state: IGameState, slotId: ID): IPiece | null {
+  const pieceId = state.slots[slotId]
+  if (pieceId) {
+    return {
+      id: pieceId,
+      left: 0,
+      top: 0,
+    }
+  } else {
+    return null
+  }
+}
+
+export function getStagePieces(state: IGameState): Array<IPiece> {
+  return state.stage
 }

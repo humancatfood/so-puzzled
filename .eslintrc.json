@@ -27,6 +27,7 @@
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/type-annotation-spacing": "error",
     "quotes": [
       "warn",
       "single"
@@ -52,10 +53,7 @@
       "functions": "always-multiline"
     }],
     "comma-spacing": "warn",
-    "key-spacing": ["warn", {
-      "beforeColon": false,
-      "afterColon": true
-    }],
+    "key-spacing": "warn",
     "space-in-parens": "error",
     "space-infix-ops": "error",
     "no-multi-spaces": ["error", {
