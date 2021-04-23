@@ -260,7 +260,7 @@ export function movePieceToStage(state:GameState, pieceId: ID, top:number, left:
       slots: otherSlots,
       stage: [
         ...state.stage,
-        { id,top,left },
+        { id, top, left },
       ],
     }
   } else {

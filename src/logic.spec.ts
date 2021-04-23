@@ -26,7 +26,7 @@ describe('Game Logic', () => {
     })
   })
 
-  it('lets you move a piece from its slot to the stage', () => {
+  it('slot -> stage', () => {
     const state1 = createState(['1', '2', '3'])
 
     const state2 = movePieceToStage(state1, '1', 0, 0)
@@ -49,12 +49,12 @@ describe('Game Logic', () => {
     expect(state3.stage).toEqual([{
       id: '1', top: 0, left: 0,
     }, {
-      id: '2',top: 100,left: 123,
+      id: '2', top: 100, left: 123,
     }])
   })
 
 
-  it('lets you move a piece from the stage to a slot', () => {
+  it('stage -> slot', () => {
     const state1 = createState(['1', '2', '3'])
 
     const state2 = movePieceToStage(state1, '1', 123, 456)
@@ -62,7 +62,7 @@ describe('Game Logic', () => {
 
     const state4 = movePieceToSlot(state3, '1', '2')
 
-    assertImmutability(state4,state3)
+    assertImmutability(state4, state3)
 
     expect(state4.slots).toEqual({
       2: '1',
@@ -74,13 +74,37 @@ describe('Game Logic', () => {
 
   })
 
-  it('lets you move a piece from the stage to the stage', () => {
+
+  it('slot -> slot', () => {
+    const state1 = createState(['1', '2', '3'])
+
+    const state2 = movePieceToSlot(state1, '1', '2')
+    assertImmutability(state2, state1)
+
+    expect(state2.slots).toEqual({
+      2: '1',
+      3: '3',
+    })
+    expect(state2.stage).toEqual([])
+
+    const state3 = movePieceToSlot(state2, '1', '2')
+    assertImmutability(state3, state2)
+
+    expect(state2.slots).toEqual({
+      2: '1',
+      3: '3',
+    })
+    expect(state2.stage).toEqual([])
+
+  })
+
+  it('stage -> stage', () => {
     const state1 = createState(['1', '2', '3'])
 
     const state2 = movePieceToStage(state1, '1', 987, 654)
     const state3 = movePieceToStage(state2, '1', 123, 456)
-    assertImmutability(state1,state2)
-    assertImmutability(state3,state2)
+    assertImmutability(state1, state2)
+    assertImmutability(state3, state2)
 
     expect(state3.slots).toEqual({
       2: '2',
