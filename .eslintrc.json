@@ -56,6 +56,14 @@
       "afterColon": true
     }],
     "space-in-parens": "error",
-    "space-infix-ops": "warn"
+    "space-infix-ops": "error",
+    "no-multi-spaces": [
+      "error",
+      {
+        "ignoreEOLComments": true
+      }
+    ],
+    "no-unused-expressions": "error",
+    "arrow-spacing": "error"
   }
 }

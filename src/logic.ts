@@ -215,3 +215,87 @@ class GameLogic {
 
 
 export default GameLogic
+
+
+type ID = string
+
+type Offset = {
+  x: number
+  y: number
+}
+
+type Piece = {
+  id: ID
+  occupant: Piece | null
+  offset: Offset
+}
+
+export type GameState = {
+  slots: Record<ID, ID>
+  stage: Array<{
+    id: ID,
+    left: number,
+    top: number,
+  }>
+}
+
+
+export function createState(ids: Array<ID>): GameState {
+  const slots = ids.reduce<Record<ID, ID>>((acc, id) => {
+    acc[id] = id
+    return acc
+  }, {})
+  return {
+    slots,
+    stage: [],
+  }
+}
+
+export function movePieceToStage(state:GameState, pieceId: ID, top:number, left: number): GameState {
+
+  const { [pieceId]: id, ...otherSlots } = state.slots
+
+  if (id) {
+    return {
+      slots: otherSlots,
+      stage: [
+        ...state.stage,
+        { id,top,left },
+      ],
+    }
+  } else {
+    return {
+      slots: otherSlots,
+      stage: state.stage.map(item => {
+        if (item.id === pieceId) {
+          return {
+            ...item,
+            top,
+            left,
+          }
+        } else {
+          return item
+        }
+      }),
+    }
+
+  }
+
+}
+
+
+export function movePieceToSlot(state:GameState, pieceId: ID, slotId: ID): GameState {
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { [pieceId]: id, ...otherSlots } = state.slots
+  const stage = state.stage.filter(piece => piece.id !== pieceId)
+
+  return {
+    slots: {
+      ...otherSlots,
+      [slotId]: pieceId,
+    },
+    stage,
+  }
+
+}
