@@ -219,16 +219,6 @@ export default GameLogic
 
 type ID = string
 
-type Offset = {
-  x: number
-  y: number
-}
-
-type Piece = {
-  id: ID
-  occupant: Piece | null
-  offset: Offset
-}
 export interface IPiece {
   id: ID,
   left: number,

@@ -1,61 +1,120 @@
-import { useCallback, useRef, useState } from'react'
-import GameLogic from './logic'
-import { useElementSize } from './utils'
+import { useMemo, useRef, useState, ReactElement } from'react'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+import { useElementSize, coordsToId } from './utils'
 
-import Menu from './Menu'
 import GameGrid from './Grid'
+import Menu from './Menu'
+import Piece from './Piece'
+import Slot from './Slot'
+import Stage from './Stage'
 
 
+
+const pieceSizeRatio = 2
 
 type GameProps = {
-  img: string
+  imgSrc: string
 }
 
-// The game state where the actual fun happens.
-export default function Game({ img }: GameProps) {
+type PieceParams = {
+  id: string
+  pieceWidth: number
+  pieceHeight: number
+  width: number
+  height: number
+  left: number
+  top: number
+}
+
+
+function getPieces(width: number, height: number, pieceSizeRatio: number): Record<string, PieceParams> {
+
+  const pieces: Record<string, PieceParams> = {}
+
+  if (!width || !height) {
+    return pieces
+  }
+
+  const desiredPieceSize = Math.min(width, height) / pieceSizeRatio
+
+  const numCols = Math.round(width / desiredPieceSize)
+  const numRows = Math.round(height / desiredPieceSize)
+
+  const pieceWidth = width / numCols
+  const pieceHeight = height / numRows
+
+
+  Array(numRows).fill(0).forEach((_, y) => {
+    Array(numCols).fill(0).forEach((_, x) => {
+      const id = coordsToId(x, y)
+      pieces[id] = {
+        id,
+        pieceWidth,
+        pieceHeight,
+        width,
+        height,
+        left: x * pieceWidth * -1,
+        top: y * pieceHeight * -1,
+      }
+    })
+  })
+  return pieces
+
+}
+
+function Game({ imgSrc }: GameProps) {
 
   const [showHelp, setShowHelp] = useState<boolean>(false)
   const [isStarted, setStarted] = useState<boolean>(false)
-  const [showGrid, setShowGrid] = useState<boolean>(false)
 
   const imgRef = useRef<HTMLImageElement>(null)
-  const stageRef = useRef<HTMLDivElement>(null)
 
   const [imgWidth, imgHeight] = useElementSize(imgRef.current)
-  // const [stageWidth, stageHeight] = useElementSize(stageRef.current)
 
   const onLoadImage = () => setTimeout (function () {
-    // .. then we tell the component to show the grid (this will trigger a re-render)
-    setShowGrid(true)
+    setStarted(true)
   }, 2000)
 
-  // Sets up the game logic (duh). This is called after the game-grid component has fully rendered.
-  const setupGameLogic = useCallback(grid => {
-    if (stageRef.current && imgRef.current) {
+  const img = useMemo(() => {
+    const img = new Image(imgWidth, imgHeight)
+    img.src = imgSrc
+    return img
+  }, [imgWidth, imgHeight, imgSrc])
 
-      // Create a new instance of GameLogic, passing it the components it
-      // requires (via their refs), ..
-      const logic = new GameLogic(grid, stageRef.current, imgRef.current)
+  const pieces = getPieces(imgWidth, imgHeight, pieceSizeRatio)
 
-      // .. make it start, ..
-      logic.start()
-      setStarted(true)
-
-      // .. listen to when it finishes, ..
-      logic.onFinished(() => window.alert('You did it!! (reload the window to play again)'))
-
-    }
-  }, [])
+  function renderSlot(id: string): ReactElement {
+    const { width, height, pieceWidth, pieceHeight, left, top } = pieces[id]
+    return (
+      <Slot
+        onDropPiece={id => console.log('drop in slot:', id)}
+      >
+        <Piece
+          id={id}
+          pieceWidth={pieceWidth}
+          pieceHeight={pieceHeight}
+          width={width}
+          height={height}
+          left={left}
+          top={top}
+          img={img}
+        />
+      </Slot>
+    )
+  }
 
   return (
     <>
       <Menu toggleHelp={setShowHelp} />
-      <div className="game-wrapper">
-        <div ref={stageRef} className="container stage" />
+      <div className="game-wrapper" >
+        <Stage
+          onDropPiece={id => console.log(`dropped on stage: ${id}`)}
+        />
         <div className="grid-wrapper">
           <img
             alt="Kitty"
-            src={img}
+            src={imgSrc}
             className={`
               base-img
               ${isStarted ? 'transparent' : ''}
@@ -64,13 +123,12 @@ export default function Game({ img }: GameProps) {
             ref={imgRef}
             onLoad={onLoadImage}
           />
-          {showGrid && (
+          {isStarted && (
             <GameGrid
-              imgSrc={img}
               width={imgWidth}
               height={imgHeight}
-              pieceSizeRatio={2}
-              onLoad={setupGameLogic}
+              pieceSizeRatio={pieceSizeRatio}
+              renderSlot={renderSlot}
             />
           )}
         </div>
@@ -78,4 +136,18 @@ export default function Game({ img }: GameProps) {
     </>
   )
 
+}
+
+
+
+type GameWrapperProps = {
+  imgSrc: string
+}
+
+export default function GameWrapper({ imgSrc }: GameWrapperProps) {
+  return (
+    <DndProvider backend={HTML5Backend}>
+      <Game imgSrc={imgSrc}/>
+    </DndProvider>
+  )
 }

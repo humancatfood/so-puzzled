@@ -1,5 +1,4 @@
 import { createState, movePieceToStage, movePieceToSlot, IGameState, getSlotPiece, getStagePieces } from './logic'
-import GameStateStart from './StartScreen'
 
 
 function assertImmutability(a: IGameState, b: IGameState) {
@@ -12,11 +11,13 @@ function assertImmutability(a: IGameState, b: IGameState) {
 describe('Game Logic', () => {
 
   describe('functions', () => {
+
     it('lets you set up a new empty state', () => {
       const state = createState([])
       expect(getSlotPiece(state, '1')).toEqual(null)
       expect(getStagePieces(state)).toEqual([])
     })
+
 
     it('puts pieces into their correct slot by default', () => {
       const state = createState(['1', '2', '3'])
@@ -25,6 +26,7 @@ describe('Game Logic', () => {
       expect(getSlotPiece(state, '3')).toEqual({ id: '3', left: 0, top: 0 })
       expect(getStagePieces(state)).toEqual([])
     })
+
 
     it('slot -> stage', () => {
       const state1 = createState(['1', '2', '3'])

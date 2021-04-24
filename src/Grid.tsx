@@ -1,32 +1,16 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { ReactElement } from 'react'
 
-import Piece from './Piece'
+import { coordsToId } from './utils'
+
 
 type GridProps = {
-  imgSrc: string
-  width: number,
-  height: number,
-  onLoad: (grid: HTMLTableElement|null) => void
+  width: number
+  height: number
   pieceSizeRatio: number
+  renderSlot: (id: string) => ReactElement
 }
 
-
-/** The grid where the puzzle pieces are placed.
- *  The application flow is set up so that this grid is created & rendered
- *  AFTER the base-image is loaded and displayed. The image's is described in
- *  the css to maintain EXACTLY the shape we need to set up the game around it,
- *  therefore you will find a LOT of references to the image's dimensions here!
- */
-function Grid({ imgSrc, width, height, onLoad, pieceSizeRatio }: GridProps) {
-
-  const tableRef = useRef<HTMLTableElement>(null)
-
-  useEffect(() => {
-    // TODO: make this callback somehow more elegant
-    if (tableRef.current && width && height) {
-      onLoad(tableRef.current)
-    }
-  }, [onLoad, width, height])
+function Grid({ width, height, pieceSizeRatio, renderSlot }: GridProps) {
 
   const desiredPieceSize = Math.min(width, height) / pieceSizeRatio
 
@@ -38,38 +22,23 @@ function Grid({ imgSrc, width, height, onLoad, pieceSizeRatio }: GridProps) {
   const pieceWidth = width / gridWidth
   const pieceHeight = height / gridHeight
 
-  const img = useMemo(() => {
-    const img = new Image(width, height)
-    img.src = imgSrc
-    return img
-  }, [width, height, imgSrc])
-
   return (
-    <table ref={tableRef} className="game-grid">
+    <table className="game-grid">
       <tbody>
         {Array(gridHeight).fill(0).map((_, y) => (
           <tr key={y}>
             {Array(gridWidth).fill(0).map((_, x) => {
-              const id = `${x},${y}`
+              const id = coordsToId(x, y)
               return (
                 <td
                   key={x}
                   className="piece-positioner"
-                  data-id={id} style={{
+                  style={{
                     width: pieceWidth,
                     height: pieceHeight,
                   }}
                 >
-                  <Piece
-                    id={id}
-                    pieceWidth={pieceWidth}
-                    pieceHeight={pieceHeight}
-                    width={width}
-                    height={height}
-                    left={x * pieceWidth * -1}
-                    top={y * pieceHeight * -1}
-                    img={img}
-                  />
+                  {renderSlot(id)}
                 </td>
               )
             })}

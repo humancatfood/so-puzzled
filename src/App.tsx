@@ -12,7 +12,7 @@ export default function App() {
 
   if (isStarted) {
     return (
-      <Game img={img} />
+      <Game imgSrc={img} />
     )
   } else {
     return (

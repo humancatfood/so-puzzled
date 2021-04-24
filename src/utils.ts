@@ -22,3 +22,10 @@ export function useElementSize(element: HTMLElement | null): Size {
   }, [element])
   return size
 }
+
+
+
+
+export function coordsToId (x: number, y: number): string {
+  return `${x}-${y}`
+}
