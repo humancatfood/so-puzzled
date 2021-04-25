@@ -3,6 +3,8 @@ import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import { useElementSize, coordsToId } from './utils'
 
+import { useGameState } from './logic'
+
 import GameGrid from './Grid'
 import Menu from './Menu'
 import Piece from './Piece'
@@ -82,26 +84,45 @@ function Game({ imgSrc }: GameProps) {
     return img
   }, [imgWidth, imgHeight, imgSrc])
 
-  const pieces = getPieces(imgWidth, imgHeight, pieceSizeRatio)
 
-  function renderSlot(id: string): ReactElement {
-    const { width, height, pieceWidth, pieceHeight, left, top } = pieces[id]
-    return (
-      <Slot
-        onDropPiece={id => console.log('drop in slot:', id)}
-      >
-        <Piece
-          id={id}
-          pieceWidth={pieceWidth}
-          pieceHeight={pieceHeight}
-          width={width}
-          height={height}
-          left={left}
-          top={top}
-          img={img}
+  const pieces = useMemo(() => getPieces(imgWidth, imgHeight, pieceSizeRatio), [
+    imgWidth, imgHeight,
+  ])
+
+  const ids = useMemo(() => Object.keys(pieces), [pieces])
+
+  const { getSlotPiece, getStagePieces, movePieceToStage, movePieceToSlot } = useGameState(ids)
+
+  function renderSlot(slotId: string): ReactElement {
+    const piece = getSlotPiece(slotId)
+    const onDropPiece = (pieceId: string) => movePieceToSlot(pieceId, slotId)
+
+    if(piece){
+      const { width, height, pieceWidth, pieceHeight, left, top } = pieces[piece.id]
+      return (
+        <Slot
+          onDropPiece={onDropPiece}
+        >
+          <Piece
+            id={piece.id}
+            pieceWidth={pieceWidth}
+            pieceHeight={pieceHeight}
+            width={width}
+            height={height}
+            left={left}
+            top={top}
+            img={img}
+          />
+        </Slot>
+      )
+    } else {
+      return (
+        <Slot
+          onDropPiece={onDropPiece}
         />
-      </Slot>
-    )
+      )
+
+    }
   }
 
   return (
@@ -109,8 +130,24 @@ function Game({ imgSrc }: GameProps) {
       <Menu toggleHelp={setShowHelp} />
       <div className="game-wrapper" >
         <Stage
-          onDropPiece={id => console.log(`dropped on stage: ${id}`)}
-        />
+          onDropPiece={pieceId => movePieceToStage(pieceId, 0, 0)}
+        >
+          {getStagePieces().map(({ id }) => {
+            const { width, height, pieceWidth, pieceHeight, left, top } = pieces[id]
+            return (
+              <Piece
+                key={id}
+                id={id}
+                pieceWidth={pieceWidth}
+                pieceHeight={pieceHeight}
+                width={width}
+                height={height}
+                left={left}
+                top={top}
+                img={img}
+              />
+            )})}
+        </Stage>
         <div className="grid-wrapper">
           <img
             alt="Kitty"

@@ -40,15 +40,12 @@ export default function Piece({ id, width, height, left, top, img, pieceWidth, p
     <div
       ref={dragRef}
       style={{
-        display: 'block',
-        height: '100%',
-        position: 'relative',
-        // left: offset?.x || 0,
-        // top: offset?.y || 0,
-      }}>
+        width: `${pieceWidth}px`,
+        height: `${pieceHeight}px`,
+      }}
+    >
       {!isDragging && (
         <canvas
-          className="piece-wrapper animated"
           data-id={id}
           ref={canvasRef}
           width={pieceWidth}
