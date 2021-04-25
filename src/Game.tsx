@@ -98,13 +98,14 @@ function Game({ imgSrc }: GameProps) {
     const onDropPiece = (pieceId: string) => movePieceToSlot(pieceId, slotId)
 
     if(piece){
-      const { width, height, pieceWidth, pieceHeight, left, top } = pieces[piece.id]
+      const { id, left: x, top: y } = piece
+      const { width, height, pieceWidth, pieceHeight, left, top } = pieces[id]
       return (
         <Slot
           onDropPiece={onDropPiece}
         >
           <Piece
-            id={piece.id}
+            id={id}
             pieceWidth={pieceWidth}
             pieceHeight={pieceHeight}
             width={width}
@@ -112,6 +113,7 @@ function Game({ imgSrc }: GameProps) {
             left={left}
             top={top}
             img={img}
+            offset={{ x, y }}
           />
         </Slot>
       )
@@ -130,9 +132,9 @@ function Game({ imgSrc }: GameProps) {
       <Menu toggleHelp={setShowHelp} />
       <div className="game-wrapper" >
         <Stage
-          onDropPiece={pieceId => movePieceToStage(pieceId, 0, 0)}
+          onDropPiece={movePieceToStage}
         >
-          {getStagePieces().map(({ id }) => {
+          {getStagePieces().map(({ id, top: y, left: x }) => {
             const { width, height, pieceWidth, pieceHeight, left, top } = pieces[id]
             return (
               <Piece
@@ -145,6 +147,7 @@ function Game({ imgSrc }: GameProps) {
                 left={left}
                 top={top}
                 img={img}
+                offset={{ x, y }}
               />
             )})}
         </Stage>

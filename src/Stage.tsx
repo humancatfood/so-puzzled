@@ -3,7 +3,7 @@ import { useDrop } from 'react-dnd'
 
 
 type StageProps = {
-  onDropPiece: (itemId: string) => void
+  onDropPiece: (itemId: string, top: number, left: number) => void
 }
 
 export default function Stage({ onDropPiece, children }: PropsWithChildren<StageProps>) {
@@ -13,7 +13,10 @@ export default function Stage({ onDropPiece, children }: PropsWithChildren<Stage
     collect: monitor => ({
       isOver: monitor.isOver(),
     }),
-    drop: (item: {id: string}) => onDropPiece(item.id),
+    drop: (item: {id: string}, monitor) => {
+      const offset = monitor.getSourceClientOffset()
+      onDropPiece(item.id, offset?.y ?? 0, offset?.x ?? 0)
+    },
   }))
 
   return (

@@ -11,10 +11,11 @@ type PieceProps = {
   left: number
   top: number
   img: HTMLImageElement
+  offset: {x: number, y: number}
 }
 
 
-export default function Piece({ id, width, height, left, top, img, pieceWidth, pieceHeight }: PieceProps) {
+export default function Piece({ id, width, height, left, top, img, pieceWidth, pieceHeight, offset }: PieceProps) {
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -40,8 +41,11 @@ export default function Piece({ id, width, height, left, top, img, pieceWidth, p
     <div
       ref={dragRef}
       style={{
+        position: 'absolute',
         width: `${pieceWidth}px`,
         height: `${pieceHeight}px`,
+        top: `${offset.y ?? 0}px`,
+        left: `${offset.x ?? 0}px`,
       }}
     >
       {!isDragging && (
