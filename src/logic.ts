@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare let window: any
@@ -228,7 +228,7 @@ export interface IPiece {
 }
 
 export interface IGameState {
-  slots: Record<ID, ID>
+  slots: Record<ID, ID | null>
   stage: Array<IPiece>
 }
 
@@ -246,33 +246,23 @@ export function createState(ids: Array<ID>): IGameState {
 
 export function movePieceToStage(state: IGameState, pieceId: ID, top: number, left: number): IGameState {
 
-  const { [pieceId]: id, ...otherSlots } = state.slots
+  const slots = Object
+    .entries(state.slots)
+    .reduce<Record<ID, ID | null>>((acc, [key, value]) => ({
+      ...acc,
+      [key]: value === pieceId ? null : value,
+    }), {})
 
-  if (id) {
-    return {
-      slots: otherSlots,
-      stage: [
-        ...state.stage,
-        { id, top, left },
-      ],
-    }
-  } else {
-    return {
-      slots: otherSlots,
-      stage: state.stage.map(item => {
-        if (item.id === pieceId) {
-          return {
-            ...item,
-            top,
-            left,
-          }
-        } else {
-          return item
-        }
-      }),
-    }
+  const stage = [
+    ...state.stage.filter(piece => piece.id !== pieceId),
+    {
+      id: pieceId,
+      top,
+      left,
+    },
+  ]
 
-  }
+  return { slots, stage }
 
 }
 
@@ -280,14 +270,18 @@ export function movePieceToStage(state: IGameState, pieceId: ID, top: number, le
 export function movePieceToSlot(state: IGameState, pieceId: ID, slotId: ID): IGameState {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { [pieceId]: id, ...otherSlots } = state.slots
+  const slots = Object
+    .entries(state.slots)
+    .reduce<Record<ID, ID | null>>((acc, [key, value]) => ({
+      ...acc,
+      [key]: key === slotId ? pieceId :
+        value === pieceId ? null :
+          value,
+    }), {})
   const stage = state.stage.filter(piece => piece.id !== pieceId)
 
   return {
-    slots: {
-      ...otherSlots,
-      [slotId]: pieceId,
-    },
+    slots,
     stage,
   }
 
@@ -313,6 +307,9 @@ export function getStagePieces(state: IGameState): Array<IPiece> {
 
 export function useGameState(ids: Array<ID>) {
   const [state, setState] = useState<IGameState>(createState(ids))
+  useEffect(() => {
+    setState(createState(ids))
+  }, [ids])
 
   return {
     getSlotPiece: (slotId: ID) => getSlotPiece(state, slotId),

@@ -56,12 +56,13 @@ describe('Game Logic', () => {
     })
 
 
-    it('stage -> slot', () => {
+    it('stage -> empty slot', () => {
       const state1 = createState(['1', '2', '3'])
 
       const state2 = movePieceToStage(state1, '1', 123, 456)
       const state3 = movePieceToStage(state2, '2', 777, 888)
       const state4 = movePieceToSlot(state3, '1', '2')
+      assertImmutability(state3, state2)
       assertImmutability(state4, state3)
 
       expect(getSlotPiece(state4, '1')).toEqual(null)
@@ -74,24 +75,29 @@ describe('Game Logic', () => {
     })
 
 
-    it('slot -> slot', () => {
+    it('slot -> empty slot', () => {
       const state1 = createState(['1', '2', '3'])
-
-      const state2 = movePieceToSlot(state1, '1', '2')
-      assertImmutability(state2, state1)
-
-      expect(getSlotPiece(state2, '1')).toEqual(null)
-      expect(getSlotPiece(state2, '2')).toEqual({ id: '1', left: 0, top: 0 })
-      expect(getSlotPiece(state2, '3')).toEqual({ id: '3', left: 0, top: 0 })
-      expect(getStagePieces(state2)).toEqual([])
+      const state2 = movePieceToStage(state1, '2', 123, 456)
 
       const state3 = movePieceToSlot(state2, '1', '2')
       assertImmutability(state3, state2)
 
-      expect(getSlotPiece(state2, '1')).toEqual(null)
-      expect(getSlotPiece(state2, '2')).toEqual({ id: '1', left: 0, top: 0 })
-      expect(getSlotPiece(state2, '3')).toEqual({ id: '3', left: 0, top: 0 })
-      expect(getStagePieces(state2)).toEqual([])
+      expect(getSlotPiece(state3, '1')).toEqual(null)
+      expect(getSlotPiece(state3, '2')).toEqual({ id: '1', left: 0, top: 0 })
+      expect(getSlotPiece(state3, '3')).toEqual({ id: '3', left: 0, top: 0 })
+      expect(getStagePieces(state3)).toEqual([
+        { id: '2', top: 123, left: 456 },
+      ])
+
+      const state4 = movePieceToSlot(state3, '1', '1')
+      assertImmutability(state4, state3)
+
+      expect(getSlotPiece(state4, '1')).toEqual({ id: '1', left: 0, top: 0 })
+      expect(getSlotPiece(state4, '2')).toEqual(null)
+      expect(getSlotPiece(state4, '3')).toEqual({ id: '3', left: 0, top: 0 })
+      expect(getStagePieces(state4)).toEqual([
+        { id: '2', top: 123, left: 456 },
+      ])
 
     })
 
@@ -117,29 +123,31 @@ describe('Game Logic', () => {
   describe('hook', () => {
 
     it('lets you set up a new empty state', () => {
-      const { result: { current } } = renderHook(() => useGameState([]))
+      const { result } = renderHook(useGameState, {
+        initialProps: [],
+      })
 
-      expect(current.getSlotPiece('1')).toEqual(null)
-      expect(current.getStagePieces()).toEqual([])
+      expect(result.current.getSlotPiece('1')).toEqual(null)
+      expect(result.current.getStagePieces()).toEqual([])
 
     })
 
 
     it('puts pieces into their correct slot by default', () => {
-      const { result: { current } } = renderHook(() => useGameState([
-        '1', '2', '3',
-      ]))
-      expect(current.getSlotPiece('1')).toEqual({ id: '1', top: 0, left: 0 })
-      expect(current.getSlotPiece('2')).toEqual({ id: '2', top: 0, left: 0 })
-      expect(current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
-      expect(current.getStagePieces()).toEqual([])
+      const { result } = renderHook(useGameState, {
+        initialProps: ['1', '2', '3'],
+      })
+      expect(result.current.getSlotPiece('1')).toEqual({ id: '1', top: 0, left: 0 })
+      expect(result.current.getSlotPiece('2')).toEqual({ id: '2', top: 0, left: 0 })
+      expect(result.current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
+      expect(result.current.getStagePieces()).toEqual([])
     })
 
 
     it('slot -> stage', () => {
-      const { result } = renderHook(() => useGameState([
-        '1', '2', '3',
-      ]))
+      const { result } = renderHook(useGameState, {
+        initialProps: ['1', '2', '3'],
+      })
 
       act(() => {
         result.current.movePieceToStage('1', 0, 0)
@@ -168,9 +176,9 @@ describe('Game Logic', () => {
 
 
     it('stage -> slot', () => {
-      const { result } = renderHook(() => useGameState([
-        '1', '2', '3',
-      ]))
+      const { result } = renderHook(useGameState, {
+        initialProps: ['1', '2', '3'],
+      })
 
       act(() => {
         result.current.movePieceToStage('1', 123, 456)
@@ -188,10 +196,11 @@ describe('Game Logic', () => {
 
     })
 
+
     it('slot -> slot', () => {
-      const { result } = renderHook(() => useGameState([
-        '1', '2', '3',
-      ]))
+      const { result } = renderHook(useGameState, {
+        initialProps: ['1', '2', '3'],
+      })
 
       act(() => {
         result.current.movePieceToSlot('1', '2')
@@ -211,27 +220,62 @@ describe('Game Logic', () => {
       expect(result.current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
       expect(result.current.getStagePieces()).toEqual([])
 
+    })
+
+
+    it('stage -> stage', () => {
+      const { result } = renderHook(useGameState, {
+        initialProps: ['1', '2', '3'],
+      })
+
+      act(() => {
+        result.current.movePieceToStage('1', 987, 654)
+        result.current.movePieceToStage('1', 123, 456)
+      })
+
+      expect(result.current.getSlotPiece('1')).toEqual(null)
+      expect(result.current.getSlotPiece('2')).toEqual({ id: '2', top: 0, left: 0 })
+      expect(result.current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
+      expect(result.current.getStagePieces()).toEqual([
+        { id: '1', top: 123, left: 456 },
+      ])
     })
 
   })
 
+  describe('bugs', () => {
 
-  it('stage -> stage', () => {
-    const { result } = renderHook(() => useGameState([
-      '1', '2', '3',
-    ]))
+    it('stress-testing', () => {
 
-    act(() => {
-      result.current.movePieceToStage('1', 987, 654)
-      result.current.movePieceToStage('1', 123, 456)
+      const { result } = renderHook(useGameState, {
+        initialProps: ['1', '2', '3'],
+      })
+
+      act(() => {
+        result.current.movePieceToStage('1', 10, 20)
+        result.current.movePieceToSlot('1', '1')
+        result.current.movePieceToStage('1', 20, 30)
+        result.current.movePieceToSlot('1', '1')
+      })
+
+      expect(result.current.getSlotPiece('1')).toEqual({ id: '1', top: 0, left: 0 })
+      expect(result.current.getSlotPiece('2')).toEqual({ id: '2', top: 0, left: 0 })
+      expect(result.current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
+      expect(result.current.getStagePieces()).toEqual([])
+
+      act(() => {
+        result.current.movePieceToSlot('1', '3')
+        result.current.movePieceToSlot('2', '1')
+        result.current.movePieceToSlot('1', '2')
+      })
+
+      expect(result.current.getSlotPiece('1')).toEqual({ id: '2', top: 0, left: 0 })
+      expect(result.current.getSlotPiece('2')).toEqual({ id: '1', top: 0, left: 0 })
+      expect(result.current.getSlotPiece('3')).toEqual(null)
+      expect(result.current.getStagePieces()).toEqual([])
+
     })
 
-    expect(result.current.getSlotPiece('1')).toEqual(null)
-    expect(result.current.getSlotPiece('2')).toEqual({ id: '2', top: 0, left: 0 })
-    expect(result.current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
-    expect(result.current.getStagePieces()).toEqual([
-      { id: '1', top: 123, left: 456 },
-    ])
   })
 
 })
