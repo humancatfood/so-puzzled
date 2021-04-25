@@ -1,3 +1,5 @@
+import { useState, useCallback } from 'react'
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare let window: any
 
@@ -306,4 +308,20 @@ export function getSlotPiece(state: IGameState, slotId: ID): IPiece | null {
 
 export function getStagePieces(state: IGameState): Array<IPiece> {
   return state.stage
+}
+
+
+export function useGameState(ids: Array<ID>) {
+  const [state, setState] = useState<IGameState>(createState(ids))
+
+  return {
+    getSlotPiece: (slotId: ID) => getSlotPiece(state, slotId),
+    getStagePieces: () => getStagePieces(state),
+    movePieceToStage: (pieceId: ID, top: number, left: number) => setState(state => {
+      return movePieceToStage(state, pieceId, top, left)
+    }),
+    movePieceToSlot: (pieceId: ID, slotId: ID) => setState(state => {
+      return movePieceToSlot(state, pieceId, slotId)
+    }),
+  }
 }

@@ -1,4 +1,6 @@
-import { createState, movePieceToStage, movePieceToSlot, IGameState, getSlotPiece, getStagePieces } from './logic'
+import { act, renderHook } from '@testing-library/react-hooks'
+
+import { createState, movePieceToStage, movePieceToSlot, IGameState, getSlotPiece, getStagePieces, useGameState } from './logic'
 
 
 function assertImmutability(a: IGameState, b: IGameState) {
@@ -110,6 +112,126 @@ describe('Game Logic', () => {
       ])
     })
 
+  })
+
+  describe('hook', () => {
+
+    it('lets you set up a new empty state', () => {
+      const { result: { current } } = renderHook(() => useGameState([]))
+
+      expect(current.getSlotPiece('1')).toEqual(null)
+      expect(current.getStagePieces()).toEqual([])
+
+    })
+
+
+    it('puts pieces into their correct slot by default', () => {
+      const { result: { current } } = renderHook(() => useGameState([
+        '1', '2', '3',
+      ]))
+      expect(current.getSlotPiece('1')).toEqual({ id: '1', top: 0, left: 0 })
+      expect(current.getSlotPiece('2')).toEqual({ id: '2', top: 0, left: 0 })
+      expect(current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
+      expect(current.getStagePieces()).toEqual([])
+    })
+
+
+    it('slot -> stage', () => {
+      const { result } = renderHook(() => useGameState([
+        '1', '2', '3',
+      ]))
+
+      act(() => {
+        result.current.movePieceToStage('1', 0, 0)
+      })
+
+      expect(result.current.getSlotPiece('1')).toEqual(null)
+      expect(result.current.getSlotPiece('2')).toEqual({ id: '2', top: 0, left: 0 })
+      expect(result.current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
+      expect(result.current.getStagePieces()).toEqual([
+        { id: '1', top: 0, left: 0 },
+      ])
+
+      act(() => {
+        result.current.movePieceToStage('2', 100, 123)
+      })
+
+      expect(result.current.getSlotPiece('1')).toEqual(null)
+      expect(result.current.getSlotPiece('2')).toEqual(null)
+      expect(result.current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
+      expect(result.current.getStagePieces()).toEqual([
+        { id: '1', top: 0, left: 0 },
+        { id: '2', top: 100, left: 123 },
+      ])
+
+    })
+
+
+    it('stage -> slot', () => {
+      const { result } = renderHook(() => useGameState([
+        '1', '2', '3',
+      ]))
+
+      act(() => {
+        result.current.movePieceToStage('1', 123, 456)
+        result.current.movePieceToStage('2', 777, 888)
+        result.current.movePieceToSlot('1', '2')
+      })
+
+
+      expect(result.current.getSlotPiece('1')).toEqual(null)
+      expect(result.current.getSlotPiece('2')).toEqual({ id: '1', top: 0, left: 0 })
+      expect(result.current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
+      expect(result.current.getStagePieces()).toEqual([
+        { id: '2', top: 777, left: 888 },
+      ])
+
+    })
+
+    it('slot -> slot', () => {
+      const { result } = renderHook(() => useGameState([
+        '1', '2', '3',
+      ]))
+
+      act(() => {
+        result.current.movePieceToSlot('1', '2')
+      })
+
+      expect(result.current.getSlotPiece('1')).toEqual(null)
+      expect(result.current.getSlotPiece('2')).toEqual({ id: '1', top: 0, left: 0 })
+      expect(result.current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
+      expect(result.current.getStagePieces()).toEqual([])
+
+      act(() => {
+        result.current.movePieceToSlot('1', '2')
+      })
+
+      expect(result.current.getSlotPiece('1')).toEqual(null)
+      expect(result.current.getSlotPiece('2')).toEqual({ id: '1', top: 0, left: 0 })
+      expect(result.current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
+      expect(result.current.getStagePieces()).toEqual([])
+
+    })
+
+  })
+
+
+  it('stage -> stage', () => {
+    const { result } = renderHook(() => useGameState([
+      '1', '2', '3',
+    ]))
+
+    act(() => {
+      result.current.movePieceToStage('1', 987, 654)
+      result.current.movePieceToStage('1', 123, 456)
+    })
+
+    expect(result.current.getSlotPiece('1')).toEqual(null)
+    expect(result.current.getSlotPiece('2')).toEqual({ id: '2', top: 0, left: 0 })
+    expect(result.current.getSlotPiece('3')).toEqual({ id: '3', top: 0, left: 0 })
+    expect(result.current.getStagePieces()).toEqual([
+      { id: '1', top: 123, left: 456 },
+    ])
   })
 
 })
