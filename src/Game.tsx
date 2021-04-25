@@ -98,7 +98,7 @@ function Game({ imgSrc }: GameProps) {
     const onDropPiece = (pieceId: string) => movePieceToSlot(pieceId, slotId)
 
     if(piece){
-      const { id, left: x, top: y } = piece
+      const { id, top: y, left: x } = piece
       const { width, height, pieceWidth, pieceHeight, left, top } = pieces[id]
       return (
         <Slot

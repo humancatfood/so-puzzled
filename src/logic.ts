@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare let window: any
@@ -221,6 +221,8 @@ export default GameLogic
 
 type ID = string
 
+type PieceMap = Record<ID, IPiece | null>
+
 export interface IPiece {
   id: ID,
   left: number,
@@ -228,16 +230,18 @@ export interface IPiece {
 }
 
 export interface IGameState {
-  slots: Record<ID, ID | null>
+  slots: PieceMap
   stage: Array<IPiece>
 }
 
 
 export function createState(ids: Array<ID>): IGameState {
-  const slots = ids.reduce<Record<ID, ID>>((acc, id) => {
-    acc[id] = id
-    return acc
-  }, {})
+  const slots = ids.reduce<PieceMap>((acc, id) => ({
+    ...acc,
+    [id]: {
+      id, top: 0, left: 0,
+    },
+  }), {})
   return {
     slots,
     stage: [],
@@ -248,9 +252,9 @@ export function movePieceToStage(state: IGameState, pieceId: ID, top: number, le
 
   const slots = Object
     .entries(state.slots)
-    .reduce<Record<ID, ID | null>>((acc, [key, value]) => ({
+    .reduce<PieceMap>((acc, [key, value]) => ({
       ...acc,
-      [key]: value === pieceId ? null : value,
+      [key]: value?.id === pieceId ? null : value,
     }), {})
 
   const stage = [
@@ -272,10 +276,10 @@ export function movePieceToSlot(state: IGameState, pieceId: ID, slotId: ID): IGa
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const slots = Object
     .entries(state.slots)
-    .reduce<Record<ID, ID | null>>((acc, [key, value]) => ({
+    .reduce<PieceMap>((acc, [key, value]) => ({
       ...acc,
-      [key]: key === slotId ? pieceId :
-        value === pieceId ? null :
+      [key]: key === slotId ? { id: pieceId, top: 0, left: 0 } :
+        value?.id === pieceId ? null :
           value,
     }), {})
   const stage = state.stage.filter(piece => piece.id !== pieceId)
@@ -288,16 +292,7 @@ export function movePieceToSlot(state: IGameState, pieceId: ID, slotId: ID): IGa
 }
 
 export function getSlotPiece(state: IGameState, slotId: ID): IPiece | null {
-  const pieceId = state.slots[slotId]
-  if (pieceId) {
-    return {
-      id: pieceId,
-      left: 0,
-      top: 0,
-    }
-  } else {
-    return null
-  }
+  return state.slots[slotId] ?? null
 }
 
 export function getStagePieces(state: IGameState): Array<IPiece> {

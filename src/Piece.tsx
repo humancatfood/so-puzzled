@@ -42,6 +42,9 @@ export default function Piece({ id, width, height, left, top, img, pieceWidth, p
       ref={dragRef}
       style={{
         position: 'absolute',
+        maxWidth: '100%',
+        maxHeight: '100%',
+        overflow: 'hidden',
         width: `${pieceWidth}px`,
         height: `${pieceHeight}px`,
         top: `${offset.y ?? 0}px`,

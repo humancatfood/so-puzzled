@@ -23,9 +23,9 @@ describe('Game Logic', () => {
 
     it('puts pieces into their correct slot by default', () => {
       const state = createState(['1', '2', '3'])
-      expect(getSlotPiece(state, '1')).toEqual({ id: '1', left: 0, top: 0 })
-      expect(getSlotPiece(state, '2')).toEqual({ id: '2', left: 0, top: 0 })
-      expect(getSlotPiece(state, '3')).toEqual({ id: '3', left: 0, top: 0 })
+      expect(getSlotPiece(state, '1')).toEqual({ id: '1', top: 0, left: 0 })
+      expect(getSlotPiece(state, '2')).toEqual({ id: '2', top: 0, left: 0 })
+      expect(getSlotPiece(state, '3')).toEqual({ id: '3', top: 0, left: 0 })
       expect(getStagePieces(state)).toEqual([])
     })
 
@@ -37,10 +37,10 @@ describe('Game Logic', () => {
       assertImmutability(state2, state1)
 
       expect(getSlotPiece(state2, '1')).toEqual(null)
-      expect(getSlotPiece(state2, '2')).toEqual({ id: '2', left: 0, top: 0 })
-      expect(getSlotPiece(state2, '3')).toEqual({ id: '3', left: 0, top: 0 })
+      expect(getSlotPiece(state2, '2')).toEqual({ id: '2', top: 0, left: 0 })
+      expect(getSlotPiece(state2, '3')).toEqual({ id: '3', top: 0, left: 0 })
       expect(getStagePieces(state2)).toEqual([
-        { id: '1', left: 0, top: 0 },
+        { id: '1', top: 0, left: 0 },
       ])
 
       const state3 = movePieceToStage(state2, '2', 100, 123)
@@ -48,7 +48,7 @@ describe('Game Logic', () => {
 
       expect(getSlotPiece(state3, '1')).toEqual(null)
       expect(getSlotPiece(state3, '2')).toEqual(null)
-      expect(getSlotPiece(state3, '3')).toEqual({ id: '3', left: 0, top: 0 })
+      expect(getSlotPiece(state3, '3')).toEqual({ id: '3', top: 0, left: 0 })
       expect(getStagePieces(state3)).toEqual([
         { id: '1', top: 0, left: 0 },
         { id: '2', top: 100, left: 123 },
@@ -66,8 +66,8 @@ describe('Game Logic', () => {
       assertImmutability(state4, state3)
 
       expect(getSlotPiece(state4, '1')).toEqual(null)
-      expect(getSlotPiece(state4, '2')).toEqual({ id: '1', left: 0, top: 0 })
-      expect(getSlotPiece(state4, '3')).toEqual({ id: '3', left: 0, top: 0 })
+      expect(getSlotPiece(state4, '2')).toEqual({ id: '1', top: 0, left: 0 })
+      expect(getSlotPiece(state4, '3')).toEqual({ id: '3', top: 0, left: 0 })
       expect(getStagePieces(state4)).toEqual([
         { id: '2', top: 777, left: 888 },
       ])
@@ -83,8 +83,8 @@ describe('Game Logic', () => {
       assertImmutability(state3, state2)
 
       expect(getSlotPiece(state3, '1')).toEqual(null)
-      expect(getSlotPiece(state3, '2')).toEqual({ id: '1', left: 0, top: 0 })
-      expect(getSlotPiece(state3, '3')).toEqual({ id: '3', left: 0, top: 0 })
+      expect(getSlotPiece(state3, '2')).toEqual({ id: '1', top: 0, left: 0 })
+      expect(getSlotPiece(state3, '3')).toEqual({ id: '3', top: 0, left: 0 })
       expect(getStagePieces(state3)).toEqual([
         { id: '2', top: 123, left: 456 },
       ])
@@ -92,9 +92,9 @@ describe('Game Logic', () => {
       const state4 = movePieceToSlot(state3, '1', '1')
       assertImmutability(state4, state3)
 
-      expect(getSlotPiece(state4, '1')).toEqual({ id: '1', left: 0, top: 0 })
+      expect(getSlotPiece(state4, '1')).toEqual({ id: '1', top: 0, left: 0 })
       expect(getSlotPiece(state4, '2')).toEqual(null)
-      expect(getSlotPiece(state4, '3')).toEqual({ id: '3', left: 0, top: 0 })
+      expect(getSlotPiece(state4, '3')).toEqual({ id: '3', top: 0, left: 0 })
       expect(getStagePieces(state4)).toEqual([
         { id: '2', top: 123, left: 456 },
       ])
@@ -111,8 +111,8 @@ describe('Game Logic', () => {
       assertImmutability(state3, state2)
 
       expect(getSlotPiece(state3, '1')).toEqual(null)
-      expect(getSlotPiece(state3, '2')).toEqual({ id: '2', left: 0, top: 0 })
-      expect(getSlotPiece(state3, '3')).toEqual({ id: '3', left: 0, top: 0 })
+      expect(getSlotPiece(state3, '2')).toEqual({ id: '2', top: 0, left: 0 })
+      expect(getSlotPiece(state3, '3')).toEqual({ id: '3', top: 0, left: 0 })
       expect(getStagePieces(state3)).toEqual([
         { id: '1', top: 123, left: 456 },
       ])
