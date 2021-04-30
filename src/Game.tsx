@@ -6,7 +6,6 @@ import { useElementSize, coordsToId } from './utils'
 import { useGameState } from './logic'
 
 import GameGrid from './Grid'
-import Menu from './Menu'
 import Piece from './Piece'
 import Slot from './Slot'
 import Stage from './Stage'
@@ -67,7 +66,7 @@ function getPieces(width: number, height: number, pieceSizeRatio: number): Recor
 
 function Game({ imgSrc }: GameProps) {
 
-  const [showHelp, setShowHelp] = useState<boolean>(false)
+  const [showHelp] = useState<boolean>(false)
   const [isStarted, setStarted] = useState<boolean>(false)
 
   const imgRef = useRef<HTMLImageElement>(null)
@@ -129,49 +128,46 @@ function Game({ imgSrc }: GameProps) {
 
   return (
     <>
-      <Menu toggleHelp={setShowHelp} />
-      <div className="game-wrapper" >
-        <Stage
-          onDropPiece={movePieceToStage}
-        >
-          {getStagePieces().map(({ id, top: y, left: x }) => {
-            const { width, height, pieceWidth, pieceHeight, left, top } = pieces[id]
-            return (
-              <Piece
-                key={id}
-                id={id}
-                pieceWidth={pieceWidth}
-                pieceHeight={pieceHeight}
-                width={width}
-                height={height}
-                left={left}
-                top={top}
-                img={img}
-                offset={{ x, y }}
-              />
-            )})}
-        </Stage>
-        <div className="grid-wrapper">
-          <img
-            alt="Kitty"
-            src={imgSrc}
-            className={`
+      <Stage
+        onDropPiece={movePieceToStage}
+      >
+        {getStagePieces().map(({ id, top: y, left: x }) => {
+          const { width, height, pieceWidth, pieceHeight, left, top } = pieces[id]
+          return (
+            <Piece
+              key={id}
+              id={id}
+              pieceWidth={pieceWidth}
+              pieceHeight={pieceHeight}
+              width={width}
+              height={height}
+              left={left}
+              top={top}
+              img={img}
+              offset={{ x, y }}
+            />
+          )})}
+      </Stage>
+      <div className="grid-wrapper">
+        <img
+          alt="Kitty"
+          src={imgSrc}
+          className={`
               base-img
               ${isStarted ? 'transparent' : ''}
               ${showHelp ? 'semi-transparent' : ''}
             `}
-            ref={imgRef}
-            onLoad={onLoadImage}
+          ref={imgRef}
+          onLoad={onLoadImage}
+        />
+        {isStarted && (
+          <GameGrid
+            width={imgWidth}
+            height={imgHeight}
+            pieceSizeRatio={pieceSizeRatio}
+            renderSlot={renderSlot}
           />
-          {isStarted && (
-            <GameGrid
-              width={imgWidth}
-              height={imgHeight}
-              pieceSizeRatio={pieceSizeRatio}
-              renderSlot={renderSlot}
-            />
-          )}
-        </div>
+        )}
       </div>
     </>
   )
