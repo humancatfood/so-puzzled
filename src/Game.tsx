@@ -7,6 +7,7 @@ import { useGameState } from './logic'
 
 import GameGrid from './Grid'
 import Piece from './Piece'
+import ReferenceImage from './ReferenceImage'
 import Slot from './Slot'
 import Stage from './Stage'
 
@@ -67,15 +68,15 @@ function getPieces(width: number, height: number, pieceSizeRatio: number): Recor
 function Game({ imgSrc }: GameProps) {
 
   const [showHelp] = useState<boolean>(false)
+
   const [isStarted, setStarted] = useState<boolean>(false)
 
-  const imgRef = useRef<HTMLImageElement>(null)
+  const [{ width: imgWidth, height: imgHeight }, setImageSize] = useState<{width: number, height: number}>({ width: 0, height: 0 })
 
-  const [imgWidth, imgHeight] = useElementSize(imgRef.current)
-
-  const onLoadImage = () => setTimeout (function () {
-    setStarted(true)
-  }, 2000)
+  const onLoadReferenceImage = () =>
+    setTimeout(function () {
+      setStarted(true)
+    }, 2000)
 
   const img = useMemo(() => {
     const img = new Image(imgWidth, imgHeight)
@@ -149,16 +150,12 @@ function Game({ imgSrc }: GameProps) {
           )})}
       </Stage>
       <div className="grid-wrapper">
-        <img
-          alt="Kitty"
-          src={imgSrc}
-          className={`
-              base-img
-              ${isStarted ? 'transparent' : ''}
-              ${showHelp ? 'semi-transparent' : ''}
-            `}
-          ref={imgRef}
-          onLoad={onLoadImage}
+        <ReferenceImage
+          imgSrc={imgSrc}
+          transparent={isStarted}
+          semiTransparent={showHelp}
+          onLoad={() => onLoadReferenceImage()}
+          onResize={setImageSize}
         />
         {isStarted && (
           <GameGrid
