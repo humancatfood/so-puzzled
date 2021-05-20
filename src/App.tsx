@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
+import Game from './Game'
+import StartScreen from './StartScreen'
 import img from './images/kitty.jpg'
 
-import StartScreen from './StartScreen'
-import Game from './Game'
 
 
 export default function App() {
