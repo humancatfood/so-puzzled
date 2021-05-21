@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react'
-import { useElementSize } from './utils'
+import { useElementSize } from '../utils'
 
 type Dimensions = {
   width: number

@@ -9,7 +9,7 @@ import ReferenceImage from './ReferenceImage'
 import Slot from './Slot'
 import Stage from './Stage'
 import { useGameState, getGridDimensions, getIds } from './logic'
-import { coordsToId } from './utils'
+import { coordsToId } from '../utils'
 
 type GameProps = {
   imgSrc: string

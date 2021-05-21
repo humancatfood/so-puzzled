@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 
-import { coordsToId } from './utils'
+import { coordsToId } from '../utils'
 
 
 type GridProps = {

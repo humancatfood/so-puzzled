@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { coordsToId } from './utils'
+import { coordsToId } from '../utils'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare let window: any

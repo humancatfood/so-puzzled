@@ -2,7 +2,7 @@ import { act, renderHook } from '@testing-library/react-hooks'
 
 import { createState, movePieceToStage, movePieceToSlot, IGameState, getSlotPiece, getStagePieces, useGameState,
   getGridDimensions, getIds } from './logic'
-import { coordsToId } from './utils'
+import { coordsToId } from '../utils'
 
 
 function assertImmutability(a: IGameState, b: IGameState) {
