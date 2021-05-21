@@ -1,13 +1,11 @@
 import { ReactElement } from 'react'
 
-import { coordsToId } from '../utils'
-
 
 type GridProps = {
   width: number
   height: number
   pieceSizeRatio: number
-  renderSlot: (id: string) => ReactElement
+  renderSlot: (x: number, y: number) => ReactElement
 }
 
 function Grid({ width, height, pieceSizeRatio, renderSlot }: GridProps) {
@@ -28,7 +26,6 @@ function Grid({ width, height, pieceSizeRatio, renderSlot }: GridProps) {
         {Array(gridHeight).fill(0).map((_, y) => (
           <tr key={y}>
             {Array(gridWidth).fill(0).map((_, x) => {
-              const id = coordsToId(x, y)
               return (
                 <td
                   key={x}
@@ -38,7 +35,7 @@ function Grid({ width, height, pieceSizeRatio, renderSlot }: GridProps) {
                     height: pieceHeight,
                   }}
                 >
-                  {renderSlot(id)}
+                  {renderSlot(x, y)}
                 </td>
               )
             })}

@@ -16,50 +16,49 @@ type GameProps = {
   difficulty: number
 }
 
-type PieceParams = {
-  id: string
+type GameInfo = {
   pieceWidth: number
   pieceHeight: number
   width: number
   height: number
-  left: number
-  top: number
+}
+
+type PieceParams = {
+  x: number
+  y: number
 }
 
 function getPieces(
-  width: number,
-  height: number,
   numCols: number,
   numRows: number,
 ): Record<string, PieceParams> {
   const pieces: Record<string, PieceParams> = {}
-
-  if (!width || !height) {
-    return pieces
+  for (let y = 0; y < numRows; y += 1) {
+    for (let x = 0; x < numCols; x += 1) {
+      const id = coordsToId(x, y)
+      pieces[id] = { x, y }
+    }
   }
+  return pieces
+}
+
+function getGameInfo(
+  width: number,
+  height: number,
+  difficulty: number,
+): GameInfo {
+
+  const { numRows, numCols } = getGridDimensions(width, height, difficulty)
 
   const pieceWidth = width / numCols
   const pieceHeight = height / numRows
 
-  Array(numRows)
-    .fill(0)
-    .forEach((_, y) => {
-      Array(numCols)
-        .fill(0)
-        .forEach((_, x) => {
-          const id = coordsToId(x, y)
-          pieces[id] = {
-            id,
-            pieceWidth,
-            pieceHeight,
-            width,
-            height,
-            left: x * pieceWidth * -1,
-            top: y * pieceHeight * -1,
-          }
-        })
-    })
-  return pieces
+  return {
+    pieceWidth,
+    pieceHeight,
+    width,
+    height,
+  }
 }
 
 function Game({ imgSrc, difficulty = 2 }: GameProps) {
@@ -81,6 +80,8 @@ function Game({ imgSrc, difficulty = 2 }: GameProps) {
     return img
   }, [imgWidth, imgHeight, imgSrc])
 
+  const gameInfo = getGameInfo(imgWidth, imgHeight, difficulty)
+
   const { numCols, numRows } = useMemo(
     () => getGridDimensions(imgWidth, imgHeight, difficulty),
     [imgWidth, imgHeight, difficulty],
@@ -89,19 +90,21 @@ function Game({ imgSrc, difficulty = 2 }: GameProps) {
   const ids = useMemo(() => getIds(numRows, numCols), [numCols, numRows])
 
   const pieces = useMemo(
-    () => getPieces(imgWidth, imgHeight, numCols, numRows),
-    [imgWidth, imgHeight, numCols, numRows],
+    () => getPieces(numCols, numRows),
+    [numCols, numRows],
   )
 
   const { getSlotPiece, getStagePieces, movePieceToStage, movePieceToSlot } = useGameState(ids)
 
-  function renderSlot(slotId: string): ReactElement {
-    const piece = getSlotPiece(slotId)
+  function renderSlot(x: number, y: number): ReactElement {
+    const slotId = coordsToId(x, y)
+    const pieceInSlot = getSlotPiece(slotId)
     const onDropPiece = (pieceId: string) => movePieceToSlot(pieceId, slotId)
 
-    if (piece) {
-      const { id, top: y, left: x } = piece
-      const { width, height, pieceWidth, pieceHeight, left, top } = pieces[id]
+    if (pieceInSlot) {
+      const { id } = pieceInSlot
+      const { x, y } = pieces[id]
+      const { width, height, pieceWidth, pieceHeight } = gameInfo
       return (
         <Slot onDropPiece={onDropPiece}>
           <Piece
@@ -110,10 +113,10 @@ function Game({ imgSrc, difficulty = 2 }: GameProps) {
             pieceHeight={pieceHeight}
             width={width}
             height={height}
-            left={left}
-            top={top}
+            left={x * pieceWidth * -1}
+            top={y * pieceHeight * -1}
             img={img}
-            offset={{ x, y }}
+            offset={{ x: 0, y: 0 }}
           />
         </Slot>
       )
@@ -142,9 +145,9 @@ function Game({ imgSrc, difficulty = 2 }: GameProps) {
           />
         )}
       </div>
-      {getStagePieces().map(({ id, top: y, left: x }) => {
-        const { width, height, pieceWidth, pieceHeight, left, top } =
-            pieces[id]
+      {getStagePieces().map(({ id, top, left }) => {
+        const { width, height, pieceWidth, pieceHeight } = gameInfo
+        const { x, y } = pieces[id]
         return (
           <Piece
             key={id}
@@ -153,10 +156,10 @@ function Game({ imgSrc, difficulty = 2 }: GameProps) {
             pieceHeight={pieceHeight}
             width={width}
             height={height}
-            left={left}
-            top={top}
+            left={x * pieceWidth * -1}
+            top={y * pieceHeight * -1}
             img={img}
-            offset={{ x, y }}
+            offset={{ x: left, y: top }}
           />
         )
       })}
