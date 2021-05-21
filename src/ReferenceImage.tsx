@@ -1,4 +1,4 @@
-import { useRef, useEffect } from'react'
+import { useRef, useEffect } from 'react'
 import { useElementSize } from './utils'
 
 type Dimensions = {
@@ -23,10 +23,7 @@ export default function ReferenceImage(props: ReferenceImageProps) {
 
   const [width, height] = useElementSize(imgRef.current)
 
-  useEffect(() => {
-    console.log('calling onResize', width, height)
-    onResize({ width, height })
-  }, [onResize, width, height])
+  useEffect(() => onResize({ width, height }), [onResize, width, height])
 
   return (
     <img

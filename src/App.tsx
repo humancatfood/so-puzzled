@@ -8,11 +8,11 @@ import img from './images/kitty.jpg'
 
 export default function App() {
 
-  const [isStarted, setStarted] = useState<boolean>(false)
+  const [isStarted, setStarted] = useState<boolean>(true)
 
   if (isStarted) {
     return (
-      <Game imgSrc={img} />
+      <Game imgSrc={img} difficulty={2} />
     )
   } else {
     return (

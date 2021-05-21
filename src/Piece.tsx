@@ -49,6 +49,7 @@ export default function Piece({ id, width, height, left, top, img, pieceWidth, p
         height: `${pieceHeight}px`,
         top: `${offset.y ?? 0}px`,
         left: `${offset.x ?? 0}px`,
+        cursor: isDragging ? 'grabbing' : 'grab',
       }}
     >
       {!isDragging && (

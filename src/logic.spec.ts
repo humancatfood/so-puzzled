@@ -1,13 +1,14 @@
 import { act, renderHook } from '@testing-library/react-hooks'
 
-import { createState, movePieceToStage, movePieceToSlot, IGameState, getSlotPiece, getStagePieces, useGameState } from './logic'
+import { createState, movePieceToStage, movePieceToSlot, IGameState, getSlotPiece, getStagePieces, useGameState,
+  getGridDimensions, getIds } from './logic'
+import { coordsToId } from './utils'
 
 
 function assertImmutability(a: IGameState, b: IGameState) {
   expect(b).not.toBe(a)
   expect(b.slots).not.toBe(a.slots)
   expect(b.stage).not.toBe(a.stage)
-
 }
 
 describe('Game Logic', () => {
@@ -278,4 +279,41 @@ describe('Game Logic', () => {
 
   })
 
+})
+
+describe('Grid Calculations', () => {
+  it('calculates grid-dimension', () => {
+    expect(getGridDimensions(100, 50, 2)).toEqual({ numRows: 2, numCols: 4 })
+    expect(getGridDimensions(200, 100, 2)).toEqual({ numRows: 2, numCols: 4 })
+    expect(getGridDimensions(100, 100, 2)).toEqual({ numRows: 2, numCols: 2 })
+    expect(getGridDimensions(100, 150, 2)).toEqual({ numRows: 3, numCols: 2 })
+    expect(getGridDimensions(100, 75, 2)).toEqual({ numRows: 2, numCols: 3 })
+  })
+})
+
+describe('Ids', () => {
+  it('gets ids', () => {
+    expect(getIds(0, 0)).toEqual([])
+    expect(getIds(2, 0)).toEqual([])
+    expect(getIds(0, 4)).toEqual([])
+
+    expect(getIds(1, 1)).toEqual([coordsToId(0, 0)])
+
+    expect(getIds(1, 2)).toEqual([
+      coordsToId(0, 0),
+      coordsToId(1, 0),
+    ])
+
+    expect(getIds(2, 1)).toEqual([
+      coordsToId(0, 0),
+      coordsToId(0, 1),
+    ])
+
+    expect(getIds(2, 2)).toEqual([
+      coordsToId(0, 0),
+      coordsToId(1, 0),
+      coordsToId(0, 1),
+      coordsToId(1, 1),
+    ])
+  })
 })

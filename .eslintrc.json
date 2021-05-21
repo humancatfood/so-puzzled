@@ -60,6 +60,9 @@
         "ignoreEOLComments": true
       }
     ],
+    "space-before-blocks": "error",
+    "keyword-spacing": "error",
+    "semi-spacing": "error",
     "no-unused-expressions": "error",
     "arrow-spacing": "error"
   }

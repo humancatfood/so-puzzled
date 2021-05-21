@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { coordsToId } from './utils'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare let window: any
@@ -223,6 +224,11 @@ type ID = string
 
 type PieceMap = Record<ID, IPiece | null>
 
+type GridDimensions = {
+  numRows: number
+  numCols: number
+}
+
 export interface IPiece {
   id: ID,
   left: number,
@@ -316,4 +322,22 @@ export function useGameState(ids: Array<ID>) {
       return movePieceToSlot(state, pieceId, slotId)
     }),
   }
+}
+
+export function getGridDimensions(width: number, height: number, ratio: number): GridDimensions {
+  const pieceSize = Math.min(width, height) / ratio
+  return {
+    numRows: Math.round(height / pieceSize),
+    numCols: Math.round(width / pieceSize),
+  }
+}
+
+export function getIds(numRows: number, numCols: number): Array<ID> {
+  const ids = []
+  for (let y = 0; y < numRows; y++) {
+    for (let x = 0; x < numCols; x++) {
+      ids.push(coordsToId(x, y))
+    }
+  }
+  return ids
 }

@@ -8,13 +8,12 @@ import Piece from './Piece'
 import ReferenceImage from './ReferenceImage'
 import Slot from './Slot'
 import Stage from './Stage'
-import { useGameState, getNumRows, getNumCols } from './logic'
+import { useGameState, getGridDimensions, getIds } from './logic'
 import { coordsToId } from './utils'
-
-const pieceSizeRatio = 2
 
 type GameProps = {
   imgSrc: string
+  difficulty: number
 }
 
 type PieceParams = {
@@ -27,43 +26,43 @@ type PieceParams = {
   top: number
 }
 
-
-function getPieces(width: number, height: number, pieceSizeRatio: number): Record<string, PieceParams> {
-
+function getPieces(
+  width: number,
+  height: number,
+  numCols: number,
+  numRows: number,
+): Record<string, PieceParams> {
   const pieces: Record<string, PieceParams> = {}
 
   if (!width || !height) {
     return pieces
   }
 
-  const desiredPieceSize = Math.min(width, height) / pieceSizeRatio
-
-  const numCols = Math.round(width / desiredPieceSize)
-  const numRows = Math.round(height / desiredPieceSize)
-
   const pieceWidth = width / numCols
   const pieceHeight = height / numRows
 
-
-  Array(numRows).fill(0).forEach((_, y) => {
-    Array(numCols).fill(0).forEach((_, x) => {
-      const id = coordsToId(x, y)
-      pieces[id] = {
-        id,
-        pieceWidth,
-        pieceHeight,
-        width,
-        height,
-        left: x * pieceWidth * -1,
-        top: y * pieceHeight * -1,
-      }
+  Array(numRows)
+    .fill(0)
+    .forEach((_, y) => {
+      Array(numCols)
+        .fill(0)
+        .forEach((_, x) => {
+          const id = coordsToId(x, y)
+          pieces[id] = {
+            id,
+            pieceWidth,
+            pieceHeight,
+            width,
+            height,
+            left: x * pieceWidth * -1,
+            top: y * pieceHeight * -1,
+          }
+        })
     })
-  })
   return pieces
-
 }
 
-function Game({ imgSrc }: GameProps) {
+function Game({ imgSrc, difficulty = 2 }: GameProps) {
 
   const [showHelp] = useState<boolean>(false)
 
@@ -82,12 +81,17 @@ function Game({ imgSrc }: GameProps) {
     return img
   }, [imgWidth, imgHeight, imgSrc])
 
+  const { numCols, numRows } = useMemo(
+    () => getGridDimensions(imgWidth, imgHeight, difficulty),
+    [imgWidth, imgHeight, difficulty],
+  )
 
-  const pieces = useMemo(() => getPieces(imgWidth, imgHeight, pieceSizeRatio), [
-    imgWidth, imgHeight,
-  ])
+  const ids = useMemo(() => getIds(numRows, numCols), [numCols, numRows])
 
-  const ids = useMemo(() => Object.keys(pieces), [pieces])
+  const pieces = useMemo(
+    () => getPieces(imgWidth, imgHeight, numCols, numRows),
+    [imgWidth, imgHeight, numCols, numRows],
+  )
 
   const { getSlotPiece, getStagePieces, movePieceToStage, movePieceToSlot } = useGameState(ids)
 
@@ -95,13 +99,11 @@ function Game({ imgSrc }: GameProps) {
     const piece = getSlotPiece(slotId)
     const onDropPiece = (pieceId: string) => movePieceToSlot(pieceId, slotId)
 
-    if(piece){
+    if (piece) {
       const { id, top: y, left: x } = piece
       const { width, height, pieceWidth, pieceHeight, left, top } = pieces[id]
       return (
-        <Slot
-          onDropPiece={onDropPiece}
-        >
+        <Slot onDropPiece={onDropPiece}>
           <Piece
             id={id}
             pieceWidth={pieceWidth}
@@ -116,37 +118,13 @@ function Game({ imgSrc }: GameProps) {
         </Slot>
       )
     } else {
-      return (
-        <Slot
-          onDropPiece={onDropPiece}
-        />
-      )
-
+      return <Slot onDropPiece={onDropPiece} />
     }
   }
 
   return (
     <>
-      <Stage
-        onDropPiece={movePieceToStage}
-      >
-        {getStagePieces().map(({ id, top: y, left: x }) => {
-          const { width, height, pieceWidth, pieceHeight, left, top } = pieces[id]
-          return (
-            <Piece
-              key={id}
-              id={id}
-              pieceWidth={pieceWidth}
-              pieceHeight={pieceHeight}
-              width={width}
-              height={height}
-              left={left}
-              top={top}
-              img={img}
-              offset={{ x, y }}
-            />
-          )})}
-      </Stage>
+      <Stage onDropPiece={movePieceToStage} />
       <div className="grid-wrapper">
         <ReferenceImage
           imgSrc={imgSrc}
@@ -159,26 +137,37 @@ function Game({ imgSrc }: GameProps) {
           <GameGrid
             width={imgWidth}
             height={imgHeight}
-            pieceSizeRatio={pieceSizeRatio}
+            pieceSizeRatio={difficulty}
             renderSlot={renderSlot}
           />
         )}
       </div>
+      {getStagePieces().map(({ id, top: y, left: x }) => {
+        const { width, height, pieceWidth, pieceHeight, left, top } =
+            pieces[id]
+        return (
+          <Piece
+            key={id}
+            id={id}
+            pieceWidth={pieceWidth}
+            pieceHeight={pieceHeight}
+            width={width}
+            height={height}
+            left={left}
+            top={top}
+            img={img}
+            offset={{ x, y }}
+          />
+        )
+      })}
     </>
   )
-
 }
 
-
-
-type GameWrapperProps = {
-  imgSrc: string
-}
-
-export default function GameWrapper({ imgSrc }: GameWrapperProps) {
+export default function GameWrapper(props: GameProps) {
   return (
     <DndProvider backend={HTML5Backend}>
-      <Game imgSrc={imgSrc}/>
+      <Game {...props} />
     </DndProvider>
   )
 }
