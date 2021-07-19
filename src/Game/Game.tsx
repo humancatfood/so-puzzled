@@ -2,14 +2,13 @@ import { useMemo, useState, ReactElement } from 'react'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 
-
 import GameGrid from './Grid'
 import Piece from './Piece'
 import ReferenceImage from './ReferenceImage'
 import Slot from './Slot'
 import Stage from './Stage'
-import { useGameState, getGridDimensions, getIds } from './logic'
-import { coordsToId } from '../utils'
+import { useGameState, getGridDimensions, getIds, coordsToId } from './logic'
+
 
 type GameProps = {
   imgSrc: string
