@@ -3,7 +3,11 @@ type GridDimensions = {
   numCols: number
 }
 
-export function getGridDimensions(width: number, height: number, ratio: number): GridDimensions {
+export function getGridDimensions(
+  width: number,
+  height: number,
+  ratio: number,
+): GridDimensions {
   const pieceSize = Math.min(width, height) / ratio
   return {
     numRows: Math.round(height / pieceSize),

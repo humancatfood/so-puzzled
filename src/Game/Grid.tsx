@@ -1,6 +1,5 @@
 import { ReactElement } from 'react'
 
-
 type GridProps = {
   width: number
   height: number
@@ -9,7 +8,6 @@ type GridProps = {
 }
 
 function Grid({ width, height, pieceSizeRatio, renderSlot }: GridProps) {
-
   const desiredPieceSize = Math.min(width, height) / pieceSizeRatio
 
   // Here we calculate how many rows and columns we can make from those sizes ..
@@ -23,38 +21,36 @@ function Grid({ width, height, pieceSizeRatio, renderSlot }: GridProps) {
   return (
     <table className="game-grid">
       <tbody>
-        {Array(gridHeight).fill(0).map((_, y) => (
-          <tr key={y}>
-            {Array(gridWidth).fill(0).map((_, x) => {
-              return (
-                <td
-                  key={x}
-                  className="piece-positioner"
-                  style={{
-                    width: pieceWidth,
-                    height: pieceHeight,
-                  }}
-                >
-                  {renderSlot(x, y)}
-                </td>
-              )
-            })}
-          </tr>
-        ))}
+        {Array(gridHeight)
+          .fill(0)
+          .map((_, y) => (
+            <tr key={y}>
+              {Array(gridWidth)
+                .fill(0)
+                .map((_, x) => {
+                  return (
+                    <td
+                      key={x}
+                      className="piece-positioner"
+                      style={{
+                        width: pieceWidth,
+                        height: pieceHeight,
+                      }}
+                    >
+                      {renderSlot(x, y)}
+                    </td>
+                  )
+                })}
+            </tr>
+          ))}
       </tbody>
     </table>
   )
-
 }
-
 
 export default function ConditionalGrid(props: GridProps) {
   if (!props.width || !props.height) {
     return null
   }
-  return (
-    <Grid
-      {...props}
-    />
-  )
+  return <Grid {...props} />
 }

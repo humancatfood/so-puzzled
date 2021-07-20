@@ -9,7 +9,6 @@ import Slot from './Slot'
 import Stage from './Stage'
 import { useGameState, getGridDimensions, getIds, coordsToId } from './logic'
 
-
 type GameProps = {
   imgSrc: string
   difficulty: number
@@ -46,7 +45,6 @@ function getGameInfo(
   height: number,
   difficulty: number,
 ): GameInfo {
-
   const { numRows, numCols } = getGridDimensions(width, height, difficulty)
 
   const pieceWidth = width / numCols
@@ -61,12 +59,14 @@ function getGameInfo(
 }
 
 function Game({ imgSrc, difficulty = 2 }: GameProps) {
-
   const [showHelp] = useState<boolean>(false)
 
   const [isStarted, setStarted] = useState<boolean>(false)
 
-  const [{ width: imgWidth, height: imgHeight }, setImageSize] = useState<{width: number, height: number}>({ width: 0, height: 0 })
+  const [{ width: imgWidth, height: imgHeight }, setImageSize] = useState<{
+    width: number
+    height: number
+  }>({ width: 0, height: 0 })
 
   const onLoadReferenceImage = () =>
     setTimeout(function () {
@@ -88,12 +88,10 @@ function Game({ imgSrc, difficulty = 2 }: GameProps) {
 
   const ids = useMemo(() => getIds(numRows, numCols), [numCols, numRows])
 
-  const pieces = useMemo(
-    () => getPieces(numCols, numRows),
-    [numCols, numRows],
-  )
+  const pieces = useMemo(() => getPieces(numCols, numRows), [numCols, numRows])
 
-  const { getSlotPiece, getStagePieces, movePieceToStage, movePieceToSlot } = useGameState(ids)
+  const { getSlotPiece, getStagePieces, movePieceToStage, movePieceToSlot } =
+    useGameState(ids)
 
   function renderSlot(x: number, y: number): ReactElement {
     const slotId = coordsToId(x, y)

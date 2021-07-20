@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useDrag } from 'react-dnd'
 
-
 type PieceProps = {
   id: string
   width: number
@@ -11,12 +10,20 @@ type PieceProps = {
   left: number
   top: number
   img: HTMLImageElement
-  offset: {x: number, y: number}
+  offset: { x: number; y: number }
 }
 
-
-export default function Piece({ id, width, height, left, top, img, pieceWidth, pieceHeight, offset }: PieceProps) {
-
+export default function Piece({
+  id,
+  width,
+  height,
+  left,
+  top,
+  img,
+  pieceWidth,
+  pieceHeight,
+  offset,
+}: PieceProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   const [{ isDragging }, dragRef] = useDrag({
@@ -62,5 +69,4 @@ export default function Piece({ id, width, height, left, top, img, pieceWidth, p
       )}
     </div>
   )
-
 }

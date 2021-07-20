@@ -1,10 +1,8 @@
 type ID = string
 
-
-export function coordsToId (x: number, y: number): ID {
+export function coordsToId(x: number, y: number): ID {
   return `${x}-${y}`
 }
-
 
 export function getIds(numRows: number, numCols: number): Array<ID> {
   const ids = []

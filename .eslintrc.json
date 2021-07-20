@@ -1,13 +1,15 @@
 {
+  "env": {
+    "es6": true,
+    "browser": true,
+    "es2021": true
+  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2019,
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react-hooks"
-  ],
+  "plugins": ["@typescript-eslint", "react-hooks", "prettier"],
   "extends": [
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended"
@@ -28,35 +30,27 @@
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/type-annotation-spacing": "error",
-    "quotes": [
+    "quotes": ["warn", "single"],
+    "object-curly-spacing": ["warn", "always"],
+    "indent": ["warn", 2, { "SwitchCase": 1 }],
+    "semi": ["error", "never"],
+    "comma-dangle": [
       "warn",
-      "single"
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "always-multiline"
+      }
     ],
-    "object-curly-spacing": [
-      "warn",
-      "always"
-    ],
-    "indent": [
-      "warn",
-      2,
-      {"SwitchCase": 1}
-    ],
-    "semi": [
-      "error",
-      "never"
-    ],
-    "comma-dangle": ["warn", {
-      "arrays": "always-multiline",
-      "objects": "always-multiline",
-      "imports": "always-multiline",
-      "exports": "always-multiline",
-      "functions": "always-multiline"
-    }],
     "comma-spacing": "warn",
     "key-spacing": "warn",
     "space-in-parens": "error",
     "space-infix-ops": "error",
-    "no-multi-spaces": ["error", {
+    "no-multi-spaces": [
+      "error",
+      {
         "ignoreEOLComments": true
       }
     ],

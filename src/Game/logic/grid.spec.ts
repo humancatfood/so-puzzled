@@ -1,6 +1,4 @@
-
 import { getGridDimensions } from './grid'
-
 
 describe('Grid Calculations', () => {
   it('calculates grid-dimension', () => {

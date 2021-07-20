@@ -14,9 +14,7 @@ type ReferenceImageProps = {
   onLoad: () => void
 }
 
-
 export default function ReferenceImage(props: ReferenceImageProps) {
-
   const { imgSrc, onResize, onLoad, transparent, semiTransparent } = props
 
   const imgRef = useRef<HTMLImageElement>(null)
@@ -38,5 +36,4 @@ export default function ReferenceImage(props: ReferenceImageProps) {
       onLoad={onLoad}
     />
   )
-
 }

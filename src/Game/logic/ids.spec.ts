@@ -8,15 +8,9 @@ describe('Ids', () => {
 
     expect(getIds(1, 1)).toEqual([coordsToId(0, 0)])
 
-    expect(getIds(1, 2)).toEqual([
-      coordsToId(0, 0),
-      coordsToId(1, 0),
-    ])
+    expect(getIds(1, 2)).toEqual([coordsToId(0, 0), coordsToId(1, 0)])
 
-    expect(getIds(2, 1)).toEqual([
-      coordsToId(0, 0),
-      coordsToId(0, 1),
-    ])
+    expect(getIds(2, 1)).toEqual([coordsToId(0, 0), coordsToId(0, 1)])
 
     expect(getIds(2, 2)).toEqual([
       coordsToId(0, 0),

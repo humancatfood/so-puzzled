@@ -1,19 +1,20 @@
 import { PropsWithChildren } from 'react'
 import { useDrop } from 'react-dnd'
 
-
 type SlotProps = {
   onDropPiece: (itemId: string) => void
 }
 
-export default function Slot({ onDropPiece, children }: PropsWithChildren<SlotProps>) {
-
+export default function Slot({
+  onDropPiece,
+  children,
+}: PropsWithChildren<SlotProps>) {
   const [{ isOver }, dropRef] = useDrop(() => ({
     accept: 'piece',
     collect: monitor => ({
       isOver: monitor.isOver(),
     }),
-    drop: (item: {id: string}) => onDropPiece(item.id),
+    drop: (item: { id: string }) => onDropPiece(item.id),
   }))
 
   return (
@@ -28,5 +29,4 @@ export default function Slot({ onDropPiece, children }: PropsWithChildren<SlotPr
       {children}
     </div>
   )
-
 }
