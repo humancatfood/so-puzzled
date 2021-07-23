@@ -63,23 +63,28 @@ export function movePieceToSlot(
   slotId: ID,
 ): IGameState {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const slots = Object.entries(state.slots).reduce<PieceMap>(
-    (acc, [key, value]) => ({
-      ...acc,
-      [key]:
-        key === slotId
-          ? { id: pieceId, top: 0, left: 0 }
-          : value?.id === pieceId
-            ? null
-            : value,
-    }),
-    {},
+
+  const currentOccupant = getSlotPiece(state, slotId)
+
+  if (currentOccupant) {
+    state = movePieceToStage(state, currentOccupant.id, 0, 0)
+  }
+
+  const slotsEntries = Object.entries(state.slots).map(
+    ([slotKey, slotPiece]) => {
+      if (slotPiece?.id === pieceId) {
+        return [slotKey, null]
+      } else if (slotKey === slotId) {
+        return [slotKey, { id: pieceId, top: 0, left: 0 }]
+      } else {
+        return [slotKey, slotPiece]
+      }
+    },
   )
-  const stage = state.stage.filter(piece => piece.id !== pieceId)
 
   return {
-    slots,
-    stage,
+    slots: Object.fromEntries(slotsEntries),
+    stage: state.stage.filter(piece => piece.id !== pieceId),
   }
 }
 

@@ -80,6 +80,8 @@ describe('Game Logic as hook', () => {
       left: 0,
     })
     expect(result.current.getSlotPiece('3')).toEqual(null)
-    expect(result.current.getStagePieces()).toEqual([])
+    expect(result.current.getStagePieces()).toEqual([
+      expect.objectContaining({ id: '3' }),
+    ])
   })
 })

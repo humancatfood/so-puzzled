@@ -104,4 +104,21 @@ describe('Game State', () => {
       expect(getStagePieces(state3)).toEqual([{ id: '1', top: 123, left: 456 }])
     })
   })
+
+  describe('conflict resolution', () => {
+    it('slot -> slot', () => {
+      const state1 = createState(['1', '2', '3'])
+      const state2 = movePieceToSlot(state1, '2', '1')
+
+      assertImmutability(state1, state2)
+
+      expect(getSlotPiece(state2, '1')).toEqual({ id: '2', top: 0, left: 0 })
+      expect(getSlotPiece(state2, '2')).toEqual(null)
+      expect(getSlotPiece(state2, '3')).toEqual({ id: '3', top: 0, left: 0 })
+
+      expect(getStagePieces(state2)).toEqual([
+        expect.objectContaining({ id: '1' }),
+      ])
+    })
+  })
 })
