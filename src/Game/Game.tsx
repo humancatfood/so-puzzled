@@ -1,6 +1,4 @@
 import { useMemo, useState, ReactElement } from 'react'
-import { DndProvider } from 'react-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend'
 
 import GameGrid from './Grid'
 import Piece from './Piece'
@@ -10,7 +8,7 @@ import Stage from './Stage'
 import { useGameState, getGridDimensions, getIds, coordsToId } from './logic'
 
 type GameProps = {
-  imgSrc: string
+  img: HTMLImageElement
   difficulty: number
 }
 
@@ -58,7 +56,7 @@ function getGameInfo(
   }
 }
 
-function Game({ imgSrc, difficulty = 2 }: GameProps) {
+export default function Game({ img, difficulty = 2 }: GameProps) {
   const [showHelp] = useState<boolean>(false)
 
   const [isStarted, setStarted] = useState<boolean>(false)
@@ -73,11 +71,11 @@ function Game({ imgSrc, difficulty = 2 }: GameProps) {
       setStarted(true)
     }, 2000)
 
-  const img = useMemo(() => {
-    const img = new Image(imgWidth, imgHeight)
-    img.src = imgSrc
-    return img
-  }, [imgWidth, imgHeight, imgSrc])
+  // const img = useMemo(() => {
+  //   const img = new Image(imgWidth, imgHeight)
+  //   img.src = imgSrc
+  //   return img
+  // }, [imgWidth, imgHeight, imgSrc])
 
   const gameInfo = getGameInfo(imgWidth, imgHeight, difficulty)
 
@@ -127,7 +125,7 @@ function Game({ imgSrc, difficulty = 2 }: GameProps) {
       <Stage onDropPiece={movePieceToStage} />
       <div className="grid-wrapper">
         <ReferenceImage
-          imgSrc={imgSrc}
+          imgSrc={img.src}
           transparent={isStarted}
           semiTransparent={showHelp}
           onLoad={() => onLoadReferenceImage()}
@@ -161,13 +159,5 @@ function Game({ imgSrc, difficulty = 2 }: GameProps) {
         )
       })}
     </>
-  )
-}
-
-export default function GameWrapper(props: GameProps) {
-  return (
-    <DndProvider backend={HTML5Backend}>
-      <Game {...props} />
-    </DndProvider>
   )
 }
