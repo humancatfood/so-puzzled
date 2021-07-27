@@ -59,23 +59,10 @@ function getGameInfo(
 export default function Game({ img, difficulty = 2 }: GameProps) {
   const [showHelp] = useState<boolean>(false)
 
-  const [isStarted, setStarted] = useState<boolean>(false)
-
   const [{ width: imgWidth, height: imgHeight }, setImageSize] = useState<{
     width: number
     height: number
   }>({ width: 0, height: 0 })
-
-  const onLoadReferenceImage = () =>
-    setTimeout(function () {
-      setStarted(true)
-    }, 2000)
-
-  // const img = useMemo(() => {
-  //   const img = new Image(imgWidth, imgHeight)
-  //   img.src = imgSrc
-  //   return img
-  // }, [imgWidth, imgHeight, imgSrc])
 
   const gameInfo = getGameInfo(imgWidth, imgHeight, difficulty)
 
@@ -126,19 +113,15 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
       <div className="grid-wrapper">
         <ReferenceImage
           imgSrc={img.src}
-          transparent={isStarted}
           semiTransparent={showHelp}
-          onLoad={() => onLoadReferenceImage()}
           onResize={setImageSize}
         />
-        {isStarted && (
-          <GameGrid
-            width={imgWidth}
-            height={imgHeight}
-            pieceSizeRatio={difficulty}
-            renderSlot={renderSlot}
-          />
-        )}
+        <GameGrid
+          width={imgWidth}
+          height={imgHeight}
+          pieceSizeRatio={difficulty}
+          renderSlot={renderSlot}
+        />
       </div>
       {getStagePieces().map(({ id, top, left }) => {
         const { width, height, pieceWidth, pieceHeight } = gameInfo
