@@ -21,12 +21,19 @@ export default function GameWrapper({
   useEffect(() => {
     const img = new Image()
     img.addEventListener('load', () => setImg(img))
-    img.addEventListener('error', error => setError(error.message))
+    img.addEventListener('error', ({ message }) =>
+      setError(message || 'image could not be loaded :('),
+    )
     img.src = imgSrc
   }, [imgSrc])
 
   if (error) {
-    return <h1>{error}</h1>
+    return (
+      <>
+        <h1>Error:</h1>
+        <h2>{error}</h2>
+      </>
+    )
   }
 
   if (img) {
