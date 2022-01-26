@@ -7,14 +7,14 @@ type Dimensions = {
 }
 
 type ReferenceImageProps = {
-  imgSrc: string
+  img: HTMLImageElement
   onResize: (dimensions: Dimensions) => void
   transparent?: boolean
   semiTransparent?: boolean
 }
 
 export default function ReferenceImage(props: ReferenceImageProps) {
-  const { imgSrc, onResize, transparent = true, semiTransparent } = props
+  const { img, onResize, transparent = true, semiTransparent } = props
 
   const imgRef = useRef<HTMLImageElement>(null)
 
@@ -25,7 +25,7 @@ export default function ReferenceImage(props: ReferenceImageProps) {
   return (
     <img
       alt="Kitty"
-      src={imgSrc}
+      src={img.src}
       className={`
         base-img
         ${transparent ? 'transparent' : ''}

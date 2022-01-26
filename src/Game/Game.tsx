@@ -112,7 +112,7 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
       <Stage onDropPiece={movePieceToStage} />
       <div className="grid-wrapper">
         <ReferenceImage
-          imgSrc={img.src}
+          img={img}
           semiTransparent={showHelp}
           onResize={setImageSize}
         />
