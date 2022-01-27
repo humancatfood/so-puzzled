@@ -56,7 +56,8 @@ describe('Game Logic as hook', () => {
     checkSlot(result.current, '1', '2')
     checkSlot(result.current, '2', '1')
     checkSlot(result.current, '3', null)
-    expect(result.current.getStagePieces()).toEqual([
+    expect(result.current.getStagePieces()).toEqual([])
+    expect(result.current.getPiecesToShuffle()).toEqual([
       expect.objectContaining({ id: '3' }),
     ])
     expect(result.current.isSolved()).toEqual(false)

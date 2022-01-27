@@ -5,6 +5,7 @@ import {
   IGameState,
   getSlotPiece,
   getStagePieces,
+  getPiecesToShuffle,
   isSolved,
 } from './state'
 
@@ -15,20 +16,24 @@ function assertImmutability(a: IGameState, b: IGameState) {
 }
 
 describe('Game State', () => {
+  let state: IGameState
+
   describe('initialization', () => {
     it('lets you set up a new empty state', () => {
-      const state = createState([])
+      state = createState([])
       expect(getSlotPiece(state, '1')).toEqual(null)
       expect(getStagePieces(state)).toEqual([])
+      expect(getPiecesToShuffle(state)).toEqual([])
       expect(isSolved(state)).toBe(true)
     })
 
     it('puts pieces into their correct slot by default', () => {
-      const state = createState(['1', '2', '3'])
+      state = createState(['1', '2', '3'])
       expect(getSlotPiece(state, '1')).toEqual({ id: '1', top: 0, left: 0 })
       expect(getSlotPiece(state, '2')).toEqual({ id: '2', top: 0, left: 0 })
       expect(getSlotPiece(state, '3')).toEqual({ id: '3', top: 0, left: 0 })
       expect(getStagePieces(state)).toEqual([])
+      expect(getPiecesToShuffle(state)).toEqual([])
       expect(isSolved(state)).toBe(true)
     })
   })
@@ -109,7 +114,6 @@ describe('Game State', () => {
   })
 
   describe('winning condition', () => {
-    let state: IGameState
     it('considers a state to be solved by default', () => {
 
       state = createState([])
@@ -145,9 +149,21 @@ describe('Game State', () => {
       expect(getSlotPiece(state2, '2')).toEqual(null)
       expect(getSlotPiece(state2, '3')).toEqual({ id: '3', top: 0, left: 0 })
 
-      expect(getStagePieces(state2)).toEqual([
-        expect.objectContaining({ id: '1' }),
-      ])
+      expect(getStagePieces(state2)).toEqual([])
+      expect(getPiecesToShuffle(state2)).toEqual([expect.objectContaining({ id: '1' })])
+    })
+
+    it('stage -> slot', () => {
+      state = createState(['1', '2', '3'])
+      state = movePieceToStage(state, '2')
+      state = movePieceToSlot(state, '2', '3')
+
+      expect(getSlotPiece(state, '1')).toEqual({ id: '1', top: 0, left: 0 })
+      expect(getSlotPiece(state, '2')).toEqual(null)
+      expect(getSlotPiece(state, '3')).toEqual({ id: '2', top: 0, left: 0 })
+
+      // expect(getStagePieces(state)).toEqual([])
+      // expect(getPiecesToShuffle(state)).toEqual([{ id: '1' }])
     })
   })
 })

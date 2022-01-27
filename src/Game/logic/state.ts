@@ -1,11 +1,13 @@
+import { getHeapSpaceStatistics } from 'v8'
+
 export type ID = string
 
 export type PieceMap = Record<ID, IPiece | null>
 
 export interface IPiece {
   id: ID
-  left: number
-  top: number
+  left?: number
+  top?: number
 }
 
 export interface IGameState {
@@ -34,8 +36,8 @@ export function createState(ids: Array<ID>): IGameState {
 export function movePieceToStage(
   state: IGameState,
   pieceId: ID,
-  top: number,
-  left: number,
+  top?: number,
+  left?: number,
 ): IGameState {
   const slots = Object.entries(state.slots).reduce<PieceMap>(
     (acc, [key, value]) => ({
@@ -63,11 +65,10 @@ export function movePieceToSlot(
   slotId: ID,
 ): IGameState {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
   const currentOccupant = getSlotPiece(state, slotId)
 
   if (currentOccupant) {
-    state = movePieceToStage(state, currentOccupant.id, 0, 0)
+    state = movePieceToStage(state, currentOccupant.id)
   }
 
   const slotsEntries = Object.entries(state.slots).map(
@@ -93,7 +94,11 @@ export function getSlotPiece(state: IGameState, slotId: ID): IPiece | null {
 }
 
 export function getStagePieces(state: IGameState): Array<IPiece> {
-  return state.stage
+  return state.stage.filter(({ left, top }) => left !== undefined && top !== undefined)
+}
+
+export function getPiecesToShuffle(state: IGameState): Array<IPiece> {
+  return state.stage.filter(({ left, top }) => left === undefined && top === undefined)
 }
 
 export function isSolved(state: IGameState): boolean {
