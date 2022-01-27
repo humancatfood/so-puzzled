@@ -2,36 +2,33 @@ import { act, renderHook } from '@testing-library/react-hooks'
 
 import { useGameState } from './hook'
 
+function checkSlot(state: ReturnType<typeof useGameState>, slotId: string, expectedPieceId: string|null) {
+  if (expectedPieceId) {
+    expect(state.getSlotPiece(slotId)).toEqual(expect.objectContaining({ id: expectedPieceId }))
+  } else {
+    expect(state.getSlotPiece(slotId)).toEqual(null)
+  }
+}
+
 describe('Game Logic as hook', () => {
   it('lets you set up a new empty state', () => {
     const { result } = renderHook(useGameState, {
       initialProps: [],
     })
-
-    expect(result.current.getSlotPiece('1')).toEqual(null)
+    checkSlot(result.current, '1', null)
     expect(result.current.getStagePieces()).toEqual([])
+    expect(result.current.isSolved()).toEqual(true)
   })
 
   it('puts pieces into their correct slot by default', () => {
     const { result } = renderHook(useGameState, {
       initialProps: ['1', '2', '3'],
     })
-    expect(result.current.getSlotPiece('1')).toEqual({
-      id: '1',
-      top: 0,
-      left: 0,
-    })
-    expect(result.current.getSlotPiece('2')).toEqual({
-      id: '2',
-      top: 0,
-      left: 0,
-    })
-    expect(result.current.getSlotPiece('3')).toEqual({
-      id: '3',
-      top: 0,
-      left: 0,
-    })
+    checkSlot(result.current, '1', '1')
+    checkSlot(result.current, '2', '2')
+    checkSlot(result.current, '3', '3')
     expect(result.current.getStagePieces()).toEqual([])
+    expect(result.current.isSolved()).toEqual(true)
   })
 
   it('stress-testing', () => {
@@ -46,42 +43,34 @@ describe('Game Logic as hook', () => {
       result.current.movePieceToSlot('1', '1')
     })
 
-    expect(result.current.getSlotPiece('1')).toEqual({
-      id: '1',
-      top: 0,
-      left: 0,
-    })
-    expect(result.current.getSlotPiece('2')).toEqual({
-      id: '2',
-      top: 0,
-      left: 0,
-    })
-    expect(result.current.getSlotPiece('3')).toEqual({
-      id: '3',
-      top: 0,
-      left: 0,
-    })
+    checkSlot(result.current, '1', '1')
+    checkSlot(result.current, '2', '2')
+    checkSlot(result.current, '3', '3')
     expect(result.current.getStagePieces()).toEqual([])
-
     act(() => {
       result.current.movePieceToSlot('1', '3')
       result.current.movePieceToSlot('2', '1')
       result.current.movePieceToSlot('1', '2')
     })
 
-    expect(result.current.getSlotPiece('1')).toEqual({
-      id: '2',
-      top: 0,
-      left: 0,
-    })
-    expect(result.current.getSlotPiece('2')).toEqual({
-      id: '1',
-      top: 0,
-      left: 0,
-    })
-    expect(result.current.getSlotPiece('3')).toEqual(null)
+    checkSlot(result.current, '1', '2')
+    checkSlot(result.current, '2', '1')
+    checkSlot(result.current, '3', null)
     expect(result.current.getStagePieces()).toEqual([
       expect.objectContaining({ id: '3' }),
     ])
+    expect(result.current.isSolved()).toEqual(false)
+    
+    act(() => {
+      result.current.movePieceToSlot('1', '1')
+      result.current.movePieceToSlot('2', '2')
+      result.current.movePieceToSlot('3', '3')
+    })
+
+    checkSlot(result.current, '1', '1')
+    checkSlot(result.current, '2', '2')
+    checkSlot(result.current, '3', '3')
+    expect(result.current.getStagePieces()).toEqual([])
+    expect(result.current.isSolved()).toEqual(true)
   })
 })

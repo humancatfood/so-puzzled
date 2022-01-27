@@ -75,7 +75,7 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
 
   const pieces = useMemo(() => getPieces(numCols, numRows), [numCols, numRows])
 
-  const { getSlotPiece, getStagePieces, movePieceToStage, movePieceToSlot } =
+  const { getSlotPiece, getStagePieces, movePieceToStage, movePieceToSlot, isSolved } =
     useGameState(ids)
 
   function renderSlot(x: number, y: number): ReactElement {
@@ -106,6 +106,8 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
       return <Slot onDropPiece={onDropPiece} />
     }
   }
+
+  console.log({ isSolved: isSolved() })
 
   return (
     <>

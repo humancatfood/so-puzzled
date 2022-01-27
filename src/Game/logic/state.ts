@@ -95,3 +95,12 @@ export function getSlotPiece(state: IGameState, slotId: ID): IPiece | null {
 export function getStagePieces(state: IGameState): Array<IPiece> {
   return state.stage
 }
+
+export function isSolved(state: IGameState): boolean {
+  for (const [slotKey, content] of Object.entries(state.slots)) {
+    if (!content || content.id !== slotKey) {
+      return false
+    }
+  }
+  return true
+}

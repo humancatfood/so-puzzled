@@ -5,6 +5,7 @@ import {
   IGameState,
   getSlotPiece,
   getStagePieces,
+  isSolved,
 } from './state'
 
 function assertImmutability(a: IGameState, b: IGameState) {
@@ -19,6 +20,7 @@ describe('Game State', () => {
       const state = createState([])
       expect(getSlotPiece(state, '1')).toEqual(null)
       expect(getStagePieces(state)).toEqual([])
+      expect(isSolved(state)).toBe(true)
     })
 
     it('puts pieces into their correct slot by default', () => {
@@ -27,6 +29,7 @@ describe('Game State', () => {
       expect(getSlotPiece(state, '2')).toEqual({ id: '2', top: 0, left: 0 })
       expect(getSlotPiece(state, '3')).toEqual({ id: '3', top: 0, left: 0 })
       expect(getStagePieces(state)).toEqual([])
+      expect(isSolved(state)).toBe(true)
     })
   })
 
@@ -102,6 +105,32 @@ describe('Game State', () => {
       expect(getSlotPiece(state3, '2')).toEqual({ id: '2', top: 0, left: 0 })
       expect(getSlotPiece(state3, '3')).toEqual({ id: '3', top: 0, left: 0 })
       expect(getStagePieces(state3)).toEqual([{ id: '1', top: 123, left: 456 }])
+    })
+  })
+
+  describe('winning condition', () => {
+    let state: IGameState
+    it('considers a state to be solved by default', () => {
+
+      state = createState([])
+      expect(isSolved(state)).toBe(true)
+      
+      state = createState(['1', '2', '3' ])
+      expect(isSolved(state)).toBe(true)
+    })
+
+    it('considers a state not to be solved if a piece is missing', () => {
+      state = createState(['1', '2', '3'])
+      state = movePieceToStage(state, '1', 0, 0)
+      expect(isSolved(state)).toBe(false)
+    })
+
+    it('considers a state not to be solved if a piece is in the wrong slot', () => {
+      state = createState(['1', '2', '3'])
+      state = movePieceToStage(state, '1', 0, 0)
+      state = movePieceToSlot(state, '2', '1')
+      state = movePieceToSlot(state, '1', '2')
+      expect(isSolved(state)).toBe(false)
     })
   })
 
