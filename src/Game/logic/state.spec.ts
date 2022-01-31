@@ -162,8 +162,8 @@ describe('Game State', () => {
       expect(getSlotPiece(state, '2')).toEqual(null)
       expect(getSlotPiece(state, '3')).toEqual({ id: '2', top: 0, left: 0 })
 
-      // expect(getStagePieces(state)).toEqual([])
-      // expect(getPiecesToShuffle(state)).toEqual([{ id: '1' }])
+      expect(getStagePieces(state)).toEqual([])
+      expect(getPiecesToShuffle(state)).toEqual([expect.objectContaining({ id: '3' })])
     })
   })
 })

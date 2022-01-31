@@ -1,5 +1,3 @@
-import { getHeapSpaceStatistics } from 'v8'
-
 export type ID = string
 
 export type PieceMap = Record<ID, IPiece | null>
