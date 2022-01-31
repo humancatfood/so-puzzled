@@ -14,3 +14,10 @@ A little puzzle game for practice, written in React and jQueryUI
 OR ..
 
 go to http://humancatfood.github.io/so-puzzled/
+
+
+## TODOs:
+
+- rewrite and apply scss as css-in-js (maybe styled components)
+- use getBoundingBox functions to figure out empty stage spots and populate them by shuffling pieces there
+
