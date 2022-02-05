@@ -30,7 +30,6 @@
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/type-annotation-spacing": "error",
-    "quotes": ["warn", "single"],
     "object-curly-spacing": ["warn", "always"],
     "indent": ["warn", 2, { "SwitchCase": 1 }],
     "semi": ["error", "never"],

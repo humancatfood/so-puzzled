@@ -92,7 +92,7 @@ export function movePieceToSlot(
 export function shufflePieces(
   state: IGameState,
   stage: Rect,
-  obstacles: Rect[],
+  obstacles?: Rect[],
 ): IGameState {
   return {
     ...state,
@@ -100,7 +100,7 @@ export function shufflePieces(
       if (piece.left == null || piece.top == null) {
         return {
           ...piece,
-          ...shufflePiece(stage, obstacles),
+          ...shufflePiece({ stage, avoid: obstacles }),
         }
       } else {
         return piece

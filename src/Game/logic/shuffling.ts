@@ -10,7 +10,14 @@ type Coords = {
   left: number
 }
 
-export function shufflePiece(stage: Rect, avoid: Rect[] = []): Coords {
+type ShuffleOptions = {
+  stage: Rect
+  avoid?: Rect[]
+  pieceWidth?: number
+  pieceHeight?: number
+}
+
+export function shufflePiece({ stage, avoid = [] }: ShuffleOptions): Coords {
   let tries = 0
   let result: Coords
   const [obstacle] = avoid
