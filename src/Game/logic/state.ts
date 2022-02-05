@@ -89,14 +89,18 @@ export function movePieceToSlot(
   }
 }
 
-export function shufflePieces(state: IGameState, stage: Rect): IGameState {
+export function shufflePieces(
+  state: IGameState,
+  stage: Rect,
+  obstacles: Rect[],
+): IGameState {
   return {
     ...state,
     stage: state.stage.map(piece => {
       if (piece.left == null || piece.top == null) {
         return {
           ...piece,
-          ...shufflePiece(stage),
+          ...shufflePiece(stage, obstacles),
         }
       } else {
         return piece

@@ -30,8 +30,8 @@ export function useGameState(ids: Array<ID>) {
       setState(state => movePieceToStage(state, pieceId, top, left)),
     movePieceToSlot: (pieceId: ID, slotId: ID) =>
       setState(state => movePieceToSlot(state, pieceId, slotId)),
-    shufflePieces: (stage: Rect) =>
-      setState(state => shufflePieces(state, stage)),
+    shufflePieces: (stage: Rect, obstacles: Rect[]) =>
+      setState(state => shufflePieces(state, stage, obstacles)),
     ...debug(state),
   }
 }

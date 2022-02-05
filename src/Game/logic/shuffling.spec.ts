@@ -1,4 +1,4 @@
-import { shufflePiece } from './shuffling'
+import { shufflePiece, isInRect } from './shuffling'
 
 const stages: Parameters<typeof shufflePiece>[0][] = [
   {
@@ -60,12 +60,8 @@ describe('Shuffling', () => {
         const locations = new Array(500)
           .fill(undefined)
           .map(() => shufflePiece(stage, [obstacle]))
-        const locationsInObstacle = locations.filter(
-          ({ left, top }) =>
-            left <= obstacle.right &&
-            left >= obstacle.left &&
-            top >= obstacle.top &&
-            top <= obstacle.bottom,
+        const locationsInObstacle = locations.filter(loc =>
+          isInRect(loc, obstacle),
         )
         expect(locationsInObstacle).toEqual([])
       })

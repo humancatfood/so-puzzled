@@ -59,6 +59,7 @@ function getGameInfo(
 export default function Game({ img, difficulty = 2 }: GameProps) {
   const [showHelp] = useState<boolean>(false)
   const stageRef = useRef<HTMLDivElement>(null)
+  const gridRef = useRef<HTMLDivElement>(null)
 
   const [{ width: imgWidth, height: imgHeight }, setImageSize] = useState<{
     width: number
@@ -89,7 +90,9 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
 
   useEffect(() => {
     if (piecesToShuffle.length && stageRef.current) {
-      shufflePieces(stageRef.current?.getBoundingClientRect().toJSON())
+      shufflePieces(stageRef.current?.getBoundingClientRect().toJSON(), [
+        gridRef.current?.getBoundingClientRect().toJSON(),
+      ])
     }
   }, [piecesToShuffle, shufflePieces])
 
@@ -128,7 +131,7 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
     <>
       <p style={{ color: 'white' }}>Solved: {isSolved.toString()}</p>
       <Stage onDropPiece={movePieceToStage} ref={stageRef}>
-        <div className="grid-wrapper">
+        <div className="grid-wrapper" ref={gridRef}>
           <ReferenceImage
             img={img}
             semiTransparent={showHelp}

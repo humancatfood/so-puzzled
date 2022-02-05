@@ -26,11 +26,8 @@ export function shufflePiece(stage: Rect, avoid: Rect[] = []): Coords {
   return result
 }
 
-function isInRect({ top, left }: Coords, rect: Rect): boolean {
+export function isInRect({ top, left }: Coords, rect: Rect): boolean {
   return (
-    left <= rect.right &&
-    left >= rect.left &&
-    top >= rect.top &&
-    top <= rect.bottom
+    left < rect.right && left > rect.left && top > rect.top && top < rect.bottom
   )
 }
