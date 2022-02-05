@@ -2,9 +2,15 @@ import { act, renderHook } from '@testing-library/react-hooks'
 
 import { useGameState } from './hook'
 
-function checkSlot(state: ReturnType<typeof useGameState>, slotId: string, expectedPieceId: string|null) {
+function checkSlot(
+  state: ReturnType<typeof useGameState>,
+  slotId: string,
+  expectedPieceId: string | null,
+) {
   if (expectedPieceId) {
-    expect(state.getSlotPiece(slotId)).toEqual(expect.objectContaining({ id: expectedPieceId }))
+    expect(state.getSlotPiece(slotId)).toEqual(
+      expect.objectContaining({ id: expectedPieceId }),
+    )
   } else {
     expect(state.getSlotPiece(slotId)).toEqual(null)
   }
@@ -61,7 +67,7 @@ describe('Game Logic as hook', () => {
       expect.objectContaining({ id: '3' }),
     ])
     expect(result.current.isSolved()).toEqual(false)
-    
+
     act(() => {
       result.current.movePieceToSlot('1', '1')
       result.current.movePieceToSlot('2', '2')

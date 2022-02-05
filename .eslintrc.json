@@ -9,7 +9,7 @@
     "ecmaVersion": 2019,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "react-hooks", "prettier"],
+  "plugins": ["@typescript-eslint", "react-hooks", "prettier", "import"],
   "extends": [
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended"
@@ -58,6 +58,8 @@
     "keyword-spacing": "error",
     "semi-spacing": "error",
     "no-unused-expressions": "error",
-    "arrow-spacing": "error"
+    "arrow-spacing": "error",
+    "import/order": ["error", { "alphabetize": { "order": "asc" } }],
+    "prettier/prettier": "error"
   }
 }

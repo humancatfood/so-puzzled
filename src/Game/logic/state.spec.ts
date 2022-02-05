@@ -116,11 +116,10 @@ describe('Game State', () => {
 
   describe('winning condition', () => {
     it('considers a state to be solved by default', () => {
-
       state = createState([])
       expect(isSolved(state)).toBe(true)
-      
-      state = createState(['1', '2', '3' ])
+
+      state = createState(['1', '2', '3'])
       expect(isSolved(state)).toBe(true)
     })
 
@@ -151,7 +150,9 @@ describe('Game State', () => {
       expect(getSlotPiece(state2, '3')).toEqual({ id: '3', top: 0, left: 0 })
 
       expect(getStagePieces(state2)).toEqual([])
-      expect(getPiecesToShuffle(state2)).toEqual([expect.objectContaining({ id: '1' })])
+      expect(getPiecesToShuffle(state2)).toEqual([
+        expect.objectContaining({ id: '1' }),
+      ])
     })
 
     it('stage -> slot', () => {
@@ -164,14 +165,21 @@ describe('Game State', () => {
       expect(getSlotPiece(state, '3')).toEqual({ id: '2', top: 0, left: 0 })
 
       expect(getStagePieces(state)).toEqual([])
-      expect(getPiecesToShuffle(state)).toEqual([expect.objectContaining({ id: '3' })])
+      expect(getPiecesToShuffle(state)).toEqual([
+        expect.objectContaining({ id: '3' }),
+      ])
     })
   })
 
   describe('shuffling', () => {
-    it('doesn\'t do anything if there\'s nothing to shuffle', () => {
+    it("doesn't do anything if there's nothing to shuffle", () => {
       const state1 = createState(['1', '2', '3'])
-      const state2 = shufflePieces(state1, { top: 0, bottom: 0, left: 0, right: 0 })
+      const state2 = shufflePieces(state1, {
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+      })
 
       expect(getSlotPiece(state2, '1')).toEqual({ id: '1', top: 0, left: 0 })
       expect(getSlotPiece(state2, '2')).toEqual({ id: '2', top: 0, left: 0 })
@@ -184,25 +192,46 @@ describe('Game State', () => {
       state = createState(['1', '2', '3'])
       state = movePieceToSlot(state, '1', '2')
       state = movePieceToSlot(state, '1', '3')
-      
+
       expect(getSlotPiece(state, '1')).toEqual(null)
       expect(getSlotPiece(state, '2')).toEqual(null)
-      expect(getSlotPiece(state, '3')).toEqual(expect.objectContaining({ id: '1' }))
+      expect(getSlotPiece(state, '3')).toEqual(
+        expect.objectContaining({ id: '1' }),
+      )
       expect(getStagePieces(state)).toEqual([])
-      expect(getPiecesToShuffle(state)).toEqual(expect.arrayContaining([
-        expect.objectContaining({ id: '2' }),
-        expect.objectContaining({ id: '3' }),
-      ]))
-      
-      const state2 = shufflePieces(state, { top: 0, bottom: 0, left: 0, right: 0 })
+      expect(getPiecesToShuffle(state)).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ id: '2' }),
+          expect.objectContaining({ id: '3' }),
+        ]),
+      )
+
+      const state2 = shufflePieces(state, {
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+      })
       expect(getPiecesToShuffle(state2)).toEqual([])
       expect(getSlotPiece(state2, '1')).toEqual(null)
       expect(getSlotPiece(state2, '2')).toEqual(null)
-      expect(getSlotPiece(state2, '3')).toEqual(expect.objectContaining({ id: '1' }))
-      expect(getStagePieces(state2)).toEqual(expect.arrayContaining([
-        expect.objectContaining({ id: '3', left: expect.any(Number), top: expect.any(Number) }),
-        expect.objectContaining({ id: '2', left: expect.any(Number), top: expect.any(Number) }),
-      ]))
+      expect(getSlotPiece(state2, '3')).toEqual(
+        expect.objectContaining({ id: '1' }),
+      )
+      expect(getStagePieces(state2)).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            id: '3',
+            left: expect.any(Number),
+            top: expect.any(Number),
+          }),
+          expect.objectContaining({
+            id: '2',
+            left: expect.any(Number),
+            top: expect.any(Number),
+          }),
+        ]),
+      )
     })
   })
 })

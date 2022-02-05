@@ -110,11 +110,15 @@ export function getSlotPiece(state: IGameState, slotId: ID): IPiece | null {
 }
 
 export function getStagePieces(state: IGameState): Array<IPiece> {
-  return state.stage.filter(({ left, top }) => left !== undefined && top !== undefined)
+  return state.stage.filter(
+    ({ left, top }) => left !== undefined && top !== undefined,
+  )
 }
 
 export function getPiecesToShuffle(state: IGameState): Array<IPiece> {
-  return state.stage.filter(({ left, top }) => left === undefined && top === undefined)
+  return state.stage.filter(
+    ({ left, top }) => left === undefined && top === undefined,
+  )
 }
 
 export function isSolved(state: IGameState): boolean {

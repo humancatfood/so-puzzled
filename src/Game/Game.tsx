@@ -76,8 +76,16 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
 
   const pieces = useMemo(() => getPieces(numCols, numRows), [numCols, numRows])
 
-  const { getSlotPiece, getStagePieces, movePieceToStage, movePieceToSlot, isSolved, debug, getPiecesToShuffle, shufflePieces } =
-    useGameState(ids)
+  const {
+    getSlotPiece,
+    getStagePieces,
+    movePieceToStage,
+    movePieceToSlot,
+    isSolved,
+    debug,
+    getPiecesToShuffle,
+    shufflePieces,
+  } = useGameState(ids)
 
   const piecesToShuffle = getPiecesToShuffle()
 

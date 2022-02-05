@@ -30,11 +30,16 @@ export function useGameState(ids: Array<ID>) {
       setState(state => movePieceToStage(state, pieceId, top, left)),
     movePieceToSlot: (pieceId: ID, slotId: ID) =>
       setState(state => movePieceToSlot(state, pieceId, slotId)),
-    shufflePieces: (stage: Rect) => setState(state => shufflePieces(state, stage)),
-    ...(process.env.NODE_ENV !== 'production' ? {
-      debug: () => {
-        console.log(state)
-      },
-    } : {}),
+    shufflePieces: (stage: Rect) =>
+      setState(state => shufflePieces(state, stage)),
+    ...debug(state),
+  }
+}
+
+function debug(state: IGameState) {
+  if (process.env.NODE_ENV !== 'production') {
+    return {
+      debug: () => console.log(state),
+    }
   }
 }

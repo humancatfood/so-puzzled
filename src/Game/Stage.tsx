@@ -1,20 +1,22 @@
-import { PropsWithChildren, forwardRef, useEffect, useRef, useImperativeHandle } from 'react'
+import {
+  PropsWithChildren,
+  forwardRef,
+  useEffect,
+  useRef,
+  useImperativeHandle,
+} from 'react'
 import { useDrop } from 'react-dnd'
 
 type StageProps = PropsWithChildren<{
   onDropPiece: (itemId: string, top: number, left: number) => void
 }>
 
-
 type Ref = HTMLDivElement | null
 
 export default forwardRef<Ref, StageProps>(function Stage(props, forwardedRef) {
   const ref = useRef<HTMLDivElement>(null)
-  
-  const {
-    onDropPiece,
-    children,
-  } = props
+
+  const { onDropPiece, children } = props
   const [{ isOver }, dropRef] = useDrop(() => ({
     accept: 'piece',
     collect: monitor => ({
@@ -33,7 +35,6 @@ export default forwardRef<Ref, StageProps>(function Stage(props, forwardedRef) {
   })
 
   useImperativeHandle<Ref, Ref>(forwardedRef, () => ref.current)
-  
 
   return (
     <div
