@@ -4,6 +4,7 @@ import {
   createState,
   movePieceToStage,
   movePieceToSlot,
+  shufflePieces,
   getSlotPiece,
   getStagePieces,
   getPiecesToShuffle,
@@ -27,6 +28,7 @@ export function useGameState(ids: Array<ID>) {
       setState(state => movePieceToStage(state, pieceId, top, left)),
     movePieceToSlot: (pieceId: ID, slotId: ID) =>
       setState(state => movePieceToSlot(state, pieceId, slotId)),
+    shufflePieces: () => setState(state => shufflePieces(state)),
     ...(process.env.NODE_ENV !== 'production' ? {
       debug: () => {
         console.log(state)

@@ -87,6 +87,24 @@ export function movePieceToSlot(
   }
 }
 
+export function shufflePieces(state: IGameState): IGameState {
+
+  return {
+    ...state,
+    stage: state.stage.map(piece => {
+      if (piece.left == null || piece.top == null) {
+        return {
+          ...piece,
+          top: Math.random() * 500,
+          left: Math.random() * 500,
+        }
+      } else {
+        return piece
+      }
+    }),
+  }
+}
+
 export function getSlotPiece(state: IGameState, slotId: ID): IPiece | null {
   return state.slots[slotId] ?? null
 }

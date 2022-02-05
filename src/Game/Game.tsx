@@ -1,4 +1,4 @@
-import { useMemo, useState, ReactElement } from 'react'
+import { useMemo, useState, ReactElement, useEffect } from 'react'
 
 import GameGrid from './Grid'
 import Piece from './Piece'
@@ -75,8 +75,16 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
 
   const pieces = useMemo(() => getPieces(numCols, numRows), [numCols, numRows])
 
-  const { getSlotPiece, getStagePieces, movePieceToStage, movePieceToSlot, isSolved } =
+  const { getSlotPiece, getStagePieces, movePieceToStage, movePieceToSlot, isSolved, debug, getPiecesToShuffle, shufflePieces } =
     useGameState(ids)
+
+  const piecesToShuffle = getPiecesToShuffle()
+
+  useEffect(() => {
+    if (piecesToShuffle.length) {
+      shufflePieces()
+    }
+  }, [piecesToShuffle, shufflePieces])
 
   function renderSlot(x: number, y: number): ReactElement {
     const slotId = coordsToId(x, y)
@@ -128,6 +136,7 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
       {getStagePieces().map(({ id, top, left }) => {
         const { width, height, pieceWidth, pieceHeight } = gameInfo
         const { x, y } = pieces[id]
+        if (top != null && left != null) {
         return (
           <Piece
             key={id}
@@ -142,6 +151,7 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
             offset={{ x: left, y: top }}
           />
         )
+        }
       })}
     </>
   )
