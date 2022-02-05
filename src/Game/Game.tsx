@@ -1,4 +1,4 @@
-import { useMemo, useState, ReactElement, useEffect } from 'react'
+import { useMemo, useState, ReactElement, useEffect, useRef } from 'react'
 
 import GameGrid from './Grid'
 import Piece from './Piece'
@@ -58,6 +58,7 @@ function getGameInfo(
 
 export default function Game({ img, difficulty = 2 }: GameProps) {
   const [showHelp] = useState<boolean>(false)
+  const stageRef = useRef<HTMLDivElement>(null)
 
   const [{ width: imgWidth, height: imgHeight }, setImageSize] = useState<{
     width: number
@@ -81,8 +82,8 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
   const piecesToShuffle = getPiecesToShuffle()
 
   useEffect(() => {
-    if (piecesToShuffle.length) {
-      shufflePieces()
+    if (piecesToShuffle.length && stageRef.current) {
+      shufflePieces(stageRef.current?.getBoundingClientRect().toJSON())
     }
   }, [piecesToShuffle, shufflePieces])
 
@@ -120,7 +121,7 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
   return (
     <>
       <p style={{ color: 'white' }}>Solved: {isSolved().toString()}</p>
-      <Stage onDropPiece={movePieceToStage}>
+      <Stage onDropPiece={movePieceToStage} ref={stageRef}>
         <div className="grid-wrapper">
           <ReferenceImage
             img={img}
