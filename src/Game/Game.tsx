@@ -77,17 +77,15 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
   const pieces = useMemo(() => getPieces(numCols, numRows), [numCols, numRows])
 
   const {
+    isSolved,
+    stagePieces,
+    piecesToShuffle,
     getSlotPiece,
-    getStagePieces,
     movePieceToStage,
     movePieceToSlot,
-    isSolved,
     debug,
-    getPiecesToShuffle,
     shufflePieces,
   } = useGameState(ids)
-
-  const piecesToShuffle = getPiecesToShuffle()
 
   useEffect(() => {
     if (piecesToShuffle.length && stageRef.current) {
@@ -128,7 +126,7 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
 
   return (
     <>
-      <p style={{ color: 'white' }}>Solved: {isSolved().toString()}</p>
+      <p style={{ color: 'white' }}>Solved: {isSolved.toString()}</p>
       <Stage onDropPiece={movePieceToStage} ref={stageRef}>
         <div className="grid-wrapper">
           <ReferenceImage
@@ -143,7 +141,7 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
             renderSlot={renderSlot}
           />
         </div>
-        {getStagePieces().map(({ id, top, left }) => {
+        {stagePieces.map(({ id, top, left }) => {
           const { width, height, pieceWidth, pieceHeight } = gameInfo
           const { x, y } = pieces[id]
           if (top != null && left != null) {

@@ -22,8 +22,8 @@ describe('Game Logic as hook', () => {
       initialProps: [],
     })
     checkSlot(result.current, '1', null)
-    expect(result.current.getStagePieces()).toEqual([])
-    expect(result.current.isSolved()).toEqual(true)
+    expect(result.current.stagePieces).toEqual([])
+    expect(result.current.isSolved).toEqual(true)
   })
 
   it('puts pieces into their correct slot by default', () => {
@@ -33,8 +33,8 @@ describe('Game Logic as hook', () => {
     checkSlot(result.current, '1', '1')
     checkSlot(result.current, '2', '2')
     checkSlot(result.current, '3', '3')
-    expect(result.current.getStagePieces()).toEqual([])
-    expect(result.current.isSolved()).toEqual(true)
+    expect(result.current.stagePieces).toEqual([])
+    expect(result.current.isSolved).toEqual(true)
   })
 
   it('stress-testing', () => {
@@ -52,7 +52,7 @@ describe('Game Logic as hook', () => {
     checkSlot(result.current, '1', '1')
     checkSlot(result.current, '2', '2')
     checkSlot(result.current, '3', '3')
-    expect(result.current.getStagePieces()).toEqual([])
+    expect(result.current.stagePieces).toEqual([])
     act(() => {
       result.current.movePieceToSlot('1', '3')
       result.current.movePieceToSlot('2', '1')
@@ -62,11 +62,11 @@ describe('Game Logic as hook', () => {
     checkSlot(result.current, '1', '2')
     checkSlot(result.current, '2', '1')
     checkSlot(result.current, '3', null)
-    expect(result.current.getStagePieces()).toEqual([])
-    expect(result.current.getPiecesToShuffle()).toEqual([
+    expect(result.current.stagePieces).toEqual([])
+    expect(result.current.piecesToShuffle).toEqual([
       expect.objectContaining({ id: '3' }),
     ])
-    expect(result.current.isSolved()).toEqual(false)
+    expect(result.current.isSolved).toEqual(false)
 
     act(() => {
       result.current.movePieceToSlot('1', '1')
@@ -77,7 +77,7 @@ describe('Game Logic as hook', () => {
     checkSlot(result.current, '1', '1')
     checkSlot(result.current, '2', '2')
     checkSlot(result.current, '3', '3')
-    expect(result.current.getStagePieces()).toEqual([])
-    expect(result.current.isSolved()).toEqual(true)
+    expect(result.current.stagePieces).toEqual([])
+    expect(result.current.isSolved).toEqual(true)
   })
 })

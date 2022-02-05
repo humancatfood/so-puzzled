@@ -22,10 +22,10 @@ export function useGameState(ids: Array<ID>) {
   }, [ids])
 
   return {
-    isSolved: () => isSolved(state),
+    isSolved: isSolved(state),
+    stagePieces: getStagePieces(state),
+    piecesToShuffle: getPiecesToShuffle(state),
     getSlotPiece: (slotId: ID) => getSlotPiece(state, slotId),
-    getStagePieces: () => getStagePieces(state),
-    getPiecesToShuffle: () => getPiecesToShuffle(state),
     movePieceToStage: (pieceId: ID, top: number, left: number) =>
       setState(state => movePieceToStage(state, pieceId, top, left)),
     movePieceToSlot: (pieceId: ID, slotId: ID) =>
