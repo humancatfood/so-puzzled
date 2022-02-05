@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 
+import { Rect } from './shuffling'
+
 import {
   createState,
   movePieceToStage,
@@ -28,7 +30,7 @@ export function useGameState(ids: Array<ID>) {
       setState(state => movePieceToStage(state, pieceId, top, left)),
     movePieceToSlot: (pieceId: ID, slotId: ID) =>
       setState(state => movePieceToSlot(state, pieceId, slotId)),
-    shufflePieces: () => setState(state => shufflePieces(state)),
+    shufflePieces: (stage: Rect) => setState(state => shufflePieces(state, stage)),
     ...(process.env.NODE_ENV !== 'production' ? {
       debug: () => {
         console.log(state)

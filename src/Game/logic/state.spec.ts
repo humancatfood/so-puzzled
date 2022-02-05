@@ -171,7 +171,7 @@ describe('Game State', () => {
   describe('shuffling', () => {
     it('doesn\'t do anything if there\'s nothing to shuffle', () => {
       const state1 = createState(['1', '2', '3'])
-      const state2 = shufflePieces(state1)
+      const state2 = shufflePieces(state1, { top: 0, bottom: 0, left: 0, right: 0 })
 
       expect(getSlotPiece(state2, '1')).toEqual({ id: '1', top: 0, left: 0 })
       expect(getSlotPiece(state2, '2')).toEqual({ id: '2', top: 0, left: 0 })
@@ -194,7 +194,7 @@ describe('Game State', () => {
         expect.objectContaining({ id: '3' }),
       ]))
       
-      const state2 = shufflePieces(state)
+      const state2 = shufflePieces(state, { top: 0, bottom: 0, left: 0, right: 0 })
       expect(getPiecesToShuffle(state2)).toEqual([])
       expect(getSlotPiece(state2, '1')).toEqual(null)
       expect(getSlotPiece(state2, '2')).toEqual(null)

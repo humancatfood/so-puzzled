@@ -1,3 +1,5 @@
+import { shufflePiece, Rect } from './shuffling'
+
 export type ID = string
 
 export type PieceMap = Record<ID, IPiece | null>
@@ -87,15 +89,14 @@ export function movePieceToSlot(
   }
 }
 
-export function shufflePieces(state: IGameState): IGameState {
+export function shufflePieces(state: IGameState, stage: Rect): IGameState {
   return {
     ...state,
     stage: state.stage.map(piece => {
       if (piece.left == null || piece.top == null) {
         return {
           ...piece,
-          top: Math.random() * 500,
-          left: Math.random() * 500,
+          ...shufflePiece(stage),
         }
       } else {
         return piece
