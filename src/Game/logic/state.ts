@@ -88,7 +88,6 @@ export function movePieceToSlot(
 }
 
 export function shufflePieces(state: IGameState): IGameState {
-
   return {
     ...state,
     stage: state.stage.map(piece => {

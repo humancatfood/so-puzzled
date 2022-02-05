@@ -115,44 +115,46 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
     }
   }
 
-  console.log({ isSolved: isSolved() })
+  debug?.()
 
   return (
     <>
-      <Stage onDropPiece={movePieceToStage} />
-      <div className="grid-wrapper">
-        <ReferenceImage
-          img={img}
-          semiTransparent={showHelp}
-          onResize={setImageSize}
-        />
-        <GameGrid
-          width={imgWidth}
-          height={imgHeight}
-          pieceSizeRatio={difficulty}
-          renderSlot={renderSlot}
-        />
-      </div>
-      {getStagePieces().map(({ id, top, left }) => {
-        const { width, height, pieceWidth, pieceHeight } = gameInfo
-        const { x, y } = pieces[id]
-        if (top != null && left != null) {
-        return (
-          <Piece
-            key={id}
-            id={id}
-            pieceWidth={pieceWidth}
-            pieceHeight={pieceHeight}
-            width={width}
-            height={height}
-            left={x * pieceWidth * -1}
-            top={y * pieceHeight * -1}
+      <p style={{ color: 'white' }}>Solved: {isSolved().toString()}</p>
+      <Stage onDropPiece={movePieceToStage}>
+        <div className="grid-wrapper">
+          <ReferenceImage
             img={img}
-            offset={{ x: left, y: top }}
+            semiTransparent={showHelp}
+            onResize={setImageSize}
           />
-        )
-        }
-      })}
+          <GameGrid
+            width={imgWidth}
+            height={imgHeight}
+            pieceSizeRatio={difficulty}
+            renderSlot={renderSlot}
+          />
+        </div>
+        {getStagePieces().map(({ id, top, left }) => {
+          const { width, height, pieceWidth, pieceHeight } = gameInfo
+          const { x, y } = pieces[id]
+          if (top != null && left != null) {
+            return (
+              <Piece
+                key={id}
+                id={id}
+                pieceWidth={pieceWidth}
+                pieceHeight={pieceHeight}
+                width={width}
+                height={height}
+                left={x * pieceWidth * -1}
+                top={y * pieceHeight * -1}
+                img={img}
+                offset={{ x: left, y: top }}
+              />
+            )
+          }
+        })}
+      </Stage>
     </>
   )
 }

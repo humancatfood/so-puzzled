@@ -15,8 +15,10 @@ export default function Stage({
       isOver: monitor.isOver(),
     }),
     drop: (item: { id: string }, monitor) => {
-      const offset = monitor.getSourceClientOffset()
-      onDropPiece(item.id, offset?.y ?? 0, offset?.x ?? 0)
+      if (!monitor.didDrop()) {
+        const offset = monitor.getSourceClientOffset()
+        onDropPiece(item.id, offset?.y ?? 0, offset?.x ?? 0)
+      }
     },
   }))
 

@@ -9,7 +9,7 @@ export default function GameStateStart({ onStart }: GameStateStartProps) {
     <>
       <header className="page-header">
         <h1>
-          So Puzzled!! <br />{' '}
+          So Puzzled!! <br /> {'  '}
           <small>
             A little puzzle game for practice, written in React and jQueryUI
           </small>
