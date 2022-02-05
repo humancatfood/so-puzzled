@@ -90,9 +90,12 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
 
   useEffect(() => {
     if (piecesToShuffle.length && stageRef.current) {
-      shufflePieces(stageRef.current?.getBoundingClientRect().toJSON(), [
-        gridRef.current?.getBoundingClientRect().toJSON(),
-      ])
+      shufflePieces(
+        stageRef.current?.getBoundingClientRect().toJSON(),
+        [gridRef.current?.getBoundingClientRect().toJSON()],
+        gameInfo.pieceWidth,
+        gameInfo.pieceHeight,
+      )
     }
   }, [piecesToShuffle, shufflePieces])
 

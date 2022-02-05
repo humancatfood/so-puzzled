@@ -40,28 +40,40 @@ describe('Shuffling', () => {
       })
 
       it('stays within limits .. ALWAYS!!!!', () => {
+        const pieceWidth = 2
+        const pieceHeight = 5
+
         const locations = new Array(300)
           .fill(undefined)
-          .map(() => shufflePiece({ stage }))
+          .map(() => shufflePiece({ stage, pieceWidth, pieceHeight }))
 
         const lefts = locations.map(location => location.left)
         const tops = locations.map(location => location.top)
 
         expect(Math.min(...lefts)).toBeGreaterThanOrEqual(stage.left)
-        expect(Math.max(...lefts)).toBeLessThanOrEqual(stage.right)
+        expect(Math.max(...lefts) + pieceWidth).toBeLessThanOrEqual(stage.right)
         expect(Math.min(...tops)).toBeGreaterThanOrEqual(stage.top)
-        expect(Math.max(...tops)).toBeLessThanOrEqual(stage.bottom)
+        expect(Math.max(...tops) + pieceHeight).toBeLessThanOrEqual(
+          stage.bottom,
+        )
       })
     })
 
     describe('obstacle avoidance', () => {
       it('shuffles around things', () => {
         const obstacle = { top: -100, bottom: 3, left: -20, right: 8 }
-        const locations = new Array(500)
-          .fill(undefined)
-          .map(() => shufflePiece({ stage, avoid: [obstacle] }))
+        const pieceWidth = 50
+        const pieceHeight = 5
+        const locations = new Array(500).fill(undefined).map(() =>
+          shufflePiece({
+            stage,
+            avoid: [obstacle],
+            pieceWidth,
+            pieceHeight,
+          }),
+        )
         const locationsInObstacle = locations.filter(loc =>
-          isInRect(loc, obstacle),
+          isInRect(loc, obstacle, pieceWidth, pieceHeight),
         )
         expect(locationsInObstacle).toEqual([])
       })

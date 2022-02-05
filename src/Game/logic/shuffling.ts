@@ -17,24 +17,38 @@ type ShuffleOptions = {
   pieceHeight?: number
 }
 
-export function shufflePiece({ stage, avoid = [] }: ShuffleOptions): Coords {
+export function shufflePiece({
+  stage,
+  avoid = [],
+  pieceWidth = 0,
+  pieceHeight = 0,
+}: ShuffleOptions): Coords {
   let tries = 0
   let result: Coords
   const [obstacle] = avoid
   do {
-    if (tries++ > 100) {
+    if (tries++ > 500) {
       throw new Error('timeout!')
     }
     result = {
-      top: stage.top + Math.random() * (stage.bottom - stage.top),
-      left: stage.left + Math.random() * (stage.right - stage.left),
+      top: stage.top + Math.random() * (stage.bottom - stage.top - pieceHeight),
+      left:
+        stage.left + Math.random() * (stage.right - stage.left - pieceWidth),
     }
-  } while (obstacle && isInRect(result, obstacle))
+  } while (obstacle && isInRect(result, obstacle, pieceWidth, pieceHeight))
   return result
 }
 
-export function isInRect({ top, left }: Coords, rect: Rect): boolean {
+export function isInRect(
+  { top, left }: Coords,
+  rect: Rect,
+  pieceWidth: number,
+  pieceHeight: number,
+): boolean {
   return (
-    left < rect.right && left > rect.left && top > rect.top && top < rect.bottom
+    left < rect.right &&
+    left + pieceWidth > rect.left &&
+    top + pieceHeight > rect.top &&
+    top < rect.bottom
   )
 }
