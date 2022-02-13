@@ -68,7 +68,7 @@ export function movePieceToSlot(
   const currentOccupant = getSlotPiece(state, slotId)
 
   if (currentOccupant) {
-    state = movePieceToStage(state, currentOccupant.id)
+    state = markPiecesToBeShuffled(state, [currentOccupant.id])
   }
 
   const slotsEntries = Object.entries(state.slots).map(
@@ -87,6 +87,16 @@ export function movePieceToSlot(
     slots: Object.fromEntries(slotsEntries),
     stage: state.stage.filter(piece => piece.id !== pieceId),
   }
+}
+
+export function markPiecesToBeShuffled(
+  state: IGameState,
+  ids: ID[],
+): IGameState {
+  for (const id of ids) {
+    state = movePieceToStage(state, id)
+  }
+  return state
 }
 
 export function shufflePieces(

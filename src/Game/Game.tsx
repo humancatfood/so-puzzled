@@ -82,6 +82,7 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
     stagePieces,
     piecesToShuffle,
     getSlotPiece,
+    markPiecesToBeShuffled,
     movePieceToStage,
     movePieceToSlot,
     debug,
@@ -103,6 +104,12 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
     gameInfo.pieceWidth,
     gameInfo.pieceHeight,
   ])
+
+  useEffect(() => {
+    if (isSolved) {
+      markPiecesToBeShuffled(ids)
+    }
+  }, [isSolved, markPiecesToBeShuffled, ids])
 
   function renderSlot(x: number, y: number): ReactElement {
     const slotId = coordsToId(x, y)

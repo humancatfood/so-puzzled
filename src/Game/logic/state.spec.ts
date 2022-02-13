@@ -1,5 +1,6 @@
 import {
   createState,
+  markPiecesToBeShuffled,
   movePieceToStage,
   movePieceToSlot,
   IGameState,
@@ -171,7 +172,7 @@ describe('Game State', () => {
     })
   })
 
-  describe('shuffling', () => {
+  describe.only('shuffling', () => {
     it("doesn't do anything if there's nothing to shuffle", () => {
       const state1 = createState(['1', '2', '3'])
       const state2 = shufflePieces(state1, {
@@ -232,6 +233,19 @@ describe('Game State', () => {
           }),
         ]),
       )
+    })
+
+    it("let's you mark a piece to be shuffled", () => {
+      state = createState(['1', '2', '3'])
+      state = markPiecesToBeShuffled(state, ['1'])
+
+      expect(getSlotPiece(state, '1')).toEqual(null)
+      expect(getSlotPiece(state, '2')).toEqual({ id: '2', top: 0, left: 0 })
+      expect(getSlotPiece(state, '3')).toEqual({ id: '3', top: 0, left: 0 })
+      expect(getStagePieces(state)).toEqual([])
+      expect(getPiecesToShuffle(state)).toEqual([
+        expect.objectContaining({ id: '1' }),
+      ])
     })
   })
 })

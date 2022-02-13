@@ -6,6 +6,7 @@ import {
   createState,
   movePieceToStage,
   movePieceToSlot,
+  markPiecesToBeShuffled,
   shufflePieces,
   getSlotPiece,
   getStagePieces,
@@ -30,6 +31,8 @@ export function useGameState(ids: Array<ID>) {
       setState(state => movePieceToStage(state, pieceId, top, left)),
     movePieceToSlot: (pieceId: ID, slotId: ID) =>
       setState(state => movePieceToSlot(state, pieceId, slotId)),
+    markPiecesToBeShuffled: (pieceIds: ID[]) =>
+      setState(state => markPiecesToBeShuffled(state, pieceIds)),
     shufflePieces: (
       stage: Rect,
       obstacles: Rect[],
