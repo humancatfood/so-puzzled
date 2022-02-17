@@ -172,7 +172,7 @@ describe('Game State', () => {
     })
   })
 
-  describe.only('shuffling', () => {
+  describe('shuffling', () => {
     it("doesn't do anything if there's nothing to shuffle", () => {
       const state1 = createState(['1', '2', '3'])
       const state2 = shufflePieces(state1, {
