@@ -1,9 +1,9 @@
 import { useMemo, useState, ReactElement, useEffect, useRef } from 'react'
 
 import GameGrid from './Grid'
-import Piece from './Piece'
+import { Piece } from './Piece'
 import ReferenceImage from './ReferenceImage'
-import Slot from './Slot'
+import { Slot } from './Slot'
 import Stage from './Stage'
 import { useGameState, getGridDimensions, getIds, coordsToId } from './logic'
 

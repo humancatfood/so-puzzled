@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useDrag } from 'react-dnd'
+import { PieceWrapper } from './Piece.styled'
 
 type PieceProps = {
   id: string
@@ -13,7 +14,7 @@ type PieceProps = {
   offset: { x: number; y: number }
 }
 
-export default function Piece({
+export function Piece({
   id,
   width,
   height,
@@ -45,13 +46,9 @@ export default function Piece({
   })
 
   return (
-    <div
+    <PieceWrapper
       ref={dragRef}
       style={{
-        position: 'absolute',
-        maxWidth: '100%',
-        maxHeight: '100%',
-        overflow: 'hidden',
         width: `${pieceWidth}px`,
         height: `${pieceHeight}px`,
         top: `${offset.y ?? 0}px`,
@@ -67,6 +64,6 @@ export default function Piece({
           height={pieceHeight}
         />
       )}
-    </div>
+    </PieceWrapper>
   )
 }
