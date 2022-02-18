@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
+import { useImageLoader } from '../utils'
 
 import { Game } from './Game'
 
@@ -11,17 +11,7 @@ export type GameWrapperProps = {
 }
 
 export function GameWrapper({ Game, imgSrc, difficulty }: GameWrapperProps) {
-  const [img, setImg] = useState<HTMLImageElement>()
-  const [error, setError] = useState<string>()
-
-  useEffect(() => {
-    const img = new Image()
-    img.addEventListener('load', () => setImg(img))
-    img.addEventListener('error', ({ message }) =>
-      setError(message || 'image could not be loaded :('),
-    )
-    img.src = imgSrc
-  }, [imgSrc])
+  const { error, img, isLoading } = useImageLoader(imgSrc)
 
   if (error) {
     return (
@@ -32,6 +22,8 @@ export function GameWrapper({ Game, imgSrc, difficulty }: GameWrapperProps) {
     )
   }
 
+  console.log({ img })
+
   if (img) {
     return (
       <DndProvider backend={HTML5Backend}>
@@ -40,5 +32,9 @@ export function GameWrapper({ Game, imgSrc, difficulty }: GameWrapperProps) {
     )
   }
 
-  return <h1>loading</h1>
+  if (isLoading) {
+    return <h1>loading</h1>
+  }
+
+  return null
 }
