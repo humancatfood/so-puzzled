@@ -2,7 +2,7 @@ import { useMemo, useState, ReactElement, useEffect, useRef } from 'react'
 
 import { Grid } from './Grid'
 import { Piece } from './Piece'
-import ReferenceImage from './ReferenceImage'
+import { ReferenceImage } from './ReferenceImage'
 import { Slot } from './Slot'
 import { Stage } from './Stage'
 import { useGameState, getGridDimensions, getIds, coordsToId } from './logic'
@@ -147,11 +147,7 @@ export function Game({ img, difficulty = 2 }: GameProps) {
       <p style={{ color: 'white' }}>Solved: {isSolved.toString()}</p>
       <Stage onDropPiece={movePieceToStage} ref={stageRef}>
         <div className="grid-wrapper" ref={gridRef}>
-          <ReferenceImage
-            img={img}
-            semiTransparent={showHelp}
-            onResize={setImageSize}
-          />
+          <ReferenceImage img={img} hint={showHelp} onResize={setImageSize} />
           <Grid
             width={imgWidth}
             height={imgHeight}
