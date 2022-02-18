@@ -56,7 +56,7 @@ function getGameInfo(
   }
 }
 
-export default function Game({ img, difficulty = 2 }: GameProps) {
+export function Game({ img, difficulty = 2 }: GameProps) {
   const [showHelp] = useState<boolean>(false)
   const stageRef = useRef<HTMLDivElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)

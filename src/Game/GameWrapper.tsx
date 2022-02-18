@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 
-import Game from './Game'
+import { Game } from './Game'
 
 export type GameWrapperProps = {
   Game: typeof Game
@@ -10,11 +10,7 @@ export type GameWrapperProps = {
   difficulty: number
 }
 
-export default function GameWrapper({
-  Game,
-  imgSrc,
-  difficulty,
-}: GameWrapperProps) {
+export function GameWrapper({ Game, imgSrc, difficulty }: GameWrapperProps) {
   const [img, setImg] = useState<HTMLImageElement>()
   const [error, setError] = useState<string>()
 

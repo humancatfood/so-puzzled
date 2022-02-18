@@ -1,5 +1,5 @@
-import Game from './Game'
-import GameWrapper, { GameWrapperProps } from './GameWrapper'
+import { Game } from './Game'
+import { GameWrapper, GameWrapperProps } from './GameWrapper'
 
 export default function WrappedGame({
   difficulty,
