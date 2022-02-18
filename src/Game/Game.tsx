@@ -1,10 +1,10 @@
 import { useMemo, useState, ReactElement, useEffect, useRef } from 'react'
 
-import GameGrid from './Grid'
+import { Grid } from './Grid'
 import { Piece } from './Piece'
 import ReferenceImage from './ReferenceImage'
 import { Slot } from './Slot'
-import Stage from './Stage'
+import { Stage } from './Stage'
 import { useGameState, getGridDimensions, getIds, coordsToId } from './logic'
 
 type GameProps = {
@@ -107,7 +107,7 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
 
   useEffect(() => {
     if (isSolved) {
-      markPiecesToBeShuffled(ids)
+      // markPiecesToBeShuffled(ids)
     }
   }, [isSolved, markPiecesToBeShuffled, ids])
 
@@ -152,7 +152,7 @@ export default function Game({ img, difficulty = 2 }: GameProps) {
             semiTransparent={showHelp}
             onResize={setImageSize}
           />
-          <GameGrid
+          <Grid
             width={imgWidth}
             height={imgHeight}
             pieceSizeRatio={difficulty}

@@ -7689,16 +7689,7 @@ button.close {
   display: inline-block;
 }
 
-.piece-positioner {
-  position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  border-spacing: 0;
-}
 
-.piece-positioner.done {
-  border: none;
-  pointer-events: none;
-}
 
 .piece-wrapper {
   position: absolute;
@@ -7719,10 +7710,6 @@ button.close {
   position: absolute;
 }
 
-.done .piece-wrapper .piece {
-  pointer-events: none;
-}
-
 .game-wrapper {
   position: relative;
   text-align: center;
@@ -7734,12 +7721,6 @@ button.close {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.game-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .stage {
