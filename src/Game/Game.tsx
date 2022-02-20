@@ -1,4 +1,4 @@
-import { useMemo, useState, ReactElement, useEffect, useRef } from 'react'
+import { useState, ReactElement, useEffect, useRef, useMemo } from 'react'
 
 import { Grid } from './Grid'
 import { Piece } from './Piece'
@@ -17,6 +17,10 @@ type GameInfo = {
   pieceHeight: number
   width: number
   height: number
+  numRows: number
+  numCols: number
+  ids: string[]
+  pieces: Record<string, PieceParams>
 }
 
 type PieceParams = {
@@ -48,11 +52,37 @@ function getGameInfo(
   const pieceWidth = width / numCols
   const pieceHeight = height / numRows
 
+  const ids = getIds(numRows, numCols)
+  const pieces = getPieces(numCols, numRows)
+
   return {
     pieceWidth,
     pieceHeight,
     width,
     height,
+    numRows,
+    numCols,
+    ids,
+    pieces,
+  }
+}
+
+function useGameInfo(difficulty: number) {
+  const [{ width, height }, setImageSize] = useState<{
+    width: number
+    height: number
+  }>({ width: 0, height: 0 })
+
+  const gameInfo = useMemo(
+    () => getGameInfo(width, height, difficulty),
+    [width, height, difficulty],
+  )
+
+  return {
+    ...gameInfo,
+    setImageSize,
+    imgWidth: width,
+    imgHeight: height,
   }
 }
 
@@ -61,21 +91,17 @@ export function Game({ img, difficulty = 2 }: GameProps) {
   const stageRef = useRef<HTMLDivElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
 
-  const [{ width: imgWidth, height: imgHeight }, setImageSize] = useState<{
-    width: number
-    height: number
-  }>({ width: 0, height: 0 })
-
-  const gameInfo = getGameInfo(imgWidth, imgHeight, difficulty)
-
-  const { numCols, numRows } = useMemo(
-    () => getGridDimensions(imgWidth, imgHeight, difficulty),
-    [imgWidth, imgHeight, difficulty],
-  )
-
-  const ids = useMemo(() => getIds(numRows, numCols), [numCols, numRows])
-
-  const pieces = useMemo(() => getPieces(numCols, numRows), [numCols, numRows])
+  const {
+    ids,
+    pieceWidth,
+    pieceHeight,
+    pieces,
+    width,
+    height,
+    numCols,
+    numRows,
+    setImageSize,
+  } = useGameInfo(difficulty)
 
   const {
     isSolved,
@@ -94,16 +120,11 @@ export function Game({ img, difficulty = 2 }: GameProps) {
       shufflePieces(
         stageRef.current?.getBoundingClientRect().toJSON(),
         [gridRef.current?.getBoundingClientRect().toJSON()],
-        gameInfo.pieceWidth,
-        gameInfo.pieceHeight,
+        pieceWidth,
+        pieceHeight,
       )
     }
-  }, [
-    piecesToShuffle,
-    shufflePieces,
-    gameInfo.pieceWidth,
-    gameInfo.pieceHeight,
-  ])
+  }, [piecesToShuffle, shufflePieces, pieceWidth, pieceHeight])
 
   useEffect(() => {
     if (isSolved) {
@@ -119,7 +140,6 @@ export function Game({ img, difficulty = 2 }: GameProps) {
     if (pieceInSlot) {
       const { id } = pieceInSlot
       const { x, y } = pieces[id]
-      const { width, height, pieceWidth, pieceHeight } = gameInfo
       return (
         <Slot onDropPiece={onDropPiece}>
           <Piece
@@ -151,7 +171,6 @@ export function Game({ img, difficulty = 2 }: GameProps) {
           <Grid numCols={numCols} numRows={numRows} renderSlot={renderSlot} />
         </div>
         {stagePieces.map(({ id, top, left }) => {
-          const { width, height, pieceWidth, pieceHeight } = gameInfo
           const { x, y } = pieces[id]
           if (top != null && left != null) {
             return (
