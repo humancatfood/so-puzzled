@@ -22,7 +22,9 @@ export function GameWrapper({ Game, imgSrc, difficulty }: GameWrapperProps) {
     )
   }
 
-  console.log({ img })
+  if (isLoading) {
+    return <h1>loading</h1>
+  }
 
   if (img) {
     return (
@@ -30,10 +32,6 @@ export function GameWrapper({ Game, imgSrc, difficulty }: GameWrapperProps) {
         <Game difficulty={difficulty} img={img} />
       </DndProvider>
     )
-  }
-
-  if (isLoading) {
-    return <h1>loading</h1>
   }
 
   return null

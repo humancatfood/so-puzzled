@@ -10,7 +10,7 @@ export function getGridDimensions(
 ): GridDimensions {
   const pieceSize = Math.min(width, height) / ratio
   return {
-    numRows: Math.round(height / pieceSize),
-    numCols: Math.round(width / pieceSize),
+    numRows: height ? Math.round(height / pieceSize) : 0,
+    numCols: width ? Math.round(width / pieceSize) : 0,
   }
 }

@@ -148,12 +148,7 @@ export function Game({ img, difficulty = 2 }: GameProps) {
       <Stage onDropPiece={movePieceToStage} ref={stageRef}>
         <div className="grid-wrapper" ref={gridRef}>
           <ReferenceImage img={img} hint={showHelp} onResize={setImageSize} />
-          <Grid
-            width={imgWidth}
-            height={imgHeight}
-            pieceSizeRatio={difficulty}
-            renderSlot={renderSlot}
-          />
+          <Grid numCols={numCols} numRows={numRows} renderSlot={renderSlot} />
         </div>
         {stagePieces.map(({ id, top, left }) => {
           const { width, height, pieceWidth, pieceHeight } = gameInfo
