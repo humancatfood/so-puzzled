@@ -16,7 +16,7 @@ import {
   IGameState,
 } from './state'
 
-export function useGameState(ids: Array<ID>) {
+export function useGameState(ids: ID[]) {
   const [state, setState] = useState<IGameState>(createState(ids))
   useEffect(() => {
     setState(createState(ids))
@@ -42,14 +42,14 @@ export function useGameState(ids: Array<ID>) {
       setState(state =>
         shufflePieces(state, stage, obstacles, pieceWidth, pieceHeight),
       ),
-    ...debug(state),
+    ...debug(state, ids),
   }
 }
 
-function debug(state: IGameState) {
+function debug(state: IGameState, ids: ID[]) {
   if (process.env.NODE_ENV !== 'production') {
     return {
-      debug: () => console.log(state),
+      debug: () => console.log({ ids, state }),
     }
   }
 }
