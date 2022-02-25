@@ -48,9 +48,8 @@ export function Piece({
   return (
     <PieceWrapper
       ref={dragRef}
+      data-testid={`piece-${id}`}
       style={{
-        width: `${pieceWidth}px`,
-        height: `${pieceHeight}px`,
         top: `${offset.y ?? 0}px`,
         left: `${offset.x ?? 0}px`,
         cursor: isDragging ? 'grabbing' : 'grab',
