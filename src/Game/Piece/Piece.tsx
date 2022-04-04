@@ -56,12 +56,7 @@ export function Piece({
       }}
     >
       {!isDragging && (
-        <canvas
-          data-id={id}
-          ref={canvasRef}
-          width={pieceWidth}
-          height={pieceHeight}
-        />
+        <canvas ref={canvasRef} width={pieceWidth} height={pieceHeight} />
       )}
     </PieceWrapper>
   )

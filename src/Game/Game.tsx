@@ -111,7 +111,6 @@ export function Game({ img, difficulty = 2 }: GameProps) {
     markPiecesToBeShuffled,
     movePieceToStage,
     movePieceToSlot,
-    debug,
     shufflePieces,
   } = useGameState(ids)
 
@@ -159,8 +158,6 @@ export function Game({ img, difficulty = 2 }: GameProps) {
       return <Slot onDropPiece={onDropPiece} />
     }
   }
-
-  debug?.()
 
   return (
     <>
