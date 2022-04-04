@@ -5,6 +5,7 @@ type Size = [number, number]
 
 export function useElementSize(element: HTMLElement | null): Size {
   const [size, setSize] = useState<Size>([0, 0])
+
   useEffect(() => {
     if (element) {
       const observer = new ResizeObserver(
@@ -17,6 +18,7 @@ export function useElementSize(element: HTMLElement | null): Size {
       return () => observer.unobserve(element)
     }
   }, [element])
+
   return size
 }
 

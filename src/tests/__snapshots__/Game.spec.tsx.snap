@@ -1,0 +1,1627 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Game renders 1`] = `
+"<div>
+  <h1>
+    loading
+  </h1>
+</div>"
+`;
+
+exports[`Game renders 2`] = `
+"<div>
+  <p
+    style=\\"color: white;\\"
+  >
+    Solved: 
+    true
+  </p>
+  <div
+    class=\\"sc-gKclnd kXLDxX\\"
+  >
+    <div
+      class=\\"grid-wrapper\\"
+    >
+      <img
+        class=\\"sc-eCImPb eHPDMO\\"
+        src=\\"800x500.jpg\\"
+      />
+      <table
+        class=\\"sc-bdvvtL cKOWJf\\"
+      >
+        <tbody>
+          <tr
+            class=\\"sc-gsDKAQ\\"
+          >
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-0-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-1-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-2-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-3-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-4-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-5-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-6-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-7-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class=\\"sc-gsDKAQ\\"
+          >
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-0-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-1-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-2-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-3-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-4-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-5-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-6-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-7-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class=\\"sc-gsDKAQ\\"
+          >
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-0-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-1-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-2-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-3-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-4-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-5-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-6-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-7-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class=\\"sc-gsDKAQ\\"
+          >
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-0-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-1-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-2-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-3-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-4-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-5-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-6-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-7-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class=\\"sc-gsDKAQ\\"
+          >
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-0-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-1-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-2-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-3-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-4-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-5-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-6-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-7-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`Game renders 3`] = `
+"<div>
+  <p
+    style=\\"color: white;\\"
+  >
+    Solved: 
+    true
+  </p>
+  <div
+    class=\\"sc-gKclnd kXLDxX\\"
+  >
+    <div
+      class=\\"grid-wrapper\\"
+    >
+      <img
+        class=\\"sc-eCImPb eHPDMO\\"
+        src=\\"800x500.jpg\\"
+      />
+      <table
+        class=\\"sc-bdvvtL cKOWJf\\"
+      >
+        <tbody>
+          <tr
+            class=\\"sc-gsDKAQ\\"
+          >
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-0-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-1-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-2-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-3-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-4-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-5-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-6-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-7-0\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class=\\"sc-gsDKAQ\\"
+          >
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-0-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-1-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-2-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-3-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-4-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-5-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-6-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-7-1\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class=\\"sc-gsDKAQ\\"
+          >
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-0-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-1-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-2-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-3-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-4-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-5-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-6-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-7-2\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class=\\"sc-gsDKAQ\\"
+          >
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-0-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-1-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-2-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-3-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-4-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-5-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-6-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-7-3\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class=\\"sc-gsDKAQ\\"
+          >
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-0-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-1-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-2-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-3-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-4-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-5-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-6-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+            <td
+              class=\\"sc-dkPtRN cOfCXi\\"
+            >
+              <div
+                class=\\"sc-jRQBWg ljjRtj\\"
+              >
+                <div
+                  class=\\"sc-hKwDye bYTePa\\"
+                  data-testid=\\"piece-7-4\\"
+                  draggable=\\"true\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                >
+                  <canvas
+                    height=\\"100\\"
+                    width=\\"100\\"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>"
+`;
