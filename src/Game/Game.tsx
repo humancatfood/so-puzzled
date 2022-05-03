@@ -8,18 +8,13 @@ import { Slot } from './Slot'
 import { Stage } from './Stage'
 import { useGameState, coordsToId } from './logic'
 
-type GameProps = {
-  img: HTMLImageElement
-}
-
-export function Game({ img }: GameProps) {
+export function Game() {
   const [showHelp] = useState<boolean>(false)
   const stageRef = useRef<HTMLDivElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
 
-  const config = useConfig()
-
-  const { ids, pieceWidth, pieceHeight, pieces, numCols, numRows } = config
+  const { ids, pieceWidth, pieceHeight, pieces, numCols, numRows, img } =
+    useConfig()
 
   const {
     isSolved,

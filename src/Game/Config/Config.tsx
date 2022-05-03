@@ -64,7 +64,8 @@ type ConfigContext = {
   numRows: number
   ids: string[]
   pieces: Record<string, PieceParams>
-} & GameInfo
+} & GameInfo &
+  GameProps
 
 const Context = createContext<ConfigContext | null>(null)
 
@@ -100,6 +101,8 @@ export function ConfigProvider({
         numRows,
         ids,
         pieces,
+        img,
+        difficulty,
       }}
       {...otherProps}
     />

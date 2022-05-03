@@ -30,7 +30,7 @@ export function GameWrapper({ imgSrc, difficulty }: GameWrapperProps) {
     return (
       <DndProvider backend={HTML5Backend}>
         <ConfigProvider difficulty={difficulty} img={img}>
-          <Game img={img} />
+          <Game />
         </ConfigProvider>
       </DndProvider>
     )
