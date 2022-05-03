@@ -1,30 +1,18 @@
 import { useEffect, useRef } from 'react'
 import { useDrag } from 'react-dnd'
+
+import { useConfig } from './../Config'
 import { PieceWrapper } from './Piece.styled'
 
 type PieceProps = {
   id: string
-  width: number
-  height: number
-  pieceWidth: number
-  pieceHeight: number
   left: number
   top: number
   img: HTMLImageElement
   offset: { x: number; y: number }
 }
 
-export function Piece({
-  id,
-  width,
-  height,
-  left,
-  top,
-  img,
-  pieceWidth,
-  pieceHeight,
-  offset,
-}: PieceProps) {
+export function Piece({ id, left, top, img, offset }: PieceProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   const [{ isDragging }, dragRef] = useDrag({
@@ -38,10 +26,14 @@ export function Piece({
     }),
   })
 
+  const { width, height, pieceWidth, pieceHeight } = useConfig()
+
   useEffect(() => {
     const ctx = canvasRef.current?.getContext('2d')
     requestAnimationFrame(() => {
-      ctx?.drawImage(img, left, top, width, height)
+      if (ctx) {
+        ctx.drawImage(img, left, top, width, height)
+      }
     })
   })
 

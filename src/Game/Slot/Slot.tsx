@@ -16,7 +16,7 @@ export function Slot({ onDropPiece, children }: PropsWithChildren<SlotProps>) {
         isOver: monitor.isOver(),
       }
     },
-    drop: (item: { id: string }, monitor) => {
+    drop: (item: { id: string }) => {
       // debugger
       onDropPiece(item.id)
     },

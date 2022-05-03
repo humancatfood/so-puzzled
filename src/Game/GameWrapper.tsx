@@ -1,16 +1,16 @@
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
-import { useImageLoader } from '../utils'
 
+import { useImageLoader } from '../utils'
+import { ConfigProvider } from './Config'
 import { Game } from './Game'
 
 export type GameWrapperProps = {
-  Game: typeof Game
   imgSrc: string
   difficulty: number
 }
 
-export function GameWrapper({ Game, imgSrc, difficulty }: GameWrapperProps) {
+export function GameWrapper({ imgSrc, difficulty }: GameWrapperProps) {
   const { error, img, isLoading } = useImageLoader(imgSrc)
 
   if (error) {
@@ -29,7 +29,9 @@ export function GameWrapper({ Game, imgSrc, difficulty }: GameWrapperProps) {
   if (img) {
     return (
       <DndProvider backend={HTML5Backend}>
-        <Game difficulty={difficulty} img={img} />
+        <ConfigProvider difficulty={difficulty} img={img}>
+          <Game img={img} />
+        </ConfigProvider>
       </DndProvider>
     )
   }
