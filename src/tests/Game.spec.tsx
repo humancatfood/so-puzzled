@@ -3,7 +3,6 @@ import {
   render,
   prettyDOM,
   waitForElementToBeRemoved,
-  waitFor,
 } from '@testing-library/react'
 import Game from '../Game'
 
@@ -23,9 +22,8 @@ describe('Game', () => {
     match('loading')
 
     await waitForElementToBeRemoved(() => queryByText('loading'))
-    match('after:loading')
 
     await findByTestId('piece-0-0')
-    await waitFor(() => match('after:placing:pieces'), { container })
+    match('after placing pieces')
   })
 })

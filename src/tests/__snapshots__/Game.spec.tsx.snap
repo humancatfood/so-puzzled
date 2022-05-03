@@ -1,34 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Game renders: after:loading 1`] = `
-"<div>
-  <p
-    style=\\"color: white;\\"
-  >
-    Solved: 
-    true
-  </p>
-  <div
-    class=\\"sc-gKclnd kXLDxX\\"
-  >
-    <div
-      class=\\"grid-wrapper\\"
-    >
-      <img
-        class=\\"sc-eCImPb helFoR\\"
-        src=\\"800x500.jpg\\"
-      />
-      <table
-        class=\\"sc-bdvvtL cKOWJf\\"
-      >
-        <tbody />
-      </table>
-    </div>
-  </div>
-</div>"
-`;
-
-exports[`Game renders: after:placing:pieces 1`] = `
+exports[`Game renders: after placing pieces 1`] = `
 "<div>
   <p
     style=\\"color: white;\\"
