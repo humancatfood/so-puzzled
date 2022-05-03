@@ -7734,15 +7734,3 @@ button.close {
   padding-bottom: 20px;
 }
 
-.base-img {
-  max-width: 100%;
-  max-height: 60vh;
-}
-
-.base-img.transparent {
-  opacity: 0;
-}
-
-.base-img.transparent.semi-transparent {
-  opacity: 0.2;
-}

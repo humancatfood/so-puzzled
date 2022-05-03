@@ -70,17 +70,3 @@ $icon-font-path: "../fonts/";
   padding-bottom: 20px;
 }
 
-.base-img {
-
-  max-width: 100%;
-  max-height: 60vh;
-
-  &.transparent {
-    opacity: 0;
-
-    &.semi-transparent {
-      opacity: 0.2;
-    }
-
-  }
-}
