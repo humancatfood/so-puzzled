@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { times } from '../../utils'
+import { times } from '../../../utils'
 import { GameGrid, GridCol, GridRow } from './Grid.styled'
 
 type GridProps = {

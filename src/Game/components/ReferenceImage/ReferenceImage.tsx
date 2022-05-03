@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react'
-import { useElementSize } from '../../utils'
-import { useConfig } from '../Config'
+import { useElementSize } from '../../../utils'
+import { useConfig } from '../../Config'
 import { Image } from './ReferenceImage.styled'
 
 type ReferenceImageProps = {

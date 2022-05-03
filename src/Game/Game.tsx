@@ -1,11 +1,7 @@
 import { useState, ReactElement, useEffect, useRef } from 'react'
 
 import { useConfig } from './Config'
-import { Grid } from './Grid'
-import { Piece } from './Piece'
-import { ReferenceImage } from './ReferenceImage'
-import { Slot } from './Slot'
-import { Stage } from './Stage'
+import { Grid, Piece, ReferenceImage, Slot, Stage } from './components'
 import { useGameState, coordsToId } from './logic'
 
 export function Game() {

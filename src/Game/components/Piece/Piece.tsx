@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useDrag } from 'react-dnd'
 
-import { useConfig } from './../Config'
+import { useConfig } from '../../Config'
 import { PieceWrapper } from './Piece.styled'
 
 type PieceProps = {
