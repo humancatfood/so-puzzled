@@ -4,6 +4,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import { useImageLoader } from '../utils'
 import { ConfigProvider } from './Config'
 import { Game } from './Game'
+import { GameStateProvider } from './State'
 
 export type GameWrapperProps = {
   imgSrc: string
@@ -30,7 +31,9 @@ export function GameWrapper({ imgSrc, difficulty }: GameWrapperProps) {
     return (
       <DndProvider backend={HTML5Backend}>
         <ConfigProvider difficulty={difficulty} img={img}>
-          <Game />
+          <GameStateProvider>
+            <Game />
+          </GameStateProvider>
         </ConfigProvider>
       </DndProvider>
     )

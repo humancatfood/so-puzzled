@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks'
 
-import { useGameState } from './hook'
+import { useGameState, GameStateProvider } from './context'
 
 function checkSlot(
   state: ReturnType<typeof useGameState>,
@@ -19,7 +19,7 @@ function checkSlot(
 describe('Game Logic as hook', () => {
   it('lets you set up a new empty state', () => {
     const { result } = renderHook(useGameState, {
-      initialProps: [],
+      wrapper: GameStateProvider,
     })
     checkSlot(result.current, '1', null)
     expect(result.current.stagePieces).toEqual([])
@@ -28,7 +28,10 @@ describe('Game Logic as hook', () => {
 
   it('puts pieces into their correct slot by default', () => {
     const { result } = renderHook(useGameState, {
-      initialProps: ['1', '2', '3'],
+      wrapper: GameStateProvider,
+    })
+    act(() => {
+      result.current.reset(['1', '2', '3'])
     })
     checkSlot(result.current, '1', '1')
     checkSlot(result.current, '2', '2')
@@ -39,10 +42,11 @@ describe('Game Logic as hook', () => {
 
   it('stress-testing', () => {
     const { result } = renderHook(useGameState, {
-      initialProps: ['1', '2', '3'],
+      wrapper: GameStateProvider,
     })
 
     act(() => {
+      result.current.reset(['1', '2', '3'])
       result.current.movePieceToStage('1', 10, 20)
       result.current.movePieceToSlot('1', '1')
       result.current.movePieceToStage('1', 20, 30)
