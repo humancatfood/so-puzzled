@@ -1,8 +1,8 @@
 import { useState, ReactElement, useEffect, useRef } from 'react'
 
-import { useConfig } from './Config'
+import { useConfig, coordsToId } from './Config'
+import { useGameState } from './State'
 import { Grid, Piece, ReferenceImage, Slot, Stage } from './components'
-import { useGameState, coordsToId } from './logic'
 
 export function Game() {
   const [showHelp] = useState<boolean>(false)
@@ -21,7 +21,8 @@ export function Game() {
     movePieceToStage,
     movePieceToSlot,
     shufflePieces,
-  } = useGameState(ids)
+    reset,
+  } = useGameState()
 
   useEffect(() => {
     if (piecesToShuffle.length && stageRef.current) {
@@ -39,6 +40,10 @@ export function Game() {
       // markPiecesToBeShuffled(ids)
     }
   }, [isSolved, markPiecesToBeShuffled, ids])
+
+  useEffect(() => {
+    reset(ids)
+  }, [ids])
 
   function renderSlot(x: number, y: number): ReactElement {
     const slotId = coordsToId(x, y)

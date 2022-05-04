@@ -5,7 +5,8 @@ import {
   useState,
   PropsWithChildren,
 } from 'react'
-import { getGridDimensions, getIds, coordsToId } from '../logic'
+import { getGridDimensions } from './grid'
+import { getIds, coordsToId } from './ids'
 
 type GameProps = {
   img: HTMLImageElement
