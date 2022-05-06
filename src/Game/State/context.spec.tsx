@@ -1,4 +1,5 @@
 import { act, renderHook } from '@testing-library/react-hooks'
+import { ComponentProps } from 'react'
 
 import { useGameState, GameStateProvider } from './context'
 
