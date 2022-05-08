@@ -9,6 +9,7 @@ import { useDrop } from 'react-dnd'
 import { useGameState } from '../../State'
 import { Piece } from '../Piece'
 import { StageWrapper } from './Stage.styled'
+// import {  } from '../../utils'
 
 type StageProps = PropsWithChildren<{
   onDropPiece: (itemId: string, top: number, left: number) => void

@@ -19,7 +19,7 @@ jest.mock('./utils', () => {
   function useMockImageLoader(src: string) {
     const [{ img, error, isLoading }, setState] = useState<{
       img?: HTMLElement
-      error?: any
+      error?: never
       isLoading?: boolean
     }>({})
 
