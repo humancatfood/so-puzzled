@@ -9,30 +9,30 @@ exports[`Game renders: after placing pieces 1`] = `
     true
   </p>
   <div
-    class=\\"sc-gKclnd kXLDxX\\"
+    class=\\"sc-iCfMLu kWmtYK\\"
   >
     <div
-      class=\\"grid-wrapper\\"
+      class=\\"sc-jRQBWg cWivBI\\"
     >
       <img
-        class=\\"sc-eCImPb helFoR\\"
+        class=\\"sc-gKclnd jHCaLg\\"
         src=\\"800x500.jpg\\"
       />
       <table
-        class=\\"sc-bdvvtL cKOWJf\\"
+        class=\\"sc-dkPtRN kcWNxm\\"
       >
         <tbody>
           <tr
-            class=\\"sc-gsDKAQ\\"
+            class=\\"sc-hKwDye\\"
           >
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-0-0\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -45,13 +45,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-1-0\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -64,13 +64,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-2-0\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -83,13 +83,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-3-0\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -102,13 +102,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-4-0\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -121,13 +121,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-5-0\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -140,13 +140,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-6-0\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -159,13 +159,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-7-0\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -179,16 +179,16 @@ exports[`Game renders: after placing pieces 1`] = `
             </td>
           </tr>
           <tr
-            class=\\"sc-gsDKAQ\\"
+            class=\\"sc-hKwDye\\"
           >
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-0-1\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -201,13 +201,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-1-1\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -220,13 +220,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-2-1\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -239,13 +239,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-3-1\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -258,13 +258,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-4-1\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -277,13 +277,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-5-1\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -296,13 +296,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-6-1\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -315,13 +315,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-7-1\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -335,16 +335,16 @@ exports[`Game renders: after placing pieces 1`] = `
             </td>
           </tr>
           <tr
-            class=\\"sc-gsDKAQ\\"
+            class=\\"sc-hKwDye\\"
           >
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-0-2\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -357,13 +357,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-1-2\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -376,13 +376,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-2-2\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -395,13 +395,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-3-2\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -414,13 +414,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-4-2\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -433,13 +433,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-5-2\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -452,13 +452,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-6-2\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -471,13 +471,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-7-2\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -491,16 +491,16 @@ exports[`Game renders: after placing pieces 1`] = `
             </td>
           </tr>
           <tr
-            class=\\"sc-gsDKAQ\\"
+            class=\\"sc-hKwDye\\"
           >
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-0-3\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -513,13 +513,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-1-3\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -532,13 +532,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-2-3\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -551,13 +551,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-3-3\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -570,13 +570,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-4-3\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -589,13 +589,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-5-3\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -608,13 +608,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-6-3\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -627,13 +627,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-7-3\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -647,16 +647,16 @@ exports[`Game renders: after placing pieces 1`] = `
             </td>
           </tr>
           <tr
-            class=\\"sc-gsDKAQ\\"
+            class=\\"sc-hKwDye\\"
           >
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-0-4\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -669,13 +669,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-1-4\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -688,13 +688,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-2-4\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -707,13 +707,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-3-4\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -726,13 +726,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-4-4\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -745,13 +745,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-5-4\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -764,13 +764,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-6-4\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"
@@ -783,13 +783,13 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-dkPtRN cOfCXi\\"
+              class=\\"sc-eCImPb PRAiB\\"
             >
               <div
-                class=\\"sc-jRQBWg ljjRtj\\"
+                class=\\"sc-gsDKAQ eOayxz\\"
               >
                 <div
-                  class=\\"sc-hKwDye bYTePa\\"
+                  class=\\"sc-bdvvtL dNKuw\\"
                   data-testid=\\"piece-7-4\\"
                   draggable=\\"true\\"
                   style=\\"top: 0px; left: 0px; cursor: grab;\\"

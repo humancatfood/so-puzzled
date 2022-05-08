@@ -6,6 +6,8 @@ import {
   useImperativeHandle,
 } from 'react'
 import { useDrop } from 'react-dnd'
+import { useGameState } from '../../State'
+import { Piece } from '../Piece'
 import { StageWrapper } from './Stage.styled'
 
 type StageProps = PropsWithChildren<{
@@ -31,6 +33,8 @@ export const Stage = forwardRef<Ref, StageProps>((props, forwardedRef) => {
     },
   }))
 
+  const { stagePieces } = useGameState()
+
   useEffect(() => {
     dropRef(ref)
   })
@@ -40,6 +44,11 @@ export const Stage = forwardRef<Ref, StageProps>((props, forwardedRef) => {
   return (
     <StageWrapper isHighlighted={isOver} ref={ref}>
       {children}
+      {stagePieces.map(({ id, top, left }) => {
+        if (top != null && left != null) {
+          return <Piece key={id} id={id} offset={{ x: left, y: top }} />
+        }
+      })}
     </StageWrapper>
   )
 })

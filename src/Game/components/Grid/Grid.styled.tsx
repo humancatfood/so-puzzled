@@ -24,3 +24,11 @@ export const GridCol = styled.td({
   border: '1px solid rgba(0, 0, 0, 0.4)',
   borderSpacing: 0,
 })
+
+export const GridWrapper = styled.div({
+  display: 'inline-block',
+  position: 'relative',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+})

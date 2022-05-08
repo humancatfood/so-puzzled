@@ -2,7 +2,7 @@ import { shufflePiece, Rect } from './shuffling'
 
 export type ID = string
 
-export type PieceMap = Record<ID, IPiece | null>
+type PieceMap = Record<ID, IPiece | null>
 
 export interface IPiece {
   id: ID

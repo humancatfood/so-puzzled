@@ -1,13 +1,23 @@
 import { PropsWithChildren } from 'react'
 import { useDrop } from 'react-dnd'
+import { coordsToId } from '../../Config'
+import { useGameState } from '../../State'
+import { Piece } from '../Piece'
 
 import { SlotWrapper } from './Slot.styled'
 
 type SlotProps = {
-  onDropPiece: (itemId: string) => void
+  x: number
+  y: number
 }
 
-export function Slot({ onDropPiece, children }: PropsWithChildren<SlotProps>) {
+export function Slot({ x, y }: PropsWithChildren<SlotProps>) {
+  const { getSlotPiece, movePieceToSlot } = useGameState()
+
+  const slotId = coordsToId(x, y)
+  const pieceInSlot = getSlotPiece(slotId)
+  const onDropPiece = (pieceId: string) => movePieceToSlot(pieceId, slotId)
+
   const [{ isOver }, dropRef] = useDrop(() => ({
     accept: 'piece',
     collect: monitor => {
@@ -24,7 +34,9 @@ export function Slot({ onDropPiece, children }: PropsWithChildren<SlotProps>) {
 
   return (
     <SlotWrapper ref={dropRef} isHighlighted={isOver}>
-      {children}
+      {pieceInSlot ? (
+        <Piece id={pieceInSlot.id} offset={{ x: 0, y: 0 }} />
+      ) : null}
     </SlotWrapper>
   )
 }

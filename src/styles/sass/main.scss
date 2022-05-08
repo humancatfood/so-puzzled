@@ -43,16 +43,6 @@ $icon-font-path: "../fonts/";
 }
 
 
-.game-wrapper {
-  position: relative;
-  text-align: center;
-
-  .grid-wrapper {
-    position: relative;
-    display: inline-block;
-  }
-}
-
 .game-grid {
   position: absolute;
   top: 0;

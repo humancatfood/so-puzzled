@@ -6,13 +6,10 @@ import { PieceWrapper } from './Piece.styled'
 
 type PieceProps = {
   id: string
-  left: number
-  top: number
-  img: HTMLImageElement
   offset: { x: number; y: number }
 }
 
-export function Piece({ id, left, top, img, offset }: PieceProps) {
+export function Piece({ id, offset }: PieceProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   const [{ isDragging }, dragRef] = useDrag({
@@ -26,13 +23,21 @@ export function Piece({ id, left, top, img, offset }: PieceProps) {
     }),
   })
 
-  const { width, height, pieceWidth, pieceHeight } = useConfig()
+  const { img, pieces, width, height, pieceWidth, pieceHeight } = useConfig()
+
+  const { x, y } = pieces[id]
 
   useEffect(() => {
     const ctx = canvasRef.current?.getContext('2d')
     requestAnimationFrame(() => {
       if (ctx) {
-        ctx.drawImage(img, left, top, width, height)
+        ctx.drawImage(
+          img,
+          x * pieceWidth * -1,
+          y * pieceHeight * -1,
+          width,
+          height,
+        )
       }
     })
   })
