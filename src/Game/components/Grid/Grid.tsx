@@ -1,13 +1,10 @@
 import { times } from '../../../utils'
+import { useConfig } from '../../Config'
 import { Slot } from '../Slot'
 import { GameGrid, GridCol, GridRow } from './Grid.styled'
 
-type GridProps = {
-  numCols: number
-  numRows: number
-}
-
-export function Grid({ numRows, numCols }: GridProps) {
+export function Grid() {
+  const { numCols, numRows } = useConfig()
   return (
     <GameGrid>
       {times(numRows, y => (

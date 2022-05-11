@@ -9,13 +9,12 @@ export function Game() {
   const stageRef = useRef<HTMLDivElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
 
-  const { ids, pieceWidth, pieceHeight, numCols, numRows, img } = useConfig()
+  const { ids, pieceWidth, pieceHeight } = useConfig()
 
   const {
     isSolved,
     piecesToShuffle,
     markPiecesToBeShuffled,
-    movePieceToStage,
     shufflePieces,
     reset,
   } = useGameState()
@@ -44,10 +43,10 @@ export function Game() {
   return (
     <>
       <p style={{ color: 'white' }}>Solved: {isSolved.toString()}</p>
-      <Stage onDropPiece={movePieceToStage} ref={stageRef}>
+      <Stage ref={stageRef}>
         <GridWrapper ref={gridRef}>
-          <ReferenceImage img={img} hint={showHelp} />
-          <Grid numCols={numCols} numRows={numRows} />
+          <ReferenceImage hint={showHelp} />
+          <Grid />
         </GridWrapper>
       </Stage>
     </>

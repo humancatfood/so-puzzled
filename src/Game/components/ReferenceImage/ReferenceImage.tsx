@@ -4,13 +4,11 @@ import { useConfig } from '../../Config'
 import { Image } from './ReferenceImage.styled'
 
 type ReferenceImageProps = {
-  img: HTMLImageElement
   show?: boolean
   hint?: boolean
 }
 
 export function ReferenceImage({
-  img,
   show = false,
   hint = false,
 }: ReferenceImageProps) {
@@ -18,7 +16,7 @@ export function ReferenceImage({
 
   const [width, height] = useElementSize(imgRef.current)
 
-  const { setImageSize } = useConfig()
+  const { img, setImageSize } = useConfig()
 
   useEffect(() => {
     setImageSize({ width, height })
