@@ -2,14 +2,14 @@ import { useEffect, useRef } from 'react'
 import { useDrag } from 'react-dnd'
 
 import { useConfig } from '../../Config'
+import { IPiece } from '../../State/state'
 import { PieceWrapper } from './Piece.styled'
 
 type PieceProps = {
-  id: string
-  offset: { x: number; y: number }
+  piece: IPiece
 }
 
-export function Piece({ id, offset }: PieceProps) {
+export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   const [{ isDragging }, dragRef] = useDrag({
@@ -23,9 +23,7 @@ export function Piece({ id, offset }: PieceProps) {
     }),
   })
 
-  const { img, pieces, width, height, pieceWidth, pieceHeight } = useConfig()
-
-  const { x, y } = pieces[id]
+  const { img, width, height, pieceWidth, pieceHeight } = useConfig()
 
   useEffect(() => {
     const ctx = canvasRef.current?.getContext('2d')
@@ -47,8 +45,8 @@ export function Piece({ id, offset }: PieceProps) {
       ref={dragRef}
       data-testid={`piece-${id}`}
       style={{
-        top: `${offset.y ?? 0}px`,
-        left: `${offset.x ?? 0}px`,
+        top: `${top ?? 0}px`,
+        left: `${left ?? 0}px`,
         cursor: isDragging ? 'grabbing' : 'grab',
       }}
     >

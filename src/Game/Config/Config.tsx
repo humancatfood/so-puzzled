@@ -6,7 +6,6 @@ import {
   PropsWithChildren,
 } from 'react'
 import { getGridDimensions } from './grid'
-import { getIds, coordsToId } from './ids'
 
 type GameProps = {
   img: HTMLImageElement
@@ -18,25 +17,6 @@ type GameInfo = {
   pieceHeight: number
   width: number
   height: number
-}
-
-type PieceParams = {
-  x: number
-  y: number
-}
-
-function getPieces(
-  numCols: number,
-  numRows: number,
-): Record<string, PieceParams> {
-  const pieces: Record<string, PieceParams> = {}
-  for (let y = 0; y < numRows; y += 1) {
-    for (let x = 0; x < numCols; x += 1) {
-      const id = coordsToId(x, y)
-      pieces[id] = { x, y }
-    }
-  }
-  return pieces
 }
 
 function getGameInfo(
@@ -63,8 +43,6 @@ type ConfigContext = {
   setImageSize: (size: { width: number; height: number }) => void
   numCols: number
   numRows: number
-  ids: string[]
-  pieces: Record<string, PieceParams>
 } & GameInfo &
   GameProps
 
@@ -87,10 +65,6 @@ export function ConfigProvider({
     [imgWidth, imgHeight, difficulty],
   )
 
-  const ids = useMemo(() => getIds(numRows, numCols), [numCols, numRows])
-
-  const pieces = useMemo(() => getPieces(numCols, numRows), [numCols, numRows])
-
   return (
     <Context.Provider
       value={{
@@ -100,8 +74,6 @@ export function ConfigProvider({
         setImageSize,
         numCols,
         numRows,
-        ids,
-        pieces,
         img,
         difficulty,
       }}
