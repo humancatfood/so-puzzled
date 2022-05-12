@@ -23,7 +23,7 @@ export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
     }),
   })
 
-  const { img, width, height, pieceWidth, pieceHeight } = useConfig()
+  const { img, imgWidth, imgHeight, pieceWidth, pieceHeight } = useConfig()
 
   useEffect(() => {
     const ctx = canvasRef.current?.getContext('2d')
@@ -33,8 +33,8 @@ export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
           img,
           x * pieceWidth * -1,
           y * pieceHeight * -1,
-          width,
-          height,
+          imgWidth,
+          imgHeight,
         )
       }
     })

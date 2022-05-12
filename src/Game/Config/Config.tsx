@@ -7,44 +7,20 @@ import {
 } from 'react'
 import { getGridDimensions } from './grid'
 
-type GameProps = {
+type Props = {
   img: HTMLImageElement
   difficulty: number
 }
 
-type GameInfo = {
-  pieceWidth: number
-  pieceHeight: number
-  width: number
-  height: number
-}
-
-function getGameInfo(
-  width: number,
-  height: number,
-  difficulty: number,
-): GameInfo {
-  const { numRows, numCols } = getGridDimensions(width, height, difficulty)
-
-  const pieceWidth = width / numCols
-  const pieceHeight = height / numRows
-
-  return {
-    pieceWidth,
-    pieceHeight,
-    width,
-    height,
-  }
-}
-
 type ConfigContext = {
-  imgWidth: number
-  imgHeight: number
-  setImageSize: (size: { width: number; height: number }) => void
   numCols: number
   numRows: number
-} & GameInfo &
-  GameProps
+  imgWidth: number
+  imgHeight: number
+  pieceWidth: number
+  pieceHeight: number
+  setImageSize: (size: { width: number; height: number }) => void
+} & Props
 
 const Context = createContext<ConfigContext | null>(null)
 
@@ -52,34 +28,35 @@ export function ConfigProvider({
   img,
   difficulty = 2,
   ...otherProps
-}: PropsWithChildren<GameProps>) {
+}: PropsWithChildren<Props>) {
   const [{ width: imgWidth, height: imgHeight }, setImageSize] = useState<{
     width: number
     height: number
   }>(img)
 
-  const gameInfo = getGameInfo(imgWidth, imgHeight, difficulty)
+  const value = useMemo(() => {
+    const { numRows, numCols } = getGridDimensions(
+      imgWidth,
+      imgHeight,
+      difficulty,
+    )
 
-  const { numCols, numRows } = useMemo(
-    () => getGridDimensions(imgWidth, imgHeight, difficulty),
-    [imgWidth, imgHeight, difficulty],
-  )
+    const pieceWidth = imgWidth / numCols
+    const pieceHeight = imgHeight / numRows
+    return {
+      img,
+      difficulty,
+      numRows,
+      numCols,
+      imgWidth,
+      imgHeight,
+      pieceWidth,
+      pieceHeight,
+      setImageSize,
+    }
+  }, [img, imgWidth, imgHeight, difficulty])
 
-  return (
-    <Context.Provider
-      value={{
-        ...gameInfo,
-        imgWidth,
-        imgHeight,
-        setImageSize,
-        numCols,
-        numRows,
-        img,
-        difficulty,
-      }}
-      {...otherProps}
-    />
-  )
+  return <Context.Provider value={value} {...otherProps} />
 }
 
 export function useConfig(): ConfigContext {
