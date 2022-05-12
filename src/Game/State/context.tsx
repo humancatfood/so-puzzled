@@ -31,7 +31,7 @@ type GameStateContext = {
   movePieceToStage: (pieceId: ID, top: number, left: number) => void
   movePieceToSlot: (pieceId: ID, slotId: ID) => void
   markPiecesToBeShuffled: (pieceIds: ID[]) => void
-  reset: (pieceIds: ID[]) => void
+  reset: (numRows: number, numCols: number) => void
   shufflePieces: (
     stage: Rect,
     obstacles: Rect[],
@@ -44,7 +44,11 @@ type GameStateContext = {
 const Context = createContext<GameStateContext | null>(null)
 
 export function GameStateProvider(props: PropsWithChildren<unknown>) {
-  const [state, setState] = useState<IGameState>({ slots: {}, stage: [] })
+  const [state, setState] = useState<IGameState>({
+    slots: {},
+    stage: [],
+    pieces: {},
+  })
 
   const value = useMemo(
     () => ({
@@ -67,7 +71,8 @@ export function GameStateProvider(props: PropsWithChildren<unknown>) {
         setState(state =>
           shufflePieces(state, stage, obstacles, pieceWidth, pieceHeight),
         ),
-      reset: (pieceIds: ID[]) => setState(createState(pieceIds)),
+      reset: (numRows: number, numCols: number) =>
+        setState(createState(numRows, numCols)),
       debug: debug(state),
     }),
     [state],

@@ -2,34 +2,42 @@ import { shufflePiece, Rect } from './shuffling'
 
 export type ID = string
 
-type PieceMap = Record<ID, IPiece | null>
-
 export interface IPiece {
   id: ID
+  x: number
+  y: number
   left?: number
   top?: number
 }
 
 export interface IGameState {
-  slots: PieceMap
-  stage: Array<IPiece>
+  slots: Record<ID, ID>
+  stage: Array<ID>
+  pieces: Record<ID, IPiece>
 }
 
-export function createState(ids: Array<ID>): IGameState {
-  const slots = ids.reduce<PieceMap>(
-    (acc, id) => ({
-      ...acc,
-      [id]: {
+export function createState(numRows: number, numCols: number): IGameState {
+  const pieces: Record<ID, IPiece> = {}
+  const slots: Record<ID, ID> = {}
+
+  for (let y = 0; y < numRows; y += 1) {
+    for (let x = 0; x < numCols; x += 1) {
+      const id = `${x}-${y}`
+      pieces[id] = {
         id,
-        top: 0,
+        x,
+        y,
         left: 0,
-      },
-    }),
-    {},
-  )
+        top: 0,
+      }
+      slots[id] = id
+    }
+  }
+
   return {
     slots,
     stage: [],
+    pieces,
   }
 }
 
@@ -39,53 +47,65 @@ export function movePieceToStage(
   top?: number,
   left?: number,
 ): IGameState {
-  const slots = Object.entries(state.slots).reduce<PieceMap>(
+  const slots = Object.entries(state.slots).reduce(
     (acc, [key, value]) => ({
       ...acc,
-      [key]: value?.id === pieceId ? null : value,
+      [key]: value === pieceId ? null : value,
     }),
     {},
   )
 
-  const stage = [
-    ...state.stage.filter(piece => piece.id !== pieceId),
-    {
-      id: pieceId,
+  const stage = state.stage.filter(id => id !== pieceId).concat(pieceId)
+
+  const pieces = {
+    ...state.pieces,
+    [pieceId]: {
+      ...state.pieces[pieceId],
       top,
       left,
     },
-  ]
+  }
 
-  return { slots, stage }
+  return { ...state, slots, stage, pieces }
 }
 
 export function movePieceToSlot(
   state: IGameState,
   pieceId: ID,
-  slotId: ID,
+  targetSlotId: ID,
 ): IGameState {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const currentOccupant = getSlotPiece(state, slotId)
+  const currentOccupant = getSlotPiece(state, targetSlotId)
 
   if (currentOccupant) {
     state = markPiecesToBeShuffled(state, [currentOccupant.id])
   }
 
   const slotsEntries = Object.entries(state.slots).map(
-    ([slotKey, slotPiece]) => {
-      if (slotPiece?.id === pieceId) {
-        return [slotKey, null]
-      } else if (slotKey === slotId) {
-        return [slotKey, { id: pieceId, top: 0, left: 0 }]
+    ([slotID, slotPieceID]) => {
+      if (slotPieceID === pieceId) {
+        return [slotID, null]
+      } else if (slotID === targetSlotId) {
+        return [slotID, pieceId]
       } else {
-        return [slotKey, slotPiece]
+        return [slotID, slotPieceID]
       }
     },
   )
 
+  const pieces = {
+    ...state.pieces,
+    [pieceId]: {
+      ...state.pieces[pieceId],
+      top: 0,
+      left: 0,
+    },
+  }
+
   return {
+    ...state,
+    pieces,
     slots: Object.fromEntries(slotsEntries),
-    stage: state.stage.filter(piece => piece.id !== pieceId),
+    stage: state.stage.filter(id => id !== pieceId),
   }
 }
 
@@ -106,40 +126,45 @@ export function shufflePieces(
   pieceWidth?: number,
   pieceHeight?: number,
 ): IGameState {
-  return {
-    ...state,
-    stage: state.stage.map(piece => {
-      if (piece.left == null || piece.top == null) {
-        return {
+  const pieces: Record<ID, IPiece> = {
+    ...state.pieces,
+    ...state.stage
+      .map(id => state.pieces[id])
+      .reduce((acc, piece) => {
+        acc[piece.id] = {
           ...piece,
           ...shufflePiece({ stage, avoid: obstacles, pieceWidth, pieceHeight }),
         }
-      } else {
-        return piece
-      }
-    }),
+        return acc
+      }, {} as Record<ID, IPiece>),
+  }
+
+  return {
+    ...state,
+    pieces,
   }
 }
 
 export function getSlotPiece(state: IGameState, slotId: ID): IPiece | null {
-  return state.slots[slotId] ?? null
+  const pieceId = state.slots[slotId]
+  return pieceId ? state.pieces[pieceId] : null
 }
 
 export function getStagePieces(state: IGameState): Array<IPiece> {
-  return state.stage.filter(
-    ({ left, top }) => left !== undefined && top !== undefined,
-  )
+  return state.stage
+    .map(id => state.pieces[id])
+    .filter(({ left, top }) => left !== undefined && top !== undefined)
 }
 
 export function getPiecesToShuffle(state: IGameState): Array<IPiece> {
-  return state.stage.filter(
-    ({ left, top }) => left === undefined && top === undefined,
-  )
+  return state.stage
+    .map(id => state.pieces[id])
+    .filter(({ left, top }) => left === undefined && top === undefined)
 }
 
 export function isSolved(state: IGameState): boolean {
-  for (const [slotKey, content] of Object.entries(state.slots)) {
-    if (!content || content.id !== slotKey) {
+  for (const [slotId, pieceId] of Object.entries(state.slots)) {
+    if (!pieceId || pieceId !== slotId) {
       return false
     }
   }

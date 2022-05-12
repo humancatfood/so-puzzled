@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
 import { useDrop } from 'react-dnd'
-import { coordsToId } from '../../Config'
+import { coordsToId } from '../../../utils'
 import { useGameState } from '../../State'
 import { Piece } from '../Piece'
 
@@ -34,9 +34,7 @@ export function Slot({ x, y }: PropsWithChildren<SlotProps>) {
 
   return (
     <SlotWrapper ref={dropRef} isHighlighted={isOver}>
-      {pieceInSlot ? (
-        <Piece id={pieceInSlot.id} offset={{ x: 0, y: 0 }} />
-      ) : null}
+      {pieceInSlot ? <Piece piece={pieceInSlot} /> : null}
     </SlotWrapper>
   )
 }

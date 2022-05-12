@@ -9,12 +9,12 @@ export function Game() {
   const stageRef = useRef<HTMLDivElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
 
-  const { ids, pieceWidth, pieceHeight } = useConfig()
+  const { numRows, numCols, pieceWidth, pieceHeight } = useConfig()
 
   const {
     isSolved,
     piecesToShuffle,
-    markPiecesToBeShuffled,
+    // markPiecesToBeShuffled,
     shufflePieces,
     reset,
   } = useGameState()
@@ -30,15 +30,15 @@ export function Game() {
     }
   }, [piecesToShuffle, shufflePieces, pieceWidth, pieceHeight])
 
-  useEffect(() => {
-    if (isSolved) {
-      // markPiecesToBeShuffled(ids)
-    }
-  }, [isSolved, markPiecesToBeShuffled, ids])
+  // useEffect(() => {
+  //   if (isSolved) {
+  //     markPiecesToBeShuffled(ids)
+  //   }
+  // }, [isSolved, markPiecesToBeShuffled, ids])
 
   useEffect(() => {
-    reset(ids)
-  }, [ids])
+    reset(numRows, numCols)
+  }, [numRows, numCols])
 
   return (
     <>

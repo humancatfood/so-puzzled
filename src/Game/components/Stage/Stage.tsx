@@ -40,9 +40,9 @@ export const Stage = forwardRef<Ref, PropsWithChildren<unknown>>(
     return (
       <StageWrapper isHighlighted={isOver} ref={ref}>
         {children}
-        {stagePieces.map(({ id, top, left }) => {
-          if (top != null && left != null) {
-            return <Piece key={id} id={id} offset={{ x: left, y: top }} />
+        {stagePieces.map(piece => {
+          if (piece.top != null && piece.left != null) {
+            return <Piece key={piece.id} piece={piece} />
           }
         })}
       </StageWrapper>

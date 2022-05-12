@@ -21,7 +21,7 @@ describe('Game Logic as hook', () => {
     const { result } = renderHook(useGameState, {
       wrapper: GameStateProvider,
     })
-    checkSlot(result.current, '1', null)
+    checkSlot(result.current, '0-0', null)
     expect(result.current.stagePieces).toEqual([])
     expect(result.current.isSolved).toEqual(true)
   })
@@ -31,11 +31,11 @@ describe('Game Logic as hook', () => {
       wrapper: GameStateProvider,
     })
     act(() => {
-      result.current.reset(['1', '2', '3'])
+      result.current.reset(1, 3)
     })
-    checkSlot(result.current, '1', '1')
-    checkSlot(result.current, '2', '2')
-    checkSlot(result.current, '3', '3')
+    checkSlot(result.current, '0-0', '0-0')
+    checkSlot(result.current, '1-0', '1-0')
+    checkSlot(result.current, '2-0', '2-0')
     expect(result.current.stagePieces).toEqual([])
     expect(result.current.isSolved).toEqual(true)
   })
@@ -46,41 +46,41 @@ describe('Game Logic as hook', () => {
     })
 
     act(() => {
-      result.current.reset(['1', '2', '3'])
-      result.current.movePieceToStage('1', 10, 20)
-      result.current.movePieceToSlot('1', '1')
-      result.current.movePieceToStage('1', 20, 30)
-      result.current.movePieceToSlot('1', '1')
+      result.current.reset(1, 3)
+      result.current.movePieceToStage('0-0', 10, 20)
+      result.current.movePieceToSlot('0-0', '0-0')
+      result.current.movePieceToStage('0-0', 20, 30)
+      result.current.movePieceToSlot('0-0', '0-0')
     })
 
-    checkSlot(result.current, '1', '1')
-    checkSlot(result.current, '2', '2')
-    checkSlot(result.current, '3', '3')
+    checkSlot(result.current, '0-0', '0-0')
+    checkSlot(result.current, '1-0', '1-0')
+    checkSlot(result.current, '2-0', '2-0')
     expect(result.current.stagePieces).toEqual([])
     act(() => {
-      result.current.movePieceToSlot('1', '3')
-      result.current.movePieceToSlot('2', '1')
-      result.current.movePieceToSlot('1', '2')
+      result.current.movePieceToSlot('0-0', '2-0')
+      result.current.movePieceToSlot('1-0', '0-0')
+      result.current.movePieceToSlot('0-0', '1-0')
     })
 
-    checkSlot(result.current, '1', '2')
-    checkSlot(result.current, '2', '1')
-    checkSlot(result.current, '3', null)
+    checkSlot(result.current, '0-0', '1-0')
+    checkSlot(result.current, '1-0', '0-0')
+    checkSlot(result.current, '2-0', null)
     expect(result.current.stagePieces).toEqual([])
     expect(result.current.piecesToShuffle).toEqual([
-      expect.objectContaining({ id: '3' }),
+      expect.objectContaining({ id: '2-0' }),
     ])
     expect(result.current.isSolved).toEqual(false)
 
     act(() => {
-      result.current.movePieceToSlot('1', '1')
-      result.current.movePieceToSlot('2', '2')
-      result.current.movePieceToSlot('3', '3')
+      result.current.movePieceToSlot('0-0', '0-0')
+      result.current.movePieceToSlot('1-0', '1-0')
+      result.current.movePieceToSlot('2-0', '2-0')
     })
 
-    checkSlot(result.current, '1', '1')
-    checkSlot(result.current, '2', '2')
-    checkSlot(result.current, '3', '3')
+    checkSlot(result.current, '0-0', '0-0')
+    checkSlot(result.current, '1-0', '1-0')
+    checkSlot(result.current, '2-0', '2-0')
     expect(result.current.stagePieces).toEqual([])
     expect(result.current.isSolved).toEqual(true)
   })
