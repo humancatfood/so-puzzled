@@ -3,7 +3,7 @@ import { useDrag } from 'react-dnd'
 
 import { useConfig } from '../../Config'
 import { IPiece } from '../../State/state'
-import { PieceWrapper } from './Piece.styled'
+import { PieceWrapper, PieceCanvas } from './Piece.styled'
 
 type PieceProps = {
   piece: IPiece
@@ -23,7 +23,15 @@ export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
     }),
   })
 
-  const { img, imgWidth, imgHeight, pieceWidth, pieceHeight } = useConfig()
+  const {
+    img,
+    pieceWidth,
+    pieceHeight,
+    marginSrc,
+    margin,
+    pieceWidthSrc,
+    pieceHeightSrc,
+  } = useConfig()
 
   useEffect(() => {
     const ctx = canvasRef.current?.getContext('2d')
@@ -31,10 +39,14 @@ export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
       if (ctx) {
         ctx.drawImage(
           img,
-          x * pieceWidth * -1,
-          y * pieceHeight * -1,
-          imgWidth,
-          imgHeight,
+          x * pieceWidthSrc - marginSrc,
+          y * pieceHeightSrc - marginSrc,
+          pieceWidthSrc + 2 * marginSrc,
+          pieceHeightSrc + 2 * marginSrc,
+          0,
+          0,
+          pieceWidth + 2 * margin,
+          pieceHeight + 2 * margin,
         )
       }
     })
@@ -51,7 +63,12 @@ export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
       }}
     >
       {!isDragging && (
-        <canvas ref={canvasRef} width={pieceWidth} height={pieceHeight} />
+        <PieceCanvas
+          ref={canvasRef}
+          width={pieceWidth + 2 * margin}
+          height={pieceHeight + 2 * margin}
+          margin={margin}
+        />
       )}
     </PieceWrapper>
   )

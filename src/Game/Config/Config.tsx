@@ -19,6 +19,10 @@ type ConfigContext = {
   imgHeight: number
   pieceWidth: number
   pieceHeight: number
+  pieceWidthSrc: number
+  pieceHeightSrc: number
+  margin: number
+  marginSrc: number
   setImageSize: (size: { width: number; height: number }) => void
 } & Props
 
@@ -43,6 +47,13 @@ export function ConfigProvider({
 
     const pieceWidth = imgWidth / numCols
     const pieceHeight = imgHeight / numRows
+
+    const pieceWidthSrc = img.width / numCols
+    const pieceHeightSrc = img.height / numRows
+
+    const margin = Math.min(pieceWidth, pieceHeight) * 0.3
+    const marginSrc = Math.min(pieceWidthSrc, pieceHeightSrc) * 0.3
+
     return {
       img,
       difficulty,
@@ -52,6 +63,10 @@ export function ConfigProvider({
       imgHeight,
       pieceWidth,
       pieceHeight,
+      pieceWidthSrc,
+      pieceHeightSrc,
+      margin,
+      marginSrc,
       setImageSize,
     }
   }, [img, imgWidth, imgHeight, difficulty])
