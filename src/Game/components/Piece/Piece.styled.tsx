@@ -1,3 +1,4 @@
+import { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
 export const PieceWrapper = styled.div({
@@ -8,3 +9,10 @@ export const PieceWrapper = styled.div({
     'z-index': '1',
   },
 })
+
+export const PieceCanvas = styled.canvas(
+  ({ margin }: PropsWithChildren<{ margin: number }>) => ({
+    opacity: 0.5,
+    transform: `translate(${-margin}px, ${-margin}px)`,
+  }),
+)
