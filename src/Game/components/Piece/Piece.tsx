@@ -37,6 +37,15 @@ export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
 
   useEffect(() => {
     const ctx = canvasRef.current?.getContext('2d')
+    // @ts-ignore
+    window.test = {
+      // @ts-ignore
+      canvas: canvasRef.current,
+      // @ts-ignore
+      img,
+      // @ts-ignore
+      ctx,
+    }
     requestAnimationFrame(() => {
       if (ctx) {
         ctx.clearRect(0, 0, 99999, 99999)
@@ -64,6 +73,16 @@ export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
           pieceWidth + 2 * margin,
           pieceHeight + 2 * margin,
         )
+
+        drawClipPath(ctx, {
+          margin,
+          pieceWidth,
+          pieceHeight,
+          x,
+          y,
+          numRows,
+          numCols,
+        })
       }
     })
   })
@@ -113,6 +132,9 @@ function drawClipPath(
   ctx.translate(margin, margin)
   ctx.moveTo(0, 0)
 
+  ctx.strokeStyle = 'white'
+  ctx.lineWidth = 2
+  ctx.lineJoin = 'round'
   if (isTop) {
     ctx.lineTo(pieceWidth, 0)
   } else {
@@ -142,21 +164,81 @@ function drawClipPath(
   if (isRight) {
     ctx.lineTo(pieceWidth, pieceHeight)
   } else {
+    ctx.lineTo(pieceWidth, pieceHeight * 0.4)
+    if (x % 2) {
+      ctx.bezierCurveTo(
+        pieceWidth + margin,
+        pieceHeight * 0.5 - margin,
+        pieceWidth + margin,
+        pieceHeight * 0.5 + margin,
+        pieceWidth,
+        pieceHeight * 0.6,
+      )
+    } else {
+      ctx.bezierCurveTo(
+        pieceWidth - margin,
+        pieceHeight * 0.5 - margin,
+        pieceWidth - margin,
+        pieceHeight * 0.5 + margin,
+        pieceWidth,
+        pieceHeight * 0.6,
+      )
+    }
     ctx.lineTo(pieceWidth, pieceHeight)
   }
 
   if (isBottom) {
     ctx.lineTo(0, pieceHeight)
   } else {
+    ctx.lineTo(pieceWidth * 0.6, pieceHeight)
+    if (y % 2) {
+      ctx.bezierCurveTo(
+        pieceWidth * 0.5 + margin,
+        pieceHeight - margin,
+        pieceWidth * 0.5 - margin,
+        pieceHeight - margin,
+        pieceWidth * 0.4,
+        pieceHeight,
+      )
+    } else {
+      ctx.bezierCurveTo(
+        pieceWidth * 0.5 + margin,
+        pieceHeight + margin,
+        pieceWidth * 0.5 - margin,
+        pieceHeight + margin,
+        pieceWidth * 0.4,
+        pieceHeight,
+      )
+    }
     ctx.lineTo(0, pieceHeight)
   }
 
   if (isLeft) {
     ctx.lineTo(0, 0)
   } else {
+    ctx.lineTo(0, pieceHeight * 0.6)
+    if (x % 2) {
+      ctx.bezierCurveTo(
+        -margin,
+        pieceHeight * 0.5 + margin,
+        -margin,
+        pieceHeight * 0.5 - margin,
+        0,
+        pieceHeight * 0.4,
+      )
+    } else {
+      ctx.bezierCurveTo(
+        margin,
+        pieceHeight * 0.5 + margin,
+        margin,
+        pieceHeight * 0.5 - margin,
+        0,
+        pieceHeight * 0.4,
+      )
+    }
     ctx.lineTo(0, 0)
   }
-
+  ctx.stroke()
   ctx.closePath()
   ctx.restore()
 }
