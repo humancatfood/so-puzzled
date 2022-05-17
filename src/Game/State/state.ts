@@ -119,6 +119,11 @@ export function markPiecesToBeShuffled(
   return state
 }
 
+export function markAllPiecesToBeShuffled(state: IGameState): IGameState {
+  const ids = Object.values(state.slots)
+  return markPiecesToBeShuffled(state, ids)
+}
+
 export function shufflePieces(
   state: IGameState,
   stage: Rect,

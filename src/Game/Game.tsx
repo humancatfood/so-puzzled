@@ -14,7 +14,7 @@ export function Game() {
   const {
     isSolved,
     piecesToShuffle,
-    // markPiecesToBeShuffled,
+    // markAllPiecesToBeShuffled,
     shufflePieces,
     reset,
   } = useGameState()
@@ -30,15 +30,15 @@ export function Game() {
     }
   }, [piecesToShuffle, shufflePieces, pieceWidth, pieceHeight])
 
-  // useEffect(() => {
-  //   if (isSolved) {
-  //     markPiecesToBeShuffled(ids)
-  //   }
-  // }, [isSolved, markPiecesToBeShuffled, ids])
-
   useEffect(() => {
     reset(numRows, numCols)
   }, [numRows, numCols])
+
+  // useEffect(() => {
+  //   if (isSolved) {
+  //     markAllPiecesToBeShuffled()
+  //   }
+  // }, [isSolved])
 
   return (
     <>

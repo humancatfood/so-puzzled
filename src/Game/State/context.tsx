@@ -13,6 +13,7 @@ import {
   movePieceToStage,
   movePieceToSlot,
   markPiecesToBeShuffled,
+  markAllPiecesToBeShuffled,
   shufflePieces,
   getSlotPiece,
   getStagePieces,
@@ -31,6 +32,7 @@ type GameStateContext = {
   movePieceToStage: (pieceId: ID, top: number, left: number) => void
   movePieceToSlot: (pieceId: ID, slotId: ID) => void
   markPiecesToBeShuffled: (pieceIds: ID[]) => void
+  markAllPiecesToBeShuffled: () => void
   reset: (numRows: number, numCols: number) => void
   shufflePieces: (
     stage: Rect,
@@ -62,6 +64,8 @@ export function GameStateProvider(props: PropsWithChildren<unknown>) {
         setState(state => movePieceToSlot(state, pieceId, slotId)),
       markPiecesToBeShuffled: (pieceIds: ID[]) =>
         setState(state => markPiecesToBeShuffled(state, pieceIds)),
+      markAllPiecesToBeShuffled: () =>
+        setState(state => markAllPiecesToBeShuffled(state)),
       shufflePieces: (
         stage: Rect,
         obstacles: Rect[],
