@@ -12,7 +12,6 @@ export const PieceWrapper = styled.div({
 
 export const PieceCanvas = styled.canvas(
   ({ margin }: PropsWithChildren<{ margin: number }>) => ({
-    opacity: 0.5,
     'pointer-events': 'none',
     transform: `translate(${-margin}px, ${-margin}px)`,
   }),

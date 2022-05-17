@@ -36,19 +36,12 @@ export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
   } = useConfig()
 
   useEffect(() => {
-    const ctx = canvasRef.current?.getContext('2d')
-    // @ts-ignore
-    window.test = {
-      // @ts-ignore
-      canvas: canvasRef.current,
-      // @ts-ignore
-      img,
-      // @ts-ignore
-      ctx,
-    }
-    requestAnimationFrame(() => {
+    const { current: canvas } = canvasRef
+    if (canvas) {
+      const ctx = canvas.getContext('2d')
       if (ctx) {
-        ctx.clearRect(0, 0, 99999, 99999)
+    requestAnimationFrame(() => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height)
 
         drawClipPath(ctx, {
           margin,
@@ -59,7 +52,7 @@ export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
           numRows,
           numCols,
         })
-
+          ctx.save()
         ctx.clip()
 
         ctx.drawImage(
@@ -74,18 +67,15 @@ export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
           pieceHeight + 2 * margin,
         )
 
-        drawClipPath(ctx, {
-          margin,
-          pieceWidth,
-          pieceHeight,
-          x,
-          y,
-          numRows,
-          numCols,
+          ctx.restore()
         })
       }
+    }
     })
-  })
+
+  if (isDragging) {
+    return null
+  }
 
   return (
     <PieceWrapper
@@ -132,9 +122,6 @@ function drawClipPath(
   ctx.translate(margin, margin)
   ctx.moveTo(0, 0)
 
-  ctx.strokeStyle = 'white'
-  ctx.lineWidth = 2
-  ctx.lineJoin = 'round'
   if (isTop) {
     ctx.lineTo(pieceWidth, 0)
   } else {
@@ -238,7 +225,11 @@ function drawClipPath(
     }
     ctx.lineTo(0, 0)
   }
+
+  ctx.strokeStyle = 'white'
+  ctx.lineWidth = 2
+  ctx.lineJoin = 'round'
   ctx.stroke()
-  ctx.closePath()
+
   ctx.restore()
 }

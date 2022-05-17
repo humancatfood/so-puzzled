@@ -27,7 +27,9 @@ go to http://humancatfood.github.io/so-puzzled/
 
 - randomize allocation and of holes and noses with 2d noise
 
-- fix repainting pieces. Currently noses are cut off when dropping a piece into a slot for the first time
+- ~fix repainting pieces. Currently noses are cut off when dropping a piece into a slot for the first time~
+
+- visually acknowledge & point out overlaps
 
 - add animation when pieces are moved to the stage
 
