@@ -40,38 +40,38 @@ export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
     if (canvas) {
       const ctx = canvas.getContext('2d')
       if (ctx) {
-    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
           ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-        drawClipPath(ctx, {
-          margin,
-          pieceWidth,
-          pieceHeight,
-          x,
-          y,
-          numRows,
-          numCols,
-        })
+          drawClipPath(ctx, {
+            margin,
+            pieceWidth,
+            pieceHeight,
+            x,
+            y,
+            numRows,
+            numCols,
+          })
           ctx.save()
-        ctx.clip()
+          ctx.clip()
 
-        ctx.drawImage(
-          img,
-          x * pieceWidthSrc - marginSrc,
-          y * pieceHeightSrc - marginSrc,
-          pieceWidthSrc + 2 * marginSrc,
-          pieceHeightSrc + 2 * marginSrc,
-          0,
-          0,
-          pieceWidth + 2 * margin,
-          pieceHeight + 2 * margin,
-        )
+          ctx.drawImage(
+            img,
+            x * pieceWidthSrc - marginSrc,
+            y * pieceHeightSrc - marginSrc,
+            pieceWidthSrc + 2 * marginSrc,
+            pieceHeightSrc + 2 * marginSrc,
+            0,
+            0,
+            pieceWidth + 2 * margin,
+            pieceHeight + 2 * margin,
+          )
 
           ctx.restore()
         })
       }
     }
-    })
+  })
 
   if (isDragging) {
     return null
@@ -87,14 +87,12 @@ export function Piece({ piece: { id, x, y, left, top } }: PieceProps) {
         cursor: isDragging ? 'grabbing' : 'grab',
       }}
     >
-      {!isDragging && (
-        <PieceCanvas
-          ref={canvasRef}
-          width={pieceWidth + 2 * margin}
-          height={pieceHeight + 2 * margin}
-          margin={margin}
-        />
-      )}
+      <PieceCanvas
+        ref={canvasRef}
+        width={pieceWidth + 2 * margin}
+        height={pieceHeight + 2 * margin}
+        margin={margin}
+      />
     </PieceWrapper>
   )
 }
