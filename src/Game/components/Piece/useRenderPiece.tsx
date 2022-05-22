@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 import { useConfig } from '../../Config'
-import { IPiece } from '../../State/state'
+import { IPiece } from '../../State'
 import { drawClipPath } from './drawClipPath'
 
 export function useRenderPiece({ x, y }: Pick<IPiece, 'x' | 'y'>) {

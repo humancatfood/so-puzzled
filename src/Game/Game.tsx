@@ -2,7 +2,13 @@ import { useState, useEffect, useRef } from 'react'
 
 import { useConfig } from './Config'
 import { useGameState } from './State'
-import { Grid, GridWrapper, ReferenceImage, Stage } from './components'
+import {
+  DragPiece,
+  Grid,
+  GridWrapper,
+  ReferenceImage,
+  Stage,
+} from './components'
 
 export function Game() {
   const [showHelp] = useState<boolean>(false)
@@ -48,6 +54,7 @@ export function Game() {
           <ReferenceImage hint={showHelp} />
           <Grid />
         </GridWrapper>
+        <DragPiece />
       </Stage>
     </>
   )

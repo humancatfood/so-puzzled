@@ -1,9 +1,9 @@
 import { PropsWithChildren } from 'react'
+
 import { useDrop } from 'react-dnd'
+import { StaticPiece } from '..'
 import { coordsToId } from '../../../utils'
 import { useGameState } from '../../State'
-import { Piece } from '../Piece'
-
 import { SlotWrapper } from './Slot.styled'
 
 type SlotProps = {
@@ -20,21 +20,17 @@ export function Slot({ x, y }: PropsWithChildren<SlotProps>) {
 
   const [{ isOver }, dropRef] = useDrop(() => ({
     accept: 'piece',
-    collect: monitor => {
-      // console.log(monitor.getSourceClientOffset())
-      return {
-        isOver: monitor.isOver(),
-      }
-    },
+    collect: monitor => ({
+      isOver: monitor.isOver(),
+    }),
     drop: (item: { id: string }) => {
-      // debugger
       onDropPiece(item.id)
     },
   }))
 
   return (
     <SlotWrapper ref={dropRef} isHighlighted={isOver}>
-      {pieceInSlot ? <Piece piece={pieceInSlot} /> : null}
+      {pieceInSlot ? <StaticPiece piece={pieceInSlot} /> : null}
     </SlotWrapper>
   )
 }

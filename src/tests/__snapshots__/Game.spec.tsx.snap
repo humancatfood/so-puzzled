@@ -9,36 +9,36 @@ exports[`Game renders: after placing pieces 1`] = `
     true
   </p>
   <div
-    class=\\"sc-furwcr fbkolh\\"
+    class=\\"sc-pVTFL jFIsKS\\"
   >
     <div
-      class=\\"sc-gKclnd cxsnry\\"
+      class=\\"sc-eCImPb cPhZRz\\"
     >
       <img
-        class=\\"sc-iCfMLu jnlJMZ\\"
+        class=\\"sc-furwcr lbdCTG\\"
         src=\\"800x500.jpg\\"
       />
       <table
-        class=\\"sc-hKwDye cmZDRh\\"
+        class=\\"sc-gsDKAQ bdzRRO\\"
       >
         <tbody>
           <tr
-            class=\\"sc-eCImPb\\"
+            class=\\"sc-dkPtRN\\"
           >
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-0-0\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -46,19 +46,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-1-0\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -66,19 +66,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-2-0\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -86,19 +86,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-3-0\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -106,19 +106,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-4-0\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -126,19 +126,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-5-0\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -146,19 +146,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-6-0\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -166,19 +166,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-7-0\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -187,22 +187,22 @@ exports[`Game renders: after placing pieces 1`] = `
             </td>
           </tr>
           <tr
-            class=\\"sc-eCImPb\\"
+            class=\\"sc-dkPtRN\\"
           >
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-0-1\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -210,19 +210,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-1-1\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -230,19 +230,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-2-1\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -250,19 +250,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-3-1\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -270,19 +270,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-4-1\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -290,19 +290,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-5-1\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -310,19 +310,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-6-1\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -330,19 +330,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-7-1\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -351,22 +351,22 @@ exports[`Game renders: after placing pieces 1`] = `
             </td>
           </tr>
           <tr
-            class=\\"sc-eCImPb\\"
+            class=\\"sc-dkPtRN\\"
           >
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-0-2\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -374,19 +374,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-1-2\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -394,19 +394,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-2-2\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -414,19 +414,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-3-2\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -434,19 +434,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-4-2\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -454,19 +454,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-5-2\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -474,19 +474,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-6-2\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -494,19 +494,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-7-2\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -515,22 +515,22 @@ exports[`Game renders: after placing pieces 1`] = `
             </td>
           </tr>
           <tr
-            class=\\"sc-eCImPb\\"
+            class=\\"sc-dkPtRN\\"
           >
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-0-3\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -538,19 +538,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-1-3\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -558,19 +558,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-2-3\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -578,19 +578,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-3-3\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -598,19 +598,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-4-3\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -618,19 +618,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-5-3\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -638,19 +638,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-6-3\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -658,19 +658,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-7-3\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -679,22 +679,22 @@ exports[`Game renders: after placing pieces 1`] = `
             </td>
           </tr>
           <tr
-            class=\\"sc-eCImPb\\"
+            class=\\"sc-dkPtRN\\"
           >
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-0-4\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -702,19 +702,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-1-4\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -722,19 +722,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-2-4\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -742,19 +742,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-3-4\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -762,19 +762,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-4-4\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -782,19 +782,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-5-4\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -802,19 +802,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-6-4\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />
@@ -822,19 +822,19 @@ exports[`Game renders: after placing pieces 1`] = `
               </div>
             </td>
             <td
-              class=\\"sc-jRQBWg iUhpky\\"
+              class=\\"sc-hKwDye ijyCFB\\"
             >
               <div
-                class=\\"sc-dkPtRN dyefpD\\"
+                class=\\"sc-bdvvtL clUCnS\\"
               >
                 <div
-                  class=\\"sc-bdvvtL tLwnd\\"
+                  class=\\"sc-jRQBWg cjsshw\\"
                   data-testid=\\"piece-7-4\\"
                   draggable=\\"true\\"
-                  style=\\"top: 0px; left: 0px; cursor: grab;\\"
+                  style=\\"top: 0px; left: 0px; cursor: grab; opacity: 1;\\"
                 >
                   <canvas
-                    class=\\"sc-gsDKAQ hVufac\\"
+                    class=\\"sc-iCfMLu bEFJLT\\"
                     height=\\"160\\"
                     width=\\"160\\"
                   />

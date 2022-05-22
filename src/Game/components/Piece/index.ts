@@ -1,1 +1,2 @@
-export { Piece } from './Piece'
+export { StaticPiece } from './StaticPiece'
+export { DragPiece } from './DragPiece'
