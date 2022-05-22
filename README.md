@@ -23,11 +23,7 @@ go to http://humancatfood.github.io/so-puzzled/
   - use poisson disc sampling to find organic spots on stage
   - incrementally tolerate more and more overlap between staged pieces until there's a fit
 
-- fix preview offset while dragging
-
-- randomize allocation and of holes and noses with 2d noise
-
-- ~fix repainting pieces. Currently noses are cut off when dropping a piece into a slot for the first time~
+- randomize allocation of holes and noses with 2d noise
 
 - visually acknowledge & point out overlaps
 
