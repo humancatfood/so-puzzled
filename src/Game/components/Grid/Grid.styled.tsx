@@ -1,7 +1,7 @@
-import { ComponentProps, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
-const Table = styled.table({
+export const GameGrid = styled.div({
+  display: 'table',
   position: 'absolute',
   top: 0,
   left: 0,
@@ -9,17 +9,12 @@ const Table = styled.table({
   height: '100%',
 })
 
-export const GameGrid = (
-  props: PropsWithChildren<ComponentProps<typeof Table>>,
-) => (
-  <Table {...props}>
-    <tbody>{props.children}</tbody>
-  </Table>
-)
+export const GridRow = styled.div({
+  display: 'table-row',
+})
 
-export const GridRow = styled.tr({})
-
-export const GridCol = styled.td({
+export const GridCol = styled.div({
+  display: 'table-cell',
   position: 'relative',
   border: '1px solid rgba(0, 0, 0, 0.4)',
   borderSpacing: 0,
