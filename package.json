@@ -1,15 +1,14 @@
 {
   "name": "so-puzzled",
-  "version": "2.1.0",
-  "description": "A little puzzle game for practice, written in React and jQueryUI",
+  "version": "2.2.0",
+  "description": "Puzzle our cat!",
   "author": "Jan Borchers",
   "license": "Artistic-2.0",
   "keywords": [
-    "jQueryUI",
-    "ReactJS",
-    "Puzzle"
+    "Puzzle",
+    "React",
+    "React-DND"
   ],
-  "homepage": "http://humancatfood.github.io/so-puzzled/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/humancatfood/so-puzzled.git",
@@ -24,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "PUBLIC_URL=so-puzzled yarn build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
