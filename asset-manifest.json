@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "so-puzzled/static/js/main.fc23cb9e.chunk.js",
-    "main.js.map": "so-puzzled/static/js/main.fc23cb9e.chunk.js.map",
-    "runtime-main.js": "so-puzzled/static/js/runtime-main.9488179d.js",
-    "runtime-main.js.map": "so-puzzled/static/js/runtime-main.9488179d.js.map",
-    "static/js/2.12bf486f.chunk.js": "so-puzzled/static/js/2.12bf486f.chunk.js",
-    "static/js/2.12bf486f.chunk.js.map": "so-puzzled/static/js/2.12bf486f.chunk.js.map",
-    "index.html": "so-puzzled/index.html",
-    "static/js/2.12bf486f.chunk.js.LICENSE.txt": "so-puzzled/static/js/2.12bf486f.chunk.js.LICENSE.txt",
-    "static/media/kitty.9149cd00.jpg": "so-puzzled/static/media/kitty.9149cd00.jpg"
+    "main.js": "/so-puzzled/static/js/main.90121b2f.chunk.js",
+    "main.js.map": "/so-puzzled/static/js/main.90121b2f.chunk.js.map",
+    "runtime-main.js": "/so-puzzled/static/js/runtime-main.290dd83d.js",
+    "runtime-main.js.map": "/so-puzzled/static/js/runtime-main.290dd83d.js.map",
+    "static/js/2.5c5ec19e.chunk.js": "/so-puzzled/static/js/2.5c5ec19e.chunk.js",
+    "static/js/2.5c5ec19e.chunk.js.map": "/so-puzzled/static/js/2.5c5ec19e.chunk.js.map",
+    "index.html": "/so-puzzled/index.html",
+    "static/js/2.5c5ec19e.chunk.js.LICENSE.txt": "/so-puzzled/static/js/2.5c5ec19e.chunk.js.LICENSE.txt",
+    "static/media/kitty.9149cd00.jpg": "/so-puzzled/static/media/kitty.9149cd00.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9488179d.js",
-    "static/js/2.12bf486f.chunk.js",
-    "static/js/main.fc23cb9e.chunk.js"
+    "static/js/runtime-main.290dd83d.js",
+    "static/js/2.5c5ec19e.chunk.js",
+    "static/js/main.90121b2f.chunk.js"
   ]
 }
