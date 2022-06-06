@@ -38,6 +38,7 @@ export function Game() {
 
   useEffect(() => {
     reset(numRows, numCols)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [numRows, numCols])
 
   // useEffect(() => {
