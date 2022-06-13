@@ -38,3 +38,6 @@ go to http://humancatfood.github.io/so-puzzled/
 
 - write app
   - creating new games, etc
+  - PWA/offline support
+  - better styling
+  - mobile support
