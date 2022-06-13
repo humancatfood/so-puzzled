@@ -34,3 +34,7 @@ go to http://humancatfood.github.io/so-puzzled/
 - add game-flow
   - shuffling 
   - winning 
+  - persistence
+
+- write app
+  - creating new games, etc
