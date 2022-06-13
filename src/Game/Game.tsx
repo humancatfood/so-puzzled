@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 
-import { useConfig } from './Config'
-import { useGameState } from './State'
 import {
   DragPiece,
   Grid,
   GridWrapper,
   ReferenceImage,
   Stage,
-} from './components'
+} from './Components'
+import { useConfig } from './Config'
+import { useGameState } from './State'
 
 export function Game() {
   const [showHelp] = useState<boolean>(false)
