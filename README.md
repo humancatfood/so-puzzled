@@ -29,8 +29,6 @@ go to http://humancatfood.github.io/so-puzzled/
 
 - add animation when pieces are moved to the stage
 
-- fix grabbable area of staged pieces(!)
-
 - add game-flow
   - shuffling 
   - winning 

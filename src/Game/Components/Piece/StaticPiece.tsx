@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useDrag } from 'react-dnd'
 import { getEmptyImage } from 'react-dnd-html5-backend'
+import { useConfig } from '../../Config'
 
 import { IPiece } from '../../State'
 import { Piece } from './Piece'
@@ -12,6 +13,7 @@ type Props = {
 
 export function StaticPiece({ piece }: Props) {
   const { id, left, top } = piece
+  const { pieceWidth, pieceHeight } = useConfig()
 
   const [{ isDragging }, dragRef, preview] = useDrag({
     type: 'piece',
@@ -35,6 +37,8 @@ export function StaticPiece({ piece }: Props) {
       ref={dragRef}
       data-testid={`piece-${id}`}
       style={{
+        width: pieceWidth,
+        height: pieceHeight,
         top: `${top ?? 0}px`,
         left: `${left ?? 0}px`,
         cursor: 'grab',
