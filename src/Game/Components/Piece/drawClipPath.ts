@@ -1,3 +1,5 @@
+import { NoseOffsetGetter } from '../../Config/noseOffsets'
+
 type ClipPathConfig = {
   margin: number
   pieceWidth: number
@@ -6,13 +8,23 @@ type ClipPathConfig = {
   y: number
   numRows: number
   numCols: number
+  getNoseOffset: NoseOffsetGetter
 }
 
 export function drawClipPath(
   ctx: CanvasRenderingContext2D,
   config: ClipPathConfig,
 ) {
-  const { margin, pieceWidth, pieceHeight, x, y, numRows, numCols } = config
+  const {
+    margin,
+    pieceWidth,
+    pieceHeight,
+    x,
+    y,
+    numRows,
+    numCols,
+    getNoseOffset,
+  } = config
   const isTop = y === 0
   const isBottom = y === numRows - 1
   const isLeft = x === 0
@@ -23,9 +35,12 @@ export function drawClipPath(
   ctx.translate(margin, margin)
   ctx.moveTo(0, 0)
 
+  // const noseOffset = getNoseOffset(x, y)
+
   if (!isTop) {
+    const { innyOuty } = getNoseOffset(x, y - 1)
     ctx.lineTo(pieceWidth * 0.4, 0)
-    if (y % 2) {
+    if (innyOuty) {
       ctx.bezierCurveTo(
         pieceWidth * 0.5 - margin,
         margin,
@@ -48,8 +63,9 @@ export function drawClipPath(
   ctx.lineTo(pieceWidth, 0)
 
   if (!isRight) {
+    const { innyOuty } = getNoseOffset(x, y)
     ctx.lineTo(pieceWidth, pieceHeight * 0.4)
-    if (x % 2) {
+    if (innyOuty) {
       ctx.bezierCurveTo(
         pieceWidth + margin,
         pieceHeight * 0.5 - margin,
@@ -72,8 +88,9 @@ export function drawClipPath(
   ctx.lineTo(pieceWidth, pieceHeight)
 
   if (!isBottom) {
+    const { innyOuty } = getNoseOffset(x, y)
     ctx.lineTo(pieceWidth * 0.6, pieceHeight)
-    if (y % 2) {
+    if (!innyOuty) {
       ctx.bezierCurveTo(
         pieceWidth * 0.5 + margin,
         pieceHeight - margin,
@@ -96,8 +113,9 @@ export function drawClipPath(
   ctx.lineTo(0, pieceHeight)
 
   if (!isLeft) {
+    const { innyOuty } = getNoseOffset(x - 1, y)
     ctx.lineTo(0, pieceHeight * 0.6)
-    if (x % 2) {
+    if (!innyOuty) {
       ctx.bezierCurveTo(
         -margin,
         pieceHeight * 0.5 + margin,

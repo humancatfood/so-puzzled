@@ -6,6 +6,7 @@ import {
   PropsWithChildren,
 } from 'react'
 import { getGridDimensions } from './grid'
+import { makeNoseOffsetGetter } from './noseOffsets'
 
 type Props = {
   img: HTMLImageElement
@@ -24,6 +25,7 @@ type ConfigContext = {
   margin: number
   marginSrc: number
   setImageSize: (size: { width: number; height: number }) => void
+  getNoseOffset: ReturnType<typeof makeNoseOffsetGetter>
 } & Props
 
 const Context = createContext<ConfigContext | null>(null)
@@ -54,6 +56,8 @@ export function ConfigProvider({
     const margin = Math.min(pieceWidth, pieceHeight) * 0.3
     const marginSrc = Math.min(pieceWidthSrc, pieceHeightSrc) * 0.3
 
+    const getNoseOffset = makeNoseOffsetGetter(numRows, numCols)
+
     return {
       img,
       difficulty,
@@ -68,6 +72,7 @@ export function ConfigProvider({
       margin,
       marginSrc,
       setImageSize,
+      getNoseOffset,
     }
   }, [img, imgWidth, imgHeight, difficulty])
 

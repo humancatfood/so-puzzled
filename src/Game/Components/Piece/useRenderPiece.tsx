@@ -16,6 +16,7 @@ export function useRenderPiece({ x, y }: Pick<IPiece, 'x' | 'y'>) {
     pieceHeightSrc,
     numCols,
     numRows,
+    getNoseOffset,
   } = useConfig()
 
   useEffect(() => {
@@ -34,6 +35,7 @@ export function useRenderPiece({ x, y }: Pick<IPiece, 'x' | 'y'>) {
           y,
           numRows,
           numCols,
+          getNoseOffset,
         })
         ctx.save()
         ctx.clip()
@@ -64,6 +66,7 @@ export function useRenderPiece({ x, y }: Pick<IPiece, 'x' | 'y'>) {
     pieceHeightSrc,
     numCols,
     numRows,
+    getNoseOffset,
   ])
 
   return canvasRef
