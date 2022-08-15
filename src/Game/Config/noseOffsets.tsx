@@ -13,9 +13,9 @@ export function makeNoseOffsetGetter(
   const rng = makeRNG(numRows * numCols)
 
   const offsets: NoseOffset[][] = []
-  for (let y = 0; y < numCols + 1; y++) {
+  for (let y = 0; y < numRows + 1; y++) {
     offsets[y] = []
-    for (let x = 0; x < numRows + 1; x++) {
+    for (let x = 0; x < numCols + 1; x++) {
       offsets[y][x] = {
         innyOuty: rng() > 0.5,
       }
