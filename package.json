@@ -1,6 +1,6 @@
 {
   "name": "so-puzzled",
-  "version": "2.3.8",
+  "version": "2.4.0",
   "description": "Puzzle our cat!",
   "author": "Jan Borchers",
   "license": "Artistic-2.0",
@@ -47,6 +47,7 @@
     "react": "^17.0.1",
     "react-dnd": "^14.0.2",
     "react-dnd-html5-backend": "^14.0.0",
+    "react-dnd-touch-backend": "^16.0.1",
     "react-dom": "^17.0.1",
     "styled-components": "^5.3.3",
     "web-vitals": "^1.0.1"
