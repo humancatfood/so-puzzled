@@ -1,7 +1,8 @@
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
+import { TouchBackend } from 'react-dnd-touch-backend'
 
-import { useImageLoader } from '../utils'
+import { isMobile, useImageLoader } from '../utils'
 import { ConfigProvider } from './Config'
 import { Game } from './Game'
 import { GameStateProvider } from './State'
@@ -29,7 +30,7 @@ export function GameWrapper({ imgSrc, difficulty }: GameWrapperProps) {
 
   if (img) {
     return (
-      <DndProvider backend={HTML5Backend}>
+      <DndProvider backend={isMobile() ? TouchBackend : HTML5Backend}>
         <ConfigProvider difficulty={difficulty} img={img}>
           <GameStateProvider>
             <Game />
